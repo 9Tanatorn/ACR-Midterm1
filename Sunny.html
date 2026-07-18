@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สรุป ลิมิตและอนุกรมอนันต์ — ค33101 ม.6</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0B1929;
+  --ink2: #0F2236;
+  --paper: #F0F4F5;
+  --cyan: #22D3EE;
+  --cyan-dim: rgba(34,211,238,0.15);
+  --cyan-mid: rgba(34,211,238,0.35);
+  --amber: #FBBF24;
+  --amber-dim: rgba(251,191,36,0.15);
+  --coral: #FB7185;
+  --coral-dim: rgba(251,113,133,0.15);
+  --green: #34D399;
+  --green-dim: rgba(52,211,153,0.15);
+  --grid: #1E3A52;
+  --grid-light: rgba(30,58,82,0.5);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:'IBM Plex Sans Thai','Segoe UI',sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+/* grid bg */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--grid-light) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-light) 1px,transparent 1px);
+  background-size:40px 40px;
+  opacity:0.3;
+}
+.container{max-width:900px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+
+/* ===== HERO ===== */
+.hero{padding:60px 0 40px;text-align:center;position:relative}
+.hero svg{display:block;margin:0 auto 30px;max-width:100%}
+.hero-tag{
+  display:inline-block;
+  background:var(--cyan-dim);border:1px solid var(--cyan);
+  color:var(--cyan);font-family:'JetBrains Mono',monospace;
+  font-size:0.75rem;padding:4px 14px;border-radius:20px;
+  letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;
+}
+.hero h1{
+  font-family:'Space Grotesk',sans-serif;font-size:2.4rem;font-weight:700;
+  color:var(--paper);line-height:1.2;margin-bottom:8px;
+}
+.hero h1 span{color:var(--cyan)}
+.hero .sub{color:rgba(240,244,245,0.55);font-size:0.95rem}
+
+/* ===== FORMULA STRIP ===== */
+.strip{
+  display:flex;gap:12px;overflow-x:auto;padding:20px 0;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.strip::-webkit-scrollbar{display:none}
+.strip-card{
+  flex:0 0 auto;background:var(--ink2);border:1px solid var(--grid);
+  border-radius:12px;padding:16px 22px;min-width:220px;
+  transition:border-color .2s;
+}
+.strip-card:hover{border-color:var(--cyan)}
+.strip-card .label{font-size:0.7rem;color:var(--cyan);text-transform:uppercase;
+  letter-spacing:1.5px;font-family:'JetBrains Mono',monospace;margin-bottom:8px}
+.strip-card .formula{font-family:'JetBrains Mono',monospace;font-size:1.05rem;color:var(--amber)}
+
+/* ===== SECTIONS ===== */
+.section{padding:50px 0 30px;border-top:1px solid var(--grid)}
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.section-icon{
+  width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;
+}
+.section-header h2{
+  font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:600;color:var(--paper);
+}
+.section-header h2 span{color:var(--cyan);font-size:0.85rem;font-weight:400;margin-left:8px}
+
+/* cards */
+.card{
+  background:var(--ink2);border:1px solid var(--grid);border-radius:14px;
+  padding:24px 28px;margin-bottom:18px;position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;width:4px;height:100%;
+  background:var(--cyan);border-radius:4px 0 0 4px;
+}
+.card.amber::before{background:var(--amber)}
+.card.coral::before{background:var(--coral)}
+.card.green::before{background:var(--green)}
+.card-title{
+  font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.1rem;
+  margin-bottom:12px;color:var(--paper);
+}
+
+/* degree comparison boxes */
+.degree-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:18px 0}
+.degree-box{
+  background:var(--ink);border:1px solid var(--grid);border-radius:10px;
+  padding:18px 20px;text-align:center;
+}
+.degree-box .case{
+  font-family:'JetBrains Mono',monospace;font-size:0.8rem;
+  color:var(--cyan);margin-bottom:6px;letter-spacing:1px;
+}
+.degree-box .result{
+  font-family:'JetBrains Mono',monospace;font-size:1.3rem;
+  color:var(--amber);font-weight:700;margin-bottom:4px;
+}
+.degree-box .desc{font-size:0.85rem;color:rgba(240,244,245,0.6)}
+
+/* example rows */
+.ex-row{
+  display:flex;align-items:center;gap:12px;padding:8px 0;
+  border-bottom:1px solid rgba(30,58,82,0.5);font-size:0.92rem;
+}
+.ex-row:last-child{border-bottom:none}
+.ex-num{
+  font-family:'JetBrains Mono',monospace;font-size:0.75rem;
+  color:var(--cyan);width:36px;flex-shrink:0;opacity:0.7;
+}
+.ex-expr{font-family:'JetBrains Mono',monospace;flex:1;color:var(--paper)}
+.ex-ans{
+  font-family:'JetBrains Mono',monospace;font-weight:700;
+  color:var(--amber);min-width:50px;text-align:right;
+}
+
+/* comparison table */
+.cmp-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:0.9rem}
+.cmp-table th{
+  text-align:left;padding:10px 14px;background:var(--ink);
+  border-bottom:2px solid var(--cyan);color:var(--cyan);
+  font-family:'JetBrains Mono',monospace;font-size:0.75rem;
+  letter-spacing:1px;text-transform:uppercase;
+}
+.cmp-table td{
+  padding:10px 14px;border-bottom:1px solid var(--grid);
+  vertical-align:top;
+}
+.cmp-table tr:hover td{background:rgba(34,211,238,0.04)}
+
+/* badges */
+.badge{
+  display:inline-block;padding:2px 10px;border-radius:6px;
+  font-size:0.75rem;font-weight:600;font-family:'JetBrains Mono',monospace;
+}
+.badge-cyan{background:var(--cyan-dim);color:var(--cyan)}
+.badge-amber{background:var(--amber-dim);color:var(--amber)}
+.badge-coral{background:var(--coral-dim);color:var(--coral)}
+.badge-green{background:var(--green-dim);color:var(--green)}
+
+/* warn box */
+.warn{
+  background:var(--coral-dim);border:1px solid rgba(251,113,133,0.3);
+  border-radius:10px;padding:14px 18px;margin:14px 0;font-size:0.9rem;
+}
+.warn strong{color:var(--coral)}
+
+/* tip box */
+.tip{
+  background:var(--green-dim);border:1px solid rgba(52,211,153,0.3);
+  border-radius:10px;padding:14px 18px;margin:14px 0;font-size:0.9rem;
+}
+.tip strong{color:var(--green)}
+
+/* math display */
+.math{
+  font-family:'JetBrains Mono',monospace;
+  background:var(--ink);border:1px solid var(--grid);
+  border-radius:8px;padding:14px 20px;margin:12px 0;
+  font-size:1rem;color:var(--paper);text-align:center;
+  line-height:2;
+}
+.math .hl{color:var(--cyan);font-weight:600}
+.math .ans{color:var(--amber);font-weight:700}
+.math .cancel{text-decoration:line-through;color:rgba(240,244,245,0.3)}
+
+/* pattern card */
+.pattern{
+  background:linear-gradient(135deg,var(--ink2),var(--ink));
+  border:1px solid var(--amber);border-left:4px solid var(--amber);
+  border-radius:10px;padding:14px 20px;margin:14px 0;font-size:0.9rem;
+}
+.pattern::before{
+  content:'🧩 Pattern';display:block;
+  font-family:'JetBrains Mono',monospace;font-size:0.7rem;
+  color:var(--amber);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;
+}
+
+/* solution block */
+.solution{
+  background:var(--ink2);border:1px solid var(--grid);border-radius:12px;
+  padding:22px 26px;margin:18px 0;
+}
+.solution .q-num{
+  font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:600;
+  color:var(--cyan);margin-bottom:10px;
+}
+.solution .step{
+  padding:6px 0;padding-left:16px;border-left:2px solid var(--grid);
+  margin-bottom:6px;font-size:0.92rem;
+}
+.solution .final{
+  background:var(--amber-dim);border-radius:8px;padding:10px 16px;
+  margin-top:10px;font-family:'JetBrains Mono',monospace;
+  color:var(--amber);font-weight:600;font-size:1rem;text-align:center;
+}
+
+/* answer grid */
+.ans-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));
+  gap:6px;margin:16px 0;
+}
+.ans-cell{
+  background:var(--ink);border:1px solid var(--grid);border-radius:8px;
+  padding:8px 6px;text-align:center;font-family:'JetBrains Mono',monospace;
+  font-size:0.8rem;transition:all .2s;cursor:default;
+}
+.ans-cell:hover{border-color:var(--cyan);background:var(--cyan-dim)}
+.ans-cell .anum{color:var(--cyan);font-size:0.65rem;display:block;margin-bottom:2px}
+.ans-cell .aval{color:var(--amber);font-weight:700;font-size:0.95rem}
+
+/* cheat sheet */
+.cheat{
+  background:linear-gradient(135deg,rgba(34,211,238,0.08),rgba(251,191,36,0.06));
+  border:1px solid var(--cyan);border-radius:14px;padding:28px;margin:20px 0;
+}
+.cheat h3{
+  font-family:'Space Grotesk',sans-serif;color:var(--cyan);
+  font-size:1.2rem;margin-bottom:16px;
+}
+.cheat-row{
+  display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--grid);
+  font-size:0.88rem;align-items:baseline;
+}
+.cheat-row:last-child{border-bottom:none}
+.cheat-see{color:var(--coral);font-family:'JetBrains Mono',monospace;min-width:180px;flex-shrink:0;font-size:0.82rem}
+.cheat-do{color:var(--amber);flex:1}
+
+/* sparkline container */
+.spark-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:14px 0}
+.spark-card{
+  background:var(--ink);border:1px solid var(--grid);border-radius:10px;
+  padding:14px 16px;text-align:center;
+}
+.spark-card svg{display:block;margin:8px auto}
+.spark-card .slabel{font-size:0.8rem;color:rgba(240,244,245,0.5);margin-bottom:4px}
+.spark-card .sformula{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--paper)}
+.spark-card .stag{margin-top:6px}
+
+/* visual fraction */
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 4px}
+.frac .num,.frac .den{font-family:'JetBrains Mono',monospace;line-height:1.2}
+.frac .bar{width:100%;height:1px;background:var(--paper);margin:1px 0}
+
+/* tele visual */
+.tele-steps{margin:14px 0}
+.tele-step{
+  font-family:'JetBrains Mono',monospace;font-size:0.88rem;
+  padding:4px 0;line-height:1.8;
+}
+.tele-step .keep{color:var(--cyan);font-weight:600}
+.tele-step .gone{color:rgba(240,244,245,0.2);text-decoration:line-through}
+
+/* footer */
+.footer{
+  text-align:center;padding:40px 0;color:rgba(240,244,245,0.3);
+  font-size:0.8rem;border-top:1px solid var(--grid);margin-top:30px;
+}
+
+/* TOC */
+.toc{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:10px;margin:20px 0;
+}
+.toc a{
+  display:flex;align-items:center;gap:10px;
+  background:var(--ink2);border:1px solid var(--grid);border-radius:10px;
+  padding:12px 16px;text-decoration:none;color:var(--paper);
+  font-size:0.9rem;transition:all .2s;
+}
+.toc a:hover{border-color:var(--cyan);background:var(--cyan-dim)}
+.toc a .ticon{font-size:1.1rem}
+.toc a .tnum{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:0.75rem}
+
+@media(max-width:600px){
+  .hero h1{font-size:1.6rem}
+  .degree-grid{grid-template-columns:1fr}
+  .cheat-row{flex-direction:column;gap:4px}
+  .cheat-see{min-width:auto}
+  .card{padding:18px 16px}
+  .ans-grid{grid-template-columns:repeat(auto-fill,minmax(72px,1fr))}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+<svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- grid -->
+  <defs>
+    <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0V40H0" fill="none" stroke="#1E3A52" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="200" fill="#0B1929"/>
+  <rect width="800" height="200" fill="url(#g)"/>
+  <!-- asymptote line -->
+  <line x1="60" y1="60" x2="760" y2="60" stroke="#FBBF24" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.7"/>
+  <text x="770" y="64" fill="#FBBF24" font-family="JetBrains Mono,monospace" font-size="13" text-anchor="start" opacity="0.7">L</text>
+  <!-- curve approaching asymptote: aₙ = (3n+2)/(n+1) → 3 mapped to y=60 -->
+  <polyline fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+    points="80,170 120,120 170,95 230,82 300,74 380,69 470,66 560,63.5 650,62 740,61"/>
+  <!-- dots -->
+  <circle cx="80" cy="170" r="5" fill="#22D3EE" opacity="0.9"/>
+  <circle cx="120" cy="120" r="4.5" fill="#22D3EE" opacity="0.9"/>
+  <circle cx="170" cy="95" r="4" fill="#22D3EE" opacity="0.85"/>
+  <circle cx="230" cy="82" r="3.8" fill="#22D3EE" opacity="0.8"/>
+  <circle cx="300" cy="74" r="3.5" fill="#22D3EE" opacity="0.75"/>
+  <circle cx="380" cy="69" r="3.2" fill="#22D3EE" opacity="0.7"/>
+  <circle cx="470" cy="66" r="3" fill="#22D3EE" opacity="0.65"/>
+  <circle cx="560" cy="63.5" r="2.8" fill="#22D3EE" opacity="0.6"/>
+  <circle cx="650" cy="62" r="2.6" fill="#22D3EE" opacity="0.55"/>
+  <circle cx="740" cy="61" r="2.5" fill="#22D3EE" opacity="0.5"/>
+  <!-- labels -->
+  <text x="75" y="190" fill="#22D3EE" font-family="JetBrains Mono,monospace" font-size="11" opacity="0.6">a₁</text>
+  <text x="115" y="138" fill="#22D3EE" font-family="JetBrains Mono,monospace" font-size="11" opacity="0.6">a₂</text>
+  <text x="165" y="112" fill="#22D3EE" font-family="JetBrains Mono,monospace" font-size="11" opacity="0.6">a₃</text>
+  <text x="730" y="50" fill="rgba(240,244,245,0.4)" font-family="JetBrains Mono,monospace" font-size="10">n → ∞</text>
+  <!-- axis labels -->
+  <text x="60" y="198" fill="rgba(240,244,245,0.3)" font-family="JetBrains Mono,monospace" font-size="10">n</text>
+  <text x="45" y="64" fill="rgba(240,244,245,0.3)" font-family="JetBrains Mono,monospace" font-size="10">aₙ</text>
+</svg>
+<div class="hero-tag">ค33101 · ม.6 สายวิทย์–คณิต</div>
+<h1>ลิมิตและ<span>อนุกรมอนันต์</span></h1>
+<p class="sub">สรุปเนื้อหา + เฉลยแนวข้อสอบกลางภาค 1/2569 · 50 ข้อ · มาสเตอร์ธัชพล สุขมงคล</p>
+</section>
+
+<!-- ===== TOC ===== -->
+<nav class="toc">
+  <a href="#sec1"><span class="ticon">📊</span><span class="tnum">01</span> ลิมิตของลำดับ</a>
+  <a href="#sec2"><span class="ticon">🔄</span><span class="tnum">02</span> ลู่เข้า–ลู่ออก</a>
+  <a href="#sec3"><span class="ticon">🌀</span><span class="tnum">03</span> อนุกรมเรขาคณิต∞</a>
+  <a href="#sec4"><span class="ticon">✂️</span><span class="tnum">04</span> เทเลสโคปิก</a>
+  <a href="#sec5"><span class="ticon">🎯</span><span class="tnum">05</span> โจทย์ประยุกต์</a>
+  <a href="#sec6"><span class="ticon">✍️</span><span class="tnum">06</span> เฉลยอัตนัย</a>
+  <a href="#sec7"><span class="ticon">📋</span><span class="tnum">07</span> Answer Key</a>
+  <a href="#sec8"><span class="ticon">🔑</span><span class="tnum">08</span> Cheat Sheet</a>
+</nav>
+
+<!-- ===== FORMULA STRIP ===== -->
+<div class="strip">
+  <div class="strip-card">
+    <div class="label">Polynomial Limit</div>
+    <div class="formula">หาร n^ดีกรีสูงสุด<br>ดีกรีเท่ากัน → สปส.นำ</div>
+  </div>
+  <div class="strip-card">
+    <div class="label">Geometric Series</div>
+    <div class="formula">S = a / (1 − r)<br>เมื่อ |r| &lt; 1</div>
+  </div>
+  <div class="strip-card">
+    <div class="label">Telescopic</div>
+    <div class="formula">1/n(n+1)<br>= 1/n − 1/(n+1)</div>
+  </div>
+  <div class="strip-card">
+    <div class="label">ทศนิยมซ้ำ</div>
+    <div class="formula">0.ẋ = x/9<br>0.ẋẏ = xy/99</div>
+  </div>
+  <div class="strip-card">
+    <div class="label">Exponential</div>
+    <div class="formula">|base| &lt; 1 → 0<br>|base| &gt; 1 → ∞</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 1: ลิมิตของลำดับ ===== -->
+<section class="section" id="sec1">
+<div class="section-header">
+  <div class="section-icon" style="background:var(--cyan-dim)">📊</div>
+  <h2>ลิมิตของลำดับ <span>ข้อ 1–16</span></h2>
+</div>
+
+<div class="card">
+  <div class="card-title">⚡ กฎเทียบดีกรี — อาวุธหลักข้อ 1-16</div>
+  <p style="margin-bottom:14px;color:rgba(240,244,245,0.7);font-size:0.92rem">
+    เมื่อ lim(n→∞) ของเศษส่วน polynomial/polynomial → <strong style="color:var(--cyan)">เทียบดีกรีสูงสุดของ n</strong> ที่เศษกับส่วน
+  </p>
+  <div class="degree-grid">
+    <div class="degree-box">
+      <div class="case">ดีกรีเศษ = ดีกรีส่วน</div>
+      <div class="result">สปส.นำ / สปส.นำ</div>
+      <div class="desc">อัตราส่วนสัมประสิทธิ์นำหน้า</div>
+    </div>
+    <div class="degree-box">
+      <div class="case">ดีกรีเศษ &lt; ดีกรีส่วน</div>
+      <div class="result">→ 0</div>
+      <div class="desc">ส่วนโตเร็วกว่า บีบให้เป็นศูนย์</div>
+    </div>
+    <div class="degree-box">
+      <div class="case">ดีกรีเศษ &gt; ดีกรีส่วน</div>
+      <div class="result">→ ∞ (ลู่ออก)</div>
+      <div class="desc">เศษโตเร็วกว่า พุ่งหาอนันต์</div>
+    </div>
+  </div>
+
+  <div class="math">
+    วิธีทำ: หาร<span class="hl"> ทุกพจน์ </span>ด้วย n<sup>ดีกรีสูงสุด</sup> → พจน์ที่มี n อยู่ส่วน จะ → 0
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 ตัวอย่างจากข้อสอบจริง — กรณีดีกรีเท่ากัน</div>
+  <div class="ex-row"><span class="ex-num">ข้อ 1</span><span class="ex-expr">(3n+2)/(n+1) → 3/1</span><span class="ex-ans">= 3</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 2</span><span class="ex-expr">(n+5)/(2n+1) → 1/2</span><span class="ex-ans">= 1/2</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 3</span><span class="ex-expr">(4n²+1)/(2n²+n) → 4/2</span><span class="ex-ans">= 2</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 10</span><span class="ex-expr">(n²+2n)/(3n²) → 1/3</span><span class="ex-ans">= 1/3</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 11</span><span class="ex-expr">(6n−1)/(2n+5) → 6/2</span><span class="ex-ans">= 3</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 14</span><span class="ex-expr">(n²−4)/(n²+4) → 1/1</span><span class="ex-ans">= 1</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 15</span><span class="ex-expr">10n/(n+100) → 10/1</span><span class="ex-ans">= 10</span></div>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 กรณีดีกรีไม่เท่ากัน</div>
+  <div class="ex-row"><span class="ex-num">ข้อ 4</span><span class="ex-expr">7/(n+2) → ดีกรี 0 &lt; 1</span><span class="ex-ans">= 0</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 5</span><span class="ex-expr">(5n+3)/(n²+1) → ดีกรี 1 &lt; 2</span><span class="ex-ans">= 0</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 12</span><span class="ex-expr">(n+1)/n² → ดีกรี 1 &lt; 2</span><span class="ex-ans">= 0</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 6</span><span class="ex-expr">(2n²+1)/(n+3) → ดีกรี 2 &gt; 1</span><span class="ex-ans">= ∞ ลู่ออก</span></div>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 กรณีพิเศษ — เลขชี้กำลัง & รากที่สอง</div>
+  <div class="ex-row"><span class="ex-num">ข้อ 7</span><span class="ex-expr">(1/3)ⁿ → |1/3|&lt;1</span><span class="ex-ans">= 0</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 8</span><span class="ex-expr">(3ⁿ+1)/3ⁿ = 1 + 1/3ⁿ → 1+0</span><span class="ex-ans">= 1</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 9</span><span class="ex-expr">2ⁿ/4ⁿ = (2/4)ⁿ = (1/2)ⁿ → 0</span><span class="ex-ans">= 0</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 13</span><span class="ex-expr">(−1)ⁿ/n² → Squeeze: −1/n² ≤ ≤ 1/n²</span><span class="ex-ans">= 0</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 16</span><span class="ex-expr">√(n²+1)/n = √(1+1/n²) → √1</span><span class="ex-ans">= 1</span></div>
+</div>
+
+<div class="pattern">
+  เห็น <strong>เศษส่วน polynomial</strong> → เทียบดีกรีสูงสุด<br>
+  เห็น <strong>rⁿ (เลขยกกำลัง n)</strong> → ดู |r| ≶ 1 → ถ้า |r|&lt;1 = 0, ถ้า |r|&gt;1 = ∞<br>
+  เห็น <strong>√(n²+...)</strong> → ดึง n² ออกจากราก = n√(1+...)
+</div>
+</section>
+
+<!-- ===== SECTION 2: ลู่เข้า-ลู่ออก ===== -->
+<section class="section" id="sec2">
+<div class="section-header">
+  <div class="section-icon" style="background:var(--amber-dim)">🔄</div>
+  <h2>การลู่เข้า–ลู่ออก <span>ข้อ 17–22</span></h2>
+</div>
+
+<div class="card amber">
+  <div class="card-title">ลู่เข้า (Convergent) vs ลู่ออก (Divergent)</div>
+  <div class="spark-grid">
+    <div class="spark-card">
+      <div class="slabel">aₙ = 1/n → 0</div>
+      <svg viewBox="0 0 160 60" width="160" height="60">
+        <line x1="10" y1="50" x2="150" y2="50" stroke="#1E3A52" stroke-width="1"/>
+        <polyline points="15,10 35,25 55,33 75,38 95,42 115,45 135,47" fill="none" stroke="#22D3EE" stroke-width="2"/>
+        <circle cx="15" cy="10" r="3" fill="#22D3EE"/><circle cx="135" cy="47" r="3" fill="#22D3EE"/>
+        <line x1="10" y1="50" x2="150" y2="50" stroke="#FBBF24" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
+      </svg>
+      <div class="stag"><span class="badge badge-green">ลู่เข้า → 0</span></div>
+    </div>
+    <div class="spark-card">
+      <div class="slabel">aₙ = (n+1)/n → 1</div>
+      <svg viewBox="0 0 160 60" width="160" height="60">
+        <line x1="10" y1="30" x2="150" y2="30" stroke="#FBBF24" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
+        <polyline points="15,10 35,18 55,22 75,25 95,27 115,28 135,29" fill="none" stroke="#22D3EE" stroke-width="2"/>
+        <circle cx="15" cy="10" r="3" fill="#22D3EE"/><circle cx="135" cy="29" r="3" fill="#22D3EE"/>
+      </svg>
+      <div class="stag"><span class="badge badge-green">ลู่เข้า → 1</span></div>
+    </div>
+    <div class="spark-card">
+      <div class="slabel">aₙ = (−1)ⁿ → แกว่ง</div>
+      <svg viewBox="0 0 160 60" width="160" height="60">
+        <polyline points="15,10 35,50 55,10 75,50 95,10 115,50 135,10" fill="none" stroke="#FB7185" stroke-width="2"/>
+        <circle cx="15" cy="10" r="3" fill="#FB7185"/><circle cx="135" cy="10" r="3" fill="#FB7185"/>
+      </svg>
+      <div class="stag"><span class="badge badge-coral">ลู่ออก (แกว่ง)</span></div>
+    </div>
+    <div class="spark-card">
+      <div class="slabel">aₙ = n → ∞</div>
+      <svg viewBox="0 0 160 60" width="160" height="60">
+        <polyline points="15,55 35,48 55,40 75,32 95,22 115,12 135,3" fill="none" stroke="#FB7185" stroke-width="2"/>
+        <circle cx="15" cy="55" r="3" fill="#FB7185"/><circle cx="135" cy="3" r="3" fill="#FB7185"/>
+      </svg>
+      <div class="stag"><span class="badge badge-coral">ลู่ออก (∞)</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="card amber">
+  <div class="card-title">🧮 สมบัติลิมิต — ข้อ 21, 22</div>
+  <div class="math">
+    ถ้า lim aₙ = A, lim bₙ = B<br>
+    lim(aₙ <span class="hl">+</span> bₙ) = A + B &nbsp;&nbsp;|&nbsp;&nbsp;
+    lim(aₙ <span class="hl">·</span> bₙ) = A · B &nbsp;&nbsp;|&nbsp;&nbsp;
+    lim(aₙ <span class="hl">/</span> bₙ) = A / B <em style="color:rgba(240,244,245,0.4)">(B≠0)</em>
+  </div>
+  <div class="ex-row"><span class="ex-num">ข้อ 21</span><span class="ex-expr">lim aₙ=2, lim bₙ=5 → lim(aₙ+bₙ)</span><span class="ex-ans">= 7</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 22</span><span class="ex-expr">lim aₙ=6, lim bₙ=3 → lim(aₙ/bₙ)</span><span class="ex-ans">= 2</span></div>
+</div>
+
+<div class="warn">
+  <strong>⚠️ จุดพลาดบ่อย:</strong> ลำดับ (−1)ⁿ <em>ไม่ลู่เข้าหาค่าใด</em> เพราะสลับ +1 กับ −1 ไม่เข้าใกล้ค่าคงที่ → ลู่ออก (ข้อ 19)
+</div>
+</section>
+
+<!-- ===== SECTION 3: อนุกรมเรขาคณิตอนันต์ ===== -->
+<section class="section" id="sec3">
+<div class="section-header">
+  <div class="section-icon" style="background:var(--green-dim)">🌀</div>
+  <h2>อนุกรมเรขาคณิตอนันต์ <span>ข้อ 23–34</span></h2>
+</div>
+
+<div class="card green">
+  <div class="card-title">สูตรหลัก: ผลบวกอนุกรมเรขาคณิตอนันต์</div>
+  <div class="math" style="font-size:1.3rem">
+    S = <span class="hl">a</span> / (1 − <span class="hl">r</span>) &nbsp;&nbsp; เมื่อ <span class="ans">|r| &lt; 1</span>
+  </div>
+  <p style="font-size:0.88rem;color:rgba(240,244,245,0.6);margin-top:8px">
+    <strong style="color:var(--cyan)">a</strong> = พจน์แรก &nbsp;|&nbsp; <strong style="color:var(--cyan)">r</strong> = อัตราส่วนร่วม (common ratio) = พจน์ถัดไป ÷ พจน์ก่อนหน้า
+  </p>
+
+  <!-- visual bar -->
+  <svg viewBox="0 0 700 80" style="width:100%;margin:18px 0" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="20" width="280" height="40" rx="6" fill="#22D3EE" opacity="0.8"/>
+    <text x="150" y="46" text-anchor="middle" fill="#0B1929" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700">a</text>
+    <rect x="300" y="30" width="140" height="30" rx="5" fill="#22D3EE" opacity="0.6"/>
+    <text x="370" y="50" text-anchor="middle" fill="#0B1929" font-family="JetBrains Mono,monospace" font-size="12" font-weight="600">ar</text>
+    <rect x="450" y="35" width="70" height="25" rx="4" fill="#22D3EE" opacity="0.45"/>
+    <text x="485" y="52" text-anchor="middle" fill="#0B1929" font-family="JetBrains Mono,monospace" font-size="11">ar²</text>
+    <rect x="530" y="38" width="35" height="22" rx="4" fill="#22D3EE" opacity="0.3"/>
+    <text x="547" y="53" text-anchor="middle" fill="#0B1929" font-family="JetBrains Mono,monospace" font-size="9">ar³</text>
+    <rect x="575" y="40" width="18" height="20" rx="3" fill="#22D3EE" opacity="0.2"/>
+    <text x="620" y="54" fill="rgba(240,244,245,0.4)" font-family="JetBrains Mono,monospace" font-size="12">···</text>
+  </svg>
+</div>
+
+<div class="card green">
+  <div class="card-title">📝 ตัวอย่างจากข้อสอบ</div>
+  <div class="ex-row"><span class="ex-num">ข้อ 23</span><span class="ex-expr">1+1/3+1/9+… a=1,r=1/3 → 1/(1−1/3)</span><span class="ex-ans">= 3/2</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 24</span><span class="ex-expr">4+2+1+… a=4,r=1/2 → 4/(1−1/2)</span><span class="ex-ans">= 8</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 25</span><span class="ex-expr">∑(1/2)ⁿ n=1→∞ a=1/2,r=1/2 → (1/2)/(1/2)</span><span class="ex-ans">= 1</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 26</span><span class="ex-expr">∑(1/5)ⁿ a=1/5,r=1/5 → (1/5)/(4/5)</span><span class="ex-ans">= 1/4</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 31</span><span class="ex-expr">a=10,r=1/2 → 10/(1/2)</span><span class="ex-ans">= 20</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 33</span><span class="ex-expr">a=4,r=2/3 → 4/(1/3)</span><span class="ex-ans">= 12</span></div>
+</div>
+
+<div class="card green">
+  <div class="card-title">🔄 หาพจน์แรกจากผลบวก — ข้อ 32</div>
+  <div class="math">
+    S = a/(1−r) → <span class="hl">a = S(1−r)</span><br>
+    ข้อ 32: a = 15(1−1/3) = 15 × 2/3 = <span class="ans">10</span>
+  </div>
+</div>
+
+<div class="card coral">
+  <div class="card-title">🚫 หาผลบวกไม่ได้ (ลู่ออก) — ข้อ 34</div>
+  <p style="font-size:0.92rem;color:rgba(240,244,245,0.7)">
+    อนุกรม <strong style="color:var(--coral)">2 + 4 + 8 + …</strong> มี r = 2 → |r| = 2 &gt; 1 → <strong style="color:var(--coral)">ลู่ออก หาผลบวกไม่ได้</strong>
+  </p>
+  <div class="warn" style="margin-top:10px">
+    <strong>⚠️ ตรวจ |r| ก่อนเสมอ:</strong> ถ้า |r| ≥ 1 → ห้ามใช้สูตร S = a/(1−r) → ตอบ "หาผลบวกไม่ได้"
+  </div>
+</div>
+
+<div class="card green">
+  <div class="card-title">♻️ ทศนิยมซ้ำ → เศษส่วน — ข้อ 27-30, 43</div>
+  <div class="math">
+    <span class="hl">ซ้ำ 1 ตำแหน่ง:</span> 0.ẋ = x/9<br>
+    <span class="hl">ซ้ำ 2 ตำแหน่ง:</span> 0.ẋẏ = xy/99
+  </div>
+  <div class="ex-row"><span class="ex-num">ข้อ 27</span><span class="ex-expr">0.222… = 2/9</span><span class="ex-ans">ก. 2/9</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 28</span><span class="ex-expr">0.777… = 7/9</span><span class="ex-ans">ก. 7/9</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 29</span><span class="ex-expr">0.555… = 5/9</span><span class="ex-ans">ค. 5/9</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 30</span><span class="ex-expr">0.121212… = 12/99 = 4/33</span><span class="ex-ans">ค. 4/33</span></div>
+  <div class="ex-row"><span class="ex-num">ข้อ 43</span><span class="ex-expr">0.999… = 9/9</span><span class="ex-ans" style="color:var(--coral)">= 1 ❗</span></div>
+
+  <div class="tip" style="margin-top:12px">
+    <strong>💡 ที่มาของสูตร:</strong> 0.222… = 2/10 + 2/100 + 2/1000 + … = อนุกรมเรขาคณิต a=2/10, r=1/10 → (2/10)/(9/10) = 2/9
+  </div>
+</div>
+</section>
+
+<!-- ===== SECTION 4: เทเลสโคปิก ===== -->
+<section class="section" id="sec4">
+<div class="section-header">
+  <div class="section-icon" style="background:var(--coral-dim)">✂️</div>
+  <h2>อนุกรมเทเลสโคปิก <span>ข้อ 35–38</span></h2>
+</div>
+
+<div class="card coral">
+  <div class="card-title">Partial Fraction Decomposition</div>
+  <div class="math" style="font-size:1.15rem">
+    <span class="hl">1/(n(n+1))</span> = <span class="ans">1/n − 1/(n+1)</span>
+  </div>
+  <p style="font-size:0.88rem;color:rgba(240,244,245,0.6);margin:10px 0">
+    แยกเศษส่วนย่อยก่อน → แล้วบวกรวม → พจน์กลางจะ<strong style="color:var(--coral)">ตัดกันหมด</strong> เหลือแค่พจน์แรกกับพจน์สุดท้าย
+  </p>
+</div>
+
+<div class="card coral">
+  <div class="card-title">✂️ การตัดพจน์ (Telescoping) — ข้อ 35, 36, 50</div>
+  <div style="background:var(--ink);border-radius:10px;padding:16px 20px;margin:10px 0;font-family:'JetBrains Mono',monospace;font-size:0.88rem;line-height:2.2">
+    S<sub>N</sub> = ∑ [1/n − 1/(n+1)]<br>
+    <span style="color:var(--cyan)">= (</span><strong style="color:var(--amber)">1</strong><span style="color:rgba(240,244,245,0.25);text-decoration:line-through"> − 1/2</span><span style="color:var(--cyan)">)</span>
+    <span style="color:var(--cyan)"> + (</span><span style="color:rgba(240,244,245,0.25);text-decoration:line-through">1/2</span><span style="color:rgba(240,244,245,0.25);text-decoration:line-through"> − 1/3</span><span style="color:var(--cyan)">)</span>
+    <span style="color:var(--cyan)"> + (</span><span style="color:rgba(240,244,245,0.25);text-decoration:line-through">1/3</span><span style="color:rgba(240,244,245,0.25);text-decoration:line-through"> − 1/4</span><span style="color:var(--cyan)">)</span>
+    <span style="color:rgba(240,244,245,0.4)"> + … +</span>
+    <span style="color:var(--cyan)"> (</span><span style="color:rgba(240,244,245,0.25);text-decoration:line-through">1/N</span> − <strong style="color:var(--amber)">1/(N+1)</strong><span style="color:var(--cyan)">)</span><br>
+    <span style="color:var(--cyan)">= </span><strong style="color:var(--amber)">1 − 1/(N+1)</strong>
+    <span style="color:rgba(240,244,245,0.4)">&nbsp;&nbsp;← เหลือแค่พจน์แรก กับ พจน์สุดท้าย</span><br>
+    <span style="color:var(--cyan)">lim N→∞ : </span><strong style="color:var(--amber);font-size:1.1rem">S = 1</strong>
+  </div>
+</div>
+
+<div class="card coral">
+  <div class="card-title">📝 ข้อ 37: ∑ 1/((n+1)(n+2))</div>
+  <div class="math">
+    1/((n+1)(n+2)) = 1/(n+1) − 1/(n+2)<br>
+    S<sub>N</sub> = 1/2 − 1/(N+2)<br>
+    lim N→∞ → S = <span class="ans">1/2</span>
+  </div>
+</div>
+
+<div class="pattern">
+  เห็น <strong>1/(n·(n+k))</strong> → <strong>เศษส่วนย่อย</strong> แยกเป็นผลต่าง → บวกแล้วตัดพจน์<br>
+  ผลลัพธ์จะเหลือแค่ <strong>พจน์แรก − พจน์สุดท้าย</strong> เสมอ
+</div>
+</section>
+
+<!-- ===== SECTION 5: โจทย์ประยุกต์ ===== -->
+<section class="section" id="sec5">
+<div class="section-header">
+  <div class="section-icon" style="background:var(--amber-dim)">🎯</div>
+  <h2>โจทย์ประยุกต์ <span>ข้อ 39–44</span></h2>
+</div>
+
+<div class="card amber">
+  <div class="card-title">🏀 Pattern: ลูกบอลเด้ง — ข้อ 39, 48</div>
+  <svg viewBox="0 0 700 160" style="width:100%;margin:10px 0" xmlns="http://www.w3.org/2000/svg">
+    <rect width="700" height="160" fill="#0B1929" rx="10"/>
+    <!-- ground -->
+    <line x1="20" y1="145" x2="680" y2="145" stroke="#1E3A52" stroke-width="2"/>
+    <!-- drop -->
+    <line x1="60" y1="15" x2="60" y2="145" stroke="#22D3EE" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="35" y="80" fill="#22D3EE" font-family="JetBrains Mono,monospace" font-size="11" transform="rotate(-90,35,80)">10 m ↓</text>
+    <!-- bounce 1 -->
+    <path d="M60,145 Q130,45 200,145" fill="none" stroke="#FBBF24" stroke-width="2"/>
+    <text x="130" y="55" fill="#FBBF24" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle">5 m</text>
+    <!-- bounce 2 -->
+    <path d="M200,145 Q250,95 300,145" fill="none" stroke="#FBBF24" stroke-width="2" opacity="0.7"/>
+    <text x="250" y="100" fill="#FBBF24" font-family="JetBrains Mono,monospace" font-size="10" text-anchor="middle" opacity="0.7">2.5</text>
+    <!-- bounce 3 -->
+    <path d="M300,145 Q330,120 360,145" fill="none" stroke="#FBBF24" stroke-width="2" opacity="0.5"/>
+    <text x="330" y="122" fill="#FBBF24" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle" opacity="0.5">1.25</text>
+    <!-- dots -->
+    <text x="380" y="140" fill="rgba(240,244,245,0.3)" font-size="16">···</text>
+    <!-- formula box -->
+    <rect x="430" y="20" width="250" height="120" rx="8" fill="rgba(30,58,82,0.6)" stroke="#1E3A52"/>
+    <text x="450" y="45" fill="#22D3EE" font-family="JetBrains Mono,monospace" font-size="11">ตก = 10</text>
+    <text x="450" y="65" fill="#FBBF24" font-family="JetBrains Mono,monospace" font-size="11">เด้ง = 2 × S(ขึ้น-ลง)</text>
+    <text x="450" y="85" fill="rgba(240,244,245,0.6)" font-family="JetBrains Mono,monospace" font-size="11">S = 5/(1−½) = 10</text>
+    <text x="450" y="115" fill="#FBBF24" font-family="JetBrains Mono,monospace" font-size="13" font-weight="700">รวม = 10+2(10) = 30 m</text>
+  </svg>
+  <div class="warn">
+    <strong>⚠️ ต้อง ×2</strong> เพราะเด้งขึ้นแล้วต้องตกลงมาด้วย! (ยกเว้นระยะตกครั้งแรกนับเดี่ยว)
+  </div>
+</div>
+
+<div class="card amber">
+  <div class="card-title">📝 โจทย์ประยุกต์อื่นๆ — ใช้ S = a/(1−r) ตรงๆ</div>
+  <table class="cmp-table">
+    <tr><th>ข้อ</th><th>โจทย์</th><th>a</th><th>r</th><th>คำตอบ</th></tr>
+    <tr>
+      <td style="color:var(--cyan)">40</td>
+      <td>ลูกตุ้มแกว่ง 50 cm, ×1/2</td>
+      <td>50</td><td>1/2</td>
+      <td style="color:var(--amber);font-weight:700">100 cm</td>
+    </tr>
+    <tr>
+      <td style="color:var(--cyan)">41</td>
+      <td>ออมเงินวันแรก 8 บาท, ×1/2</td>
+      <td>8</td><td>1/2</td>
+      <td style="color:var(--amber);font-weight:700">16 บาท</td>
+    </tr>
+    <tr>
+      <td style="color:var(--cyan)">42</td>
+      <td>สี่เหลี่ยม 64 ตร.หน่วย, ×1/2</td>
+      <td>64</td><td>1/2</td>
+      <td style="color:var(--amber);font-weight:700">128 ตร.หน่วย</td>
+    </tr>
+    <tr>
+      <td style="color:var(--cyan)">44</td>
+      <td>เดินทาง 80 m, ×1/2</td>
+      <td>80</td><td>1/2</td>
+      <td style="color:var(--amber);font-weight:700">160 m</td>
+    </tr>
+  </table>
+</div>
+
+<div class="tip">
+  <strong>💡 เทคนิค:</strong> โจทย์กลุ่มนี้ 90% ใช้ r = 1/2 ดังนั้น S = a/(1−1/2) = a/(1/2) = <strong style="color:var(--green)">2a</strong> → ผลบวก = 2 เท่าของพจน์แรก<br>
+  <strong>ยกเว้นลูกบอลเด้ง</strong> ที่ต้องคิดระยะตกเริ่มต้นแยก + ระยะเด้งคูณ 2
+</div>
+</section>
+
+<!-- ===== SECTION 6: เฉลยอัตนัย ===== -->
+<section class="section" id="sec6">
+<div class="section-header">
+  <div class="section-icon" style="background:var(--cyan-dim)">✍️</div>
+  <h2>เฉลยแสดงวิธีทำ <span>ข้อ 45, 48, 49, 50</span></h2>
+</div>
+
+<div class="solution">
+  <div class="q-num">ข้อ 45 — lim(n→∞) (3n² + 2n)/(n² − 1)</div>
+  <div class="step">หารทุกพจน์ด้วย n² (ดีกรีสูงสุด)</div>
+  <div class="step" style="font-family:'JetBrains Mono',monospace">
+    = lim (3 + 2/n) / (1 − 1/n²)
+  </div>
+  <div class="step">เมื่อ n → ∞: &nbsp; 2/n → 0 &nbsp;และ&nbsp; 1/n² → 0</div>
+  <div class="step" style="font-family:'JetBrains Mono',monospace">
+    = (3 + 0) / (1 − 0) = 3/1
+  </div>
+  <div class="final">= 3</div>
+</div>
+
+<div class="solution">
+  <div class="q-num">ข้อ 48 — ลูกบอลตกจาก 10 m, เด้ง ×1/2</div>
+  <div class="step"><strong>ขาตก:</strong> ระยะตกครั้งแรก = 10 m</div>
+  <div class="step"><strong>ขาเด้ง:</strong> แต่ละครั้งเด้งขึ้น h แล้วตกลง h → ระยะ = 2h ต่อรอบ</div>
+  <div class="step">ความสูงเด้ง: 5, 5/2, 5/4, … เป็นอนุกรมเรขาคณิต a=5, r=1/2</div>
+  <div class="step" style="font-family:'JetBrains Mono',monospace">
+    S(เด้ง) = 5 / (1 − 1/2) = 10
+  </div>
+  <div class="step">ระยะทางรวม = ตก + 2 × S(เด้ง) = 10 + 2(10)</div>
+  <div class="final">= 30 เมตร</div>
+</div>
+
+<div class="solution">
+  <div class="q-num">ข้อ 49 — 9 + 3 + 1 + 1/3 + …</div>
+  <div class="step">ระบุ: a = 9, r = 3/9 = 1/3 → |r| = 1/3 &lt; 1 ✓ (ลู่เข้า)</div>
+  <div class="step" style="font-family:'JetBrains Mono',monospace">
+    S = a / (1 − r) = 9 / (1 − 1/3) = 9 / (2/3)
+  </div>
+  <div class="step" style="font-family:'JetBrains Mono',monospace">
+    = 9 × 3/2
+  </div>
+  <div class="final">= 27/2 = 13.5</div>
+</div>
+
+<div class="solution">
+  <div class="q-num">ข้อ 50 — ∑(n=1→∞) 1/(n(n+1)) วิธีเทเลสโคปิก</div>
+  <div class="step"><strong>Step 1:</strong> แยกเศษส่วนย่อย</div>
+  <div class="step" style="font-family:'JetBrains Mono',monospace">
+    1/(n(n+1)) = A/n + B/(n+1)<br>
+    &nbsp;&nbsp;1 = A(n+1) + Bn<br>
+    &nbsp;&nbsp;n=0: A=1 &nbsp;|&nbsp; n=−1: B=−1<br>
+    &nbsp;&nbsp;∴ 1/(n(n+1)) = 1/n − 1/(n+1)
+  </div>
+  <div class="step"><strong>Step 2:</strong> เขียนผลบวก S<sub>N</sub> แล้วตัดพจน์</div>
+  <div class="step" style="font-family:'JetBrains Mono',monospace">
+    S<sub>N</sub> = (1 − 1/2) + (1/2 − 1/3) + … + (1/N − 1/(N+1))<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;= 1 − 1/(N+1)
+  </div>
+  <div class="step"><strong>Step 3:</strong> หา lim เมื่อ N → ∞</div>
+  <div class="step" style="font-family:'JetBrains Mono',monospace">
+    S = lim(N→∞) [1 − 1/(N+1)] = 1 − 0
+  </div>
+  <div class="final">= 1</div>
+</div>
+</section>
+
+<!-- ===== SECTION 7: ANSWER KEY ===== -->
+<section class="section" id="sec7">
+<div class="section-header">
+  <div class="section-icon" style="background:var(--amber-dim)">📋</div>
+  <h2>Answer Key <span>ข้อ 1–44</span></h2>
+</div>
+<div class="ans-grid">
+  <div class="ans-cell"><span class="anum">1</span><span class="aval">ก</span></div>
+  <div class="ans-cell"><span class="anum">2</span><span class="aval">ก</span></div>
+  <div class="ans-cell"><span class="anum">3</span><span class="aval">ค</span></div>
+  <div class="ans-cell"><span class="anum">4</span><span class="aval">ง</span></div>
+  <div class="ans-cell"><span class="anum">5</span><span class="aval">ค</span></div>
+  <div class="ans-cell"><span class="anum">6</span><span class="aval">ข</span></div>
+  <div class="ans-cell"><span class="anum">7</span><span class="aval">ง</span></div>
+  <div class="ans-cell"><span class="anum">8</span><span class="aval">ง</span></div>
+  <div class="ans-cell"><span class="anum">9</span><span class="aval">ก</span></div>
+  <div class="ans-cell"><span class="anum">10</span><span class="aval">ค</span></div>
+  <div class="ans-cell"><span class="anum">11</span><span class="aval">ก</span></div>
+  <div class="ans-cell"><span class="anum">12</span><span class="aval">ง</span></div>
+  <div class="ans-cell"><span class="anum">13</span><span class="aval">ก</span></div>
+  <div class="ans-cell"><span class="anum">14</span><span class="aval">ก</span></div>
+  <div class="ans-cell"><span class="anum">15</span><span class="aval">ข</span></div>
+  <div class="ans-cell"><span class="anum">16</span><span class="aval">ก</span></div>
+  <div class="ans-cell"><span class="anum">17</span><span class="aval">ง</span></div>
+  <div class="ans-cell"><span class="anum">18</span><span class="aval">ง</span></div>
+  <div class="ans-cell"><span class="anum">19</span><span class="aval">ข</span></div>
+  <div class="ans-cell"><span class="anum">20</span><span class="aval">ข</span></div>
+  <div class="ans-cell"><span class="anum">21</span><span class="aval">ข</span></div>
+  <div class="ans-cell"><span class="anum">22</span><span class="aval">ง</span></div>
+  <div class="ans-cell"><span class="anum">23</span><span class="aval">ค</span></div>
+  <div class="ans-cell"><span class="anum">24</span><span class="aval">ข</span></div>
+  <div class="ans-cell"><span class="anum">25</span><span class="aval">ข</span></div>
+  <div class="ans-cell"><span class="anum">26</span><span class="aval">ค</span></div>
+  <div class="ans-cell"><span class="anum">27</span><span class="aval">ก</span></div>
+  <div class="ans-cell"><span class="anum">28</span><span class="aval">ก</span></div>
+  <div class="ans-cell"><span class="anum">29</span><span class="aval">ค</span></div>
+  <div class="ans-cell"><span class="anum">30</span><span class="aval">ค</span></div>
+  <div class="ans-cell"><span class="anum">31</span><span class="aval">ค</span></div>
+  <div class="ans-cell"><span class="anum">32</span><span class="aval">ค</span></div>
+  <div class="ans-cell"><span class="anum">33</span><span class="aval">ง</span></div>
+  <div class="ans-cell"><span class="anum">34</span><span class="aval">ง</span></div>
+  <div class="ans-cell"><span class="anum">35</span><span class="aval">ง</span></div>
+  <div class="ans-cell"><span class="anum">36</span><span class="aval">ก</span></div>
+  <div class="ans-cell"><span class="anum">37</span><span class="aval">ง</span></div>
+  <div class="ans-cell"><span class="anum">38</span><span class="aval">ค</span></div>
+  <div class="ans-cell"><span class="anum">39</span><span class="aval">ง</span></div>
+  <div class="ans-cell"><span class="anum">40</span><span class="aval">ข</span></div>
+  <div class="ans-cell"><span class="anum">41</span><span class="aval">ง</span></div>
+  <div class="ans-cell"><span class="anum">42</span><span class="aval">ข</span></div>
+  <div class="ans-cell"><span class="anum">43</span><span class="aval">ง</span></div>
+  <div class="ans-cell"><span class="anum">44</span><span class="aval">ข</span></div>
+</div>
+</section>
+
+<!-- ===== SECTION 8: CHEAT SHEET ===== -->
+<section class="section" id="sec8">
+<div class="section-header">
+  <div class="section-icon" style="background:var(--cyan-dim)">🔑</div>
+  <h2>Cheat Sheet <span>รวม Pattern ทั้งหมด</span></h2>
+</div>
+
+<div class="cheat">
+  <h3>🧩 เห็นอะไร → ใช้อะไร</h3>
+  <div class="cheat-row">
+    <span class="cheat-see">เห็น poly/poly, n→∞</span>
+    <span class="cheat-do">→ เทียบดีกรีสูงสุด (เท่า=สปส.นำ, ล่าง>บน=0, บน>ล่าง=∞)</span>
+  </div>
+  <div class="cheat-row">
+    <span class="cheat-see">เห็น rⁿ (เลขยกกำลัง n)</span>
+    <span class="cheat-do">→ |r|&lt;1 = 0 &nbsp;|&nbsp; |r|&gt;1 = ∞ &nbsp;|&nbsp; r=1 = 1</span>
+  </div>
+  <div class="cheat-row">
+    <span class="cheat-see">เห็น aⁿ/bⁿ</span>
+    <span class="cheat-do">→ เขียนใหม่เป็น (a/b)ⁿ แล้วดู |a/b| ≶ 1</span>
+  </div>
+  <div class="cheat-row">
+    <span class="cheat-see">เห็น √(n²+…) / n</span>
+    <span class="cheat-do">→ ดึง n² จากใต้ราก = √(1+…/n²) → 1</span>
+  </div>
+  <div class="cheat-row">
+    <span class="cheat-see">เห็น (−1)ⁿ·f(n)</span>
+    <span class="cheat-do">→ ถ้า f(n)→0 ใช้ Squeeze Theorem → ลิมิต = 0</span>
+  </div>
+  <div class="cheat-row">
+    <span class="cheat-see">เห็น (−1)ⁿ (ไม่หาร)</span>
+    <span class="cheat-do">→ แกว่ง ±1 → ลู่ออก ไม่มีลิมิต</span>
+  </div>
+  <div class="cheat-row">
+    <span class="cheat-see">เห็น a+ar+ar²+…</span>
+    <span class="cheat-do">→ อนุกรมเรขาคณิต S = a/(1−r) เมื่อ |r|&lt;1</span>
+  </div>
+  <div class="cheat-row">
+    <span class="cheat-see">เห็น 0.ẋẋẋ…</span>
+    <span class="cheat-do">→ ทศนิยมซ้ำ 1 ตำแหน่ง = x/9 &nbsp;|&nbsp; ซ้ำ 2 ตำแหน่ง = xy/99</span>
+  </div>
+  <div class="cheat-row">
+    <span class="cheat-see">เห็น 1/(n·(n+k))</span>
+    <span class="cheat-do">→ เศษส่วนย่อย → เทเลสโคปิก → เหลือพจน์แรก−สุดท้าย</span>
+  </div>
+  <div class="cheat-row">
+    <span class="cheat-see">เห็น "เด้ง/แกว่ง ×r"</span>
+    <span class="cheat-do">→ สร้างอนุกรมเรขาคณิต (ลูกบอล: ×2 สำหรับขาขึ้น-ลง)</span>
+  </div>
+  <div class="cheat-row">
+    <span class="cheat-see">เห็น "ออม/เดิน ×r ลดลง"</span>
+    <span class="cheat-do">→ S = a/(1−r) ตรงๆ ไม่ต้องคูณ 2</span>
+  </div>
+  <div class="cheat-row">
+    <span class="cheat-see">เห็น 0.999…</span>
+    <span class="cheat-do">→ = 1 (ไม่ใช่ "เกือบ 1" แต่เท่ากับ 1 จริงๆ!)</span>
+  </div>
+</div>
+
+<div class="warn" style="margin-top:20px">
+  <strong>⚠️ Common Mistakes ที่ต้องระวัง:</strong><br>
+  ① ลืมตรวจ |r| &lt; 1 ก่อนใช้สูตร S = a/(1−r) → ข้อ 34<br>
+  ② โจทย์เด้งบอล ลืมคูณ 2 (ขึ้น+ลง) → ข้อ 39, 48<br>
+  ③ lim(−1)ⁿ ≠ 0 แต่ลู่ออก เพราะไม่เข้าใกล้ค่าใด → ข้อ 19<br>
+  ④ ∑ เริ่มจาก n=1 ≠ n=0 ทำให้ a ต่างกัน → ข้อ 25, 26
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  JARVIS Study System · สรุปลิมิตและอนุกรมอนันต์ · ค33101 ม.6 สายวิทย์<br>
+  สร้างจากแนวข้อสอบกลางภาค 1/2569 · มาสเตอร์ธัชพล สุขมงคล
+</div>
+
+</div><!-- /container -->
+
+</body>
+</html>
