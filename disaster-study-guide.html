@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ภัยพิบัติทางธรรมชาติ — วิทยาศาสตร์โลกและอวกาศ ม.6</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0D1117;--bg2:#161B22;--bg3:#1C2333;--card:#21262D;
+--red:#E24B4A;--red-g:#F09595;--amber:#EF9F27;--amber-g:#FAC775;
+--blue:#378ADD;--blue-g:#85B7EB;--teal:#1D9E75;--teal-g:#5DCAA5;
+--purple:#7F77DD;--purple-g:#AFA9EC;
+--text:#E6EDF3;--text2:#8B949E;--text3:#6E7681;
+--border:#30363D;--border2:#484F58;
+}
+body{background:var(--bg);color:var(--text);font-family:'Prompt','Sarabun',sans-serif;line-height:1.7;overflow-x:hidden}
+.container{max-width:960px;margin:0 auto;padding:0 20px}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:50px 0 30px;text-align:center;border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(circle at 20% 80%,rgba(226,75,74,.15) 0%,transparent 50%),
+  radial-gradient(circle at 80% 20%,rgba(55,138,221,.12) 0%,transparent 50%),
+  radial-gradient(circle at 50% 50%,rgba(239,159,39,.08) 0%,transparent 60%);
+  pointer-events:none}
+.hero h1{font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--red),var(--amber),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.hero .sub{font-size:15px;color:var(--text2);font-weight:300}
+.hero .badge-row{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.hero .badge{font-size:12px;padding:4px 14px;border-radius:20px;border:1px solid var(--border);color:var(--text2)}
+
+/* TABS */
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin:0 0 24px;position:sticky;top:0;z-index:100;background:var(--bg);padding-top:12px}
+.tab-btn{flex:1;padding:12px 8px;text-align:center;font-size:14px;font-weight:500;color:var(--text3);cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;transition:.2s}
+.tab-btn:hover{color:var(--text2)}
+.tab-btn.active{color:var(--amber);border-bottom-color:var(--amber)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* SECTIONS */
+.section{margin-bottom:32px}
+.section-title{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:600;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.section-title .icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.icon-blue{background:rgba(55,138,221,.2);color:var(--blue)}
+.icon-red{background:rgba(226,75,74,.2);color:var(--red)}
+.icon-amber{background:rgba(239,159,39,.2);color:var(--amber)}
+.icon-teal{background:rgba(29,158,117,.2);color:var(--teal)}
+.icon-purple{background:rgba(127,119,221,.2);color:var(--purple)}
+
+.topic{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:16px}
+.topic h3{font-size:16px;font-weight:600;color:var(--amber);margin-bottom:10px}
+.topic h4{font-size:14px;font-weight:500;color:var(--blue-g);margin:12px 0 6px}
+.topic p,.topic li{font-size:14px;color:var(--text);line-height:1.8}
+.topic ul{padding-left:20px;margin:6px 0}
+.topic li{margin-bottom:4px}
+.topic .highlight{background:rgba(239,159,39,.15);border-left:3px solid var(--amber);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:13px}
+.topic .danger{background:rgba(226,75,74,.12);border-left:3px solid var(--red);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:13px}
+.topic .info{background:rgba(55,138,221,.12);border-left:3px solid var(--blue);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:13px}
+.keyword{display:inline-block;background:rgba(127,119,221,.2);color:var(--purple-g);padding:1px 8px;border-radius:4px;font-size:13px;margin:2px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.compare-card{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.compare-card h5{font-size:14px;font-weight:600;margin-bottom:6px}
+.compare-card p{font-size:13px;color:var(--text2)}
+.svg-container{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:16px;margin:16px 0;overflow:hidden}
+.svg-container svg{width:100%;height:auto;display:block}
+
+/* TABLE */
+.data-table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+.data-table th{background:var(--bg3);color:var(--amber);padding:10px 12px;text-align:left;border:1px solid var(--border);font-weight:500}
+.data-table td{padding:8px 12px;border:1px solid var(--border);color:var(--text)}
+.data-table tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+
+/* QUIZ */
+.quiz-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px}
+.score-display{font-size:18px;font-weight:600;color:var(--teal)}
+.progress-bar{width:100%;height:8px;background:var(--bg3);border-radius:4px;margin-bottom:20px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--blue));border-radius:4px;transition:width .4s ease}
+.q-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:14px;transition:border-color .3s}
+.q-card.correct{border-color:var(--teal)}
+.q-card.wrong{border-color:var(--red)}
+.q-num{font-size:12px;font-weight:600;color:var(--text3);margin-bottom:6px}
+.q-text{font-size:14px;font-weight:500;margin-bottom:12px;line-height:1.7}
+.q-options{display:flex;flex-direction:column;gap:8px}
+.q-opt{display:block;width:100%;text-align:left;padding:10px 16px;border:1px solid var(--border);border-radius:8px;background:var(--bg3);color:var(--text);font-size:13px;cursor:pointer;transition:.2s;font-family:inherit}
+.q-opt:hover:not(.picked){border-color:var(--blue);background:rgba(55,138,221,.08)}
+.q-opt.picked.right{border-color:var(--teal);background:rgba(29,158,117,.15);color:var(--teal-g)}
+.q-opt.picked.wr{border-color:var(--red);background:rgba(226,75,74,.12);color:var(--red-g)}
+.q-opt.show-correct{border-color:var(--teal);background:rgba(29,158,117,.1)}
+.q-opt.picked{pointer-events:none}
+.q-explain{display:none;margin-top:10px;padding:10px 14px;border-radius:8px;font-size:13px;line-height:1.7}
+.q-explain.show{display:block}
+.q-explain.right-bg{background:rgba(29,158,117,.1);border:1px solid rgba(29,158,117,.3)}
+.q-explain.wrong-bg{background:rgba(226,75,74,.08);border:1px solid rgba(226,75,74,.2)}
+.q-group-title{font-size:16px;font-weight:600;color:var(--blue);margin:24px 0 12px;padding-left:4px;border-left:3px solid var(--blue);padding:4px 12px}
+
+/* ESSAY */
+.essay-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:16px}
+.essay-card h4{font-size:15px;font-weight:600;margin-bottom:10px}
+.essay-card .answer-guide{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-top:12px;display:none}
+.essay-card .answer-guide.show{display:block}
+.toggle-btn{display:inline-block;padding:6px 16px;border:1px solid var(--border);border-radius:6px;background:var(--bg3);color:var(--text2);font-size:13px;cursor:pointer;font-family:inherit;transition:.2s}
+.toggle-btn:hover{border-color:var(--amber);color:var(--amber)}
+.answer-guide h5{font-size:13px;font-weight:600;color:var(--teal);margin-bottom:6px}
+.answer-guide p,.answer-guide li{font-size:13px;line-height:1.8}
+.answer-guide ul{padding-left:18px;margin:4px 0}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .hero h1{font-size:22px}
+  .compare-grid{grid-template-columns:1fr}
+  .tab-btn{font-size:12px;padding:10px 4px}
+  .topic{padding:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <h1>ภัยพิบัติทางธรรมชาติ</h1>
+    <p class="sub">วิทยาศาสตร์โลกและอวกาศ ม.6 — การหมุนเวียนอากาศ + ธรณีพิบัติภัย</p>
+    <div class="badge-row">
+      <span class="badge" style="border-color:var(--blue)">🌀 การหมุนเวียนอากาศ</span>
+      <span class="badge" style="border-color:var(--red)">🌋 ภูเขาไฟ &amp; แผ่นดินไหว</span>
+      <span class="badge" style="border-color:var(--amber)">🌊 สึนามิ &amp; พายุ</span>
+    </div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="container">
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('summary')">📖 สรุปเนื้อหา</button>
+  <button class="tab-btn" onclick="switchTab('quiz')">✏️ ปรนัย 44 ข้อ</button>
+  <button class="tab-btn" onclick="switchTab('essay')">📝 ข้อเขียน 7 ข้อ</button>
+</div>
+
+<!-- ==================== TAB 1: SUMMARY ==================== -->
+<div id="tab-summary" class="tab-content active">
+
+<!-- ===== PART 1: ATMOSPHERIC ===== -->
+<div class="section">
+<div class="section-title"><div class="icon icon-blue">🌍</div> Part 1 — การหมุนเวียนของอากาศ</div>
+
+<!-- 1.1 -->
+<div class="topic">
+<h3>1.1 ทำไมโลกได้รับความร้อนไม่เท่ากัน?</h3>
+<h4>🔴 โลกเป็นทรงกลม → มุมตกกระทบแตกต่าง</h4>
+<p>เนื่องจากโลกมีรูปทรงกลม รังสีจากดวงอาทิตย์จึงตกกระทบพื้นผิวโลกในมุมที่แตกต่างกัน บริเวณ<span class="keyword">เส้นศูนย์สูตร</span>แสงตกเกือบตั้งฉาก (มุมตกกระทบสูง) ทำให้พลังงานกระจุกตัวในพื้นที่เล็ก → ร้อนมาก ส่วนบริเวณ<span class="keyword">ขั้วโลก</span>แสงตกเฉียง พลังงานกระจายในพื้นที่กว้าง → เย็น</p>
+<div class="highlight">💡 ความแตกต่างของอุณหภูมิระหว่างเส้นศูนย์สูตรและขั้วโลก คือ "ต้นกำเนิด" ของลมและการหมุนเวียนอากาศทั้งหมด</div>
+
+<h4>🔴 แกนโลกเอียง 23.5° → ฤดูกาล</h4>
+<p>แกนโลกเอียงทำมุม 23.5° กับแนวตั้งฉากของระนาบวงโคจร ส่งผลให้ในช่วงเวลาต่างกันของปี ซีกโลกเหนือและซีกโลกใต้ได้รับแสงอาทิตย์ไม่เท่ากัน → เกิดฤดูกาล</p>
+<ul>
+<li><strong>Summer Solstice (21 มิ.ย.):</strong> ซีกเหนือเอียงเข้าหาดวงอาทิตย์ → ฤดูร้อนซีกเหนือ</li>
+<li><strong>Winter Solstice (21 ธ.ค.):</strong> ซีกใต้เอียงเข้าหาดวงอาทิตย์ → ฤดูหนาวซีกเหนือ</li>
+<li><strong>Equinox (21 มี.ค., 23 ก.ย.):</strong> ทั้งสองซีกได้รับแสงเท่ากัน → กลางวัน = กลางคืน</li>
+</ul>
+
+<h4>🔴 โลกหมุนรอบตัวเอง → Coriolis Effect</h4>
+<p>การหมุนรอบตัวเองของโลก (ตะวันตก→ตะวันออก) ทำให้วัตถุที่เคลื่อนที่บนพื้นผิวโลก "ถูกเบน" ออกจากแนวเส้นตรง เรียกว่า<span class="keyword">แรงคอริออลิส (Coriolis Force)</span></p>
+<ul>
+<li><strong>ซีกโลกเหนือ:</strong> ลมเบนไปทาง<strong>ขวา</strong>ของทิศทางการเคลื่อนที่</li>
+<li><strong>ซีกโลกใต้:</strong> ลมเบนไปทาง<strong>ซ้าย</strong>ของทิศทางการเคลื่อนที่</li>
+<li><strong>บริเวณเส้นศูนย์สูตร:</strong> Coriolis effect = 0 (ไม่มีการเบน)</li>
+</ul>
+
+<!-- SVG: Coriolis -->
+<div class="svg-container">
+<svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
+<text x="340" y="24" text-anchor="middle" fill="#8B949E" font-size="13" font-family="Prompt">ผลของ Coriolis Effect ต่อทิศทางลม</text>
+<!-- Northern -->
+<circle cx="190" cy="150" r="80" fill="none" stroke="#30363D" stroke-width="1"/>
+<circle cx="190" cy="150" r="3" fill="#EF9F27"/>
+<text x="190" y="60" text-anchor="middle" fill="#85B7EB" font-size="12" font-family="Prompt" font-weight="500">ซีกโลกเหนือ</text>
+<line x1="190" y1="150" x2="190" y2="80" stroke="#378ADD" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M190,80 Q230,90 240,120" fill="none" stroke="#E24B4A" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#ah2)"/>
+<text x="252" y="112" fill="#F09595" font-size="11" font-family="Prompt">เบนขวา</text>
+<text x="175" y="200" fill="#8B949E" font-size="11" font-family="Prompt">N. Hemisphere</text>
+<!-- Southern -->
+<circle cx="490" cy="150" r="80" fill="none" stroke="#30363D" stroke-width="1"/>
+<circle cx="490" cy="150" r="3" fill="#EF9F27"/>
+<text x="490" y="60" text-anchor="middle" fill="#85B7EB" font-size="12" font-family="Prompt" font-weight="500">ซีกโลกใต้</text>
+<line x1="490" y1="150" x2="490" y2="80" stroke="#378ADD" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M490,80 Q450,90 440,120" fill="none" stroke="#E24B4A" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#ah2)"/>
+<text x="410" y="112" fill="#F09595" font-size="11" font-family="Prompt">เบนซ้าย</text>
+<text x="477" y="200" fill="#8B949E" font-size="11" font-family="Prompt">S. Hemisphere</text>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#378ADD" stroke-width="1.5"/></marker>
+<marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#E24B4A" stroke-width="1.5"/></marker>
+</defs>
+</svg>
+</div>
+</div>
+
+<!-- 1.2 THREE CELLS -->
+<div class="topic">
+<h3>1.2 Atmospheric Circulation — 3 Cells</h3>
+<p>ความแตกต่างของอุณหภูมิระหว่างเส้นศูนย์สูตรกับขั้วโลก ร่วมกับ Coriolis Effect ทำให้การไหลเวียนของอากาศแบ่งออกเป็น 3 วงจร (Cells) ในแต่ละซีกโลก:</p>
+
+<!-- SVG: 3 CELLS -->
+<div class="svg-container">
+<svg viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1,1 L9,5 L1,9" fill="none" stroke="context-stroke" stroke-width="2"/></marker>
+</defs>
+<text x="340" y="22" text-anchor="middle" fill="#8B949E" font-size="13" font-family="Prompt">การหมุนเวียนอากาศ 3 Cells (ซีกโลกเหนือ)</text>
+<!-- Earth cross-section -->
+<rect x="80" y="40" width="520" height="340" rx="14" fill="none" stroke="#30363D" stroke-width="1"/>
+<!-- Latitude lines -->
+<line x1="80" y1="210" x2="600" y2="210" stroke="#484F58" stroke-width="0.5" stroke-dasharray="4,4"/>
+<line x1="80" y1="153" x2="600" y2="153" stroke="#484F58" stroke-width="0.5" stroke-dasharray="4,4"/>
+<line x1="80" y1="96" x2="600" y2="96" stroke="#484F58" stroke-width="0.5" stroke-dasharray="4,4"/>
+<line x1="80" y1="267" x2="600" y2="267" stroke="#484F58" stroke-width="0.5" stroke-dasharray="4,4"/>
+<line x1="80" y1="324" x2="600" y2="324" stroke="#484F58" stroke-width="0.5" stroke-dasharray="4,4"/>
+<!-- Lat labels -->
+<text x="612" y="214" fill="#6E7681" font-size="11" font-family="Prompt">0° เส้นศูนย์สูตร</text>
+<text x="612" y="157" fill="#6E7681" font-size="11" font-family="Prompt">30°N</text>
+<text x="612" y="100" fill="#6E7681" font-size="11" font-family="Prompt">60°N</text>
+<text x="612" y="55" fill="#6E7681" font-size="11" font-family="Prompt">90°N ขั้วโลก</text>
+<text x="612" y="271" fill="#6E7681" font-size="11" font-family="Prompt">30°S</text>
+<text x="612" y="328" fill="#6E7681" font-size="11" font-family="Prompt">60°S</text>
+<text x="612" y="384" fill="#6E7681" font-size="11" font-family="Prompt">90°S ขั้วโลก</text>
+<!-- Hadley Cell (red/warm) N -->
+<rect x="100" y="155" width="220" height="54" rx="6" fill="rgba(226,75,74,.12)" stroke="#E24B4A" stroke-width="1"/>
+<text x="210" y="177" text-anchor="middle" fill="#F09595" font-size="13" font-family="Prompt" font-weight="600">Hadley Cell</text>
+<text x="210" y="195" text-anchor="middle" fill="#8B949E" font-size="11" font-family="Prompt">0°–30° | ลมค้า (Trade Winds)</text>
+<path d="M150,210 C150,185 150,170 210,165 C270,160 270,180 270,155" fill="none" stroke="#E24B4A" stroke-width="1.5" marker-end="url(#ac)"/>
+<path d="M270,155 C270,175 340,195 340,210" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="4,2"/>
+<!-- Ferrel Cell (blue) N -->
+<rect x="100" y="98" width="220" height="54" rx="6" fill="rgba(55,138,221,.12)" stroke="#378ADD" stroke-width="1"/>
+<text x="210" y="120" text-anchor="middle" fill="#85B7EB" font-size="13" font-family="Prompt" font-weight="600">Ferrel Cell</text>
+<text x="210" y="138" text-anchor="middle" fill="#8B949E" font-size="11" font-family="Prompt">30°–60° | ลมตะวันตก (Westerlies)</text>
+<path d="M270,153 C270,135 270,115 210,110 C150,105 150,120 150,96" fill="none" stroke="#378ADD" stroke-width="1.5" marker-end="url(#ac)"/>
+<!-- Polar Cell (teal) N -->
+<rect x="100" y="42" width="220" height="52" rx="6" fill="rgba(29,158,117,.12)" stroke="#1D9E75" stroke-width="1"/>
+<text x="210" y="63" text-anchor="middle" fill="#5DCAA5" font-size="13" font-family="Prompt" font-weight="600">Polar Cell</text>
+<text x="210" y="81" text-anchor="middle" fill="#8B949E" font-size="11" font-family="Prompt">60°–90° | ลมขั้วโลก (Polar E.)</text>
+<path d="M150,96 C150,78 150,62 210,58 C270,54 270,72 270,42" fill="none" stroke="#1D9E75" stroke-width="1.5" stroke-dasharray="4,2"/>
+<!-- South mirror labels -->
+<rect x="100" y="212" width="220" height="54" rx="6" fill="rgba(226,75,74,.08)" stroke="#E24B4A" stroke-width="0.5" stroke-dasharray="3,3"/>
+<text x="210" y="234" text-anchor="middle" fill="#8B949E" font-size="12" font-family="Prompt">Hadley Cell (ซีกใต้)</text>
+<rect x="100" y="269" width="220" height="54" rx="6" fill="rgba(55,138,221,.08)" stroke="#378ADD" stroke-width="0.5" stroke-dasharray="3,3"/>
+<text x="210" y="291" text-anchor="middle" fill="#8B949E" font-size="12" font-family="Prompt">Ferrel Cell (ซีกใต้)</text>
+<rect x="100" y="326" width="220" height="52" rx="6" fill="rgba(29,158,117,.08)" stroke="#1D9E75" stroke-width="0.5" stroke-dasharray="3,3"/>
+<text x="210" y="348" text-anchor="middle" fill="#8B949E" font-size="12" font-family="Prompt">Polar Cell (ซีกใต้)</text>
+<!-- Surface wind arrows right side -->
+<text x="420" y="66" fill="#5DCAA5" font-size="12" font-family="Prompt" font-weight="500">↙ Polar Easterlies</text>
+<text x="420" y="86" fill="#6E7681" font-size="11" font-family="Prompt">NE → SW / เย็น แห้ง</text>
+<text x="420" y="124" fill="#85B7EB" font-size="12" font-family="Prompt" font-weight="500">↗ Westerlies (ลมตะวันตก)</text>
+<text x="420" y="144" fill="#6E7681" font-size="11" font-family="Prompt">SW → NE / อากาศแปรปรวน</text>
+<text x="420" y="182" fill="#F09595" font-size="12" font-family="Prompt" font-weight="500">↙ Trade Winds (ลมค้า)</text>
+<text x="420" y="202" fill="#6E7681" font-size="11" font-family="Prompt">NE → SW / สม่ำเสมอ</text>
+<!-- Convergence/Divergence zones -->
+<text x="400" y="220" fill="#EF9F27" font-size="11" font-family="Prompt" font-weight="500">ITCZ ← ลมค้าบรรจบ → ฝนชุก</text>
+<text x="400" y="160" fill="#EF9F27" font-size="11" font-family="Prompt" font-weight="500">Horse Latitudes ← อากาศจม → แห้ง</text>
+</svg>
+</div>
+
+<table class="data-table">
+<tr><th>Cell</th><th>ละติจูด</th><th>ลมผิวพื้น</th><th>ลักษณะอากาศ</th></tr>
+<tr><td style="color:#F09595;font-weight:500">Hadley</td><td>0°–30°</td><td>ลมค้า (NE/SE Trade Winds)</td><td>ITCZ ฝนชุก, 30° แห้งแล้ง (ทะเลทราย)</td></tr>
+<tr><td style="color:#85B7EB;font-weight:500">Ferrel</td><td>30°–60°</td><td>ลมตะวันตก (Westerlies)</td><td>อากาศแปรปรวน, พายุบ่อย</td></tr>
+<tr><td style="color:#5DCAA5;font-weight:500">Polar</td><td>60°–90°</td><td>ลมขั้วโลก (Polar Easterlies)</td><td>แห้ง เย็น, Polar front</td></tr>
+</table>
+</div>
+
+<!-- 1.3 LAND-SEA BREEZE -->
+<div class="topic">
+<h3>1.3 ลมบก — ลมทะเล (Land & Sea Breeze)</h3>
+<p>เกิดจากความแตกต่างของ<span class="keyword">ความจุความร้อนจำเพาะ</span>ระหว่างดินกับน้ำ น้ำทะเลมีค่า specific heat capacity สูงกว่าพื้นดิน → ดินร้อนเร็ว-เย็นเร็ว ส่วนน้ำร้อนช้า-เย็นช้า</p>
+
+<div class="svg-container">
+<svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1,1 L9,5 L1,9" fill="none" stroke="context-stroke" stroke-width="2"/></marker></defs>
+<!-- DAY: Sea Breeze -->
+<text x="170" y="20" text-anchor="middle" fill="#EF9F27" font-size="14" font-family="Prompt" font-weight="600">กลางวัน — ลมทะเล (Sea Breeze)</text>
+<!-- Sun -->
+<circle cx="170" cy="58" r="16" fill="#EF9F27" opacity="0.3"/><circle cx="170" cy="58" r="10" fill="#EF9F27"/>
+<!-- Land -->
+<rect x="35" y="200" width="120" height="80" rx="4" fill="#8B4513" opacity="0.4"/>
+<text x="95" y="245" text-anchor="middle" fill="#FAC775" font-size="12" font-family="Prompt" font-weight="500">พื้นดิน</text>
+<text x="95" y="262" text-anchor="middle" fill="#EF9F27" font-size="11" font-family="Prompt">ร้อนเร็ว ☀️</text>
+<!-- Sea -->
+<rect x="175" y="200" width="140" height="80" rx="4" fill="#1A5276" opacity="0.4"/>
+<text x="245" y="245" text-anchor="middle" fill="#85B7EB" font-size="12" font-family="Prompt" font-weight="500">ทะเล</text>
+<text x="245" y="262" text-anchor="middle" fill="#378ADD" font-size="11" font-family="Prompt">เย็นกว่า 🌊</text>
+<!-- Air flow arrows -->
+<path d="M95,190 C95,130 95,100 170,90" fill="none" stroke="#E24B4A" stroke-width="2" marker-end="url(#ab)"/>
+<text x="80" y="145" fill="#F09595" font-size="11" font-family="Prompt">อากาศร้อน↑ลอยขึ้น</text>
+<path d="M245,185 C245,175 170,175 100,190" fill="none" stroke="#378ADD" stroke-width="2" marker-end="url(#ab)"/>
+<text x="170" y="172" text-anchor="middle" fill="#85B7EB" font-size="11" font-family="Prompt">ลมทะเล → พัดเข้าฝั่ง</text>
+<path d="M170,90 C240,80 245,100 245,140" fill="none" stroke="#8B949E" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="258" y="115" fill="#6E7681" font-size="10" font-family="Prompt">อากาศไหลกลับชั้นบน</text>
+
+<!-- NIGHT: Land Breeze -->
+<text x="510" y="20" text-anchor="middle" fill="#7F77DD" font-size="14" font-family="Prompt" font-weight="600">กลางคืน — ลมบก (Land Breeze)</text>
+<!-- Moon -->
+<circle cx="510" cy="58" r="12" fill="none" stroke="#AFA9EC" stroke-width="1.5"/><circle cx="518" cy="54" r="12" fill="#0D1117"/>
+<!-- Land -->
+<rect x="365" y="200" width="120" height="80" rx="4" fill="#2C3E50" opacity="0.4"/>
+<text x="425" y="245" text-anchor="middle" fill="#85B7EB" font-size="12" font-family="Prompt" font-weight="500">พื้นดิน</text>
+<text x="425" y="262" text-anchor="middle" fill="#378ADD" font-size="11" font-family="Prompt">เย็นเร็ว 🌙</text>
+<!-- Sea -->
+<rect x="505" y="200" width="140" height="80" rx="4" fill="#1A5276" opacity="0.5"/>
+<text x="575" y="245" text-anchor="middle" fill="#FAC775" font-size="12" font-family="Prompt" font-weight="500">ทะเล</text>
+<text x="575" y="262" text-anchor="middle" fill="#EF9F27" font-size="11" font-family="Prompt">อุ่นกว่า 🔥</text>
+<!-- Air flow -->
+<path d="M575,190 C575,130 575,100 500,90" fill="none" stroke="#E24B4A" stroke-width="2" marker-end="url(#ab)"/>
+<text x="590" y="145" fill="#F09595" font-size="11" font-family="Prompt">อากาศอุ่น↑</text>
+<path d="M425,185 C425,175 500,175 565,190" fill="none" stroke="#7F77DD" stroke-width="2" marker-end="url(#ab)"/>
+<text x="500" y="172" text-anchor="middle" fill="#AFA9EC" font-size="11" font-family="Prompt">ลมบก → พัดออกทะเล</text>
+</svg>
+</div>
+
+<div class="highlight">💡 <strong>จำง่าย:</strong> กลางวัน = ดินร้อน → อากาศเหนือดินลอยขึ้น → ลมจากทะเลพัดเข้าฝั่ง (ลมทะเล) | กลางคืน = ตรงข้ามเลย</div>
+</div>
+
+<!-- 1.4 MONSOON -->
+<div class="topic">
+<h3>1.4 ลมมรสุม (Monsoon)</h3>
+<p>ลมมรสุมเป็น "ลมบก-ลมทะเล ขนาดใหญ่ระดับทวีป" ที่เปลี่ยนทิศตามฤดูกาล เกิดจากความแตกต่างของอุณหภูมิระหว่างแผ่นดินขนาดใหญ่กับมหาสมุทร</p>
+
+<div class="compare-grid">
+<div class="compare-card" style="border-top:3px solid var(--blue)">
+<h5 style="color:var(--blue)">🌧️ มรสุมตะวันตกเฉียงใต้ (พ.ค.–ต.ค.)</h5>
+<p>แผ่นดินเอเชียร้อนจัด → ดูดลมจากมหาสมุทรอินเดีย → พัดพาความชื้นมาก → ฤดูฝนของไทย</p>
+</div>
+<div class="compare-card" style="border-top:3px solid var(--amber)">
+<h5 style="color:var(--amber)">❄️ มรสุมตะวันออกเฉียงเหนือ (พ.ย.–ก.พ.)</h5>
+<p>แผ่นดินเอเชียเย็นจัด (แรงดันสูง) → ลมพัดจากจีน/ไซบีเรียลงมา → แห้ง เย็น → ฤดูหนาวของไทย</p>
+</div>
+</div>
+<div class="info">🇹🇭 ประเทศไทยได้รับอิทธิพลจากทั้งสองมรสุมเพราะตั้งอยู่ในเขตมรสุมเอเชีย (Asian Monsoon Region)</div>
+</div>
+
+<!-- 1.5 EL NINO / LA NINA -->
+<div class="topic">
+<h3>1.5 El Niño / La Niña / ENSO</h3>
+<p><span class="keyword">ENSO</span> (El Niño–Southern Oscillation) คือปรากฏการณ์ที่อุณหภูมิผิวน้ำทะเลในมหาสมุทรแปซิฟิกเขตศูนย์สูตรเปลี่ยนแปลงผิดปกติ ส่งผลต่อ Walker Circulation และภูมิอากาศทั่วโลก</p>
+
+<!-- SVG: ENSO 3-panel -->
+<div class="svg-container">
+<svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="ae" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1,1 L9,5 L1,9" fill="none" stroke="context-stroke" stroke-width="2"/></marker></defs>
+
+<!-- === NORMAL === -->
+<text x="340" y="22" text-anchor="middle" fill="#5DCAA5" font-size="14" font-family="Prompt" font-weight="600">สภาวะปกติ (Normal)</text>
+<rect x="40" y="35" width="600" height="155" rx="10" fill="none" stroke="#30363D" stroke-width="0.5"/>
+<!-- Ocean -->
+<rect x="40" y="110" width="600" height="80" rx="0 0 10 10" fill="#0A3D62" opacity="0.5"/>
+<!-- Warm pool west -->
+<rect x="40" y="110" width="180" height="50" rx="4" fill="rgba(226,75,74,.25)"/>
+<text x="130" y="140" text-anchor="middle" fill="#FAC775" font-size="11" font-family="Prompt" font-weight="500">น้ำอุ่น (Warm Pool)</text>
+<!-- Cold east -->
+<rect x="460" y="110" width="180" height="50" rx="4" fill="rgba(55,138,221,.25)"/>
+<text x="550" y="140" text-anchor="middle" fill="#85B7EB" font-size="11" font-family="Prompt" font-weight="500">น้ำเย็น (Upwelling)</text>
+<!-- Upwelling arrows -->
+<line x1="530" y1="175" x2="530" y2="130" stroke="#378ADD" stroke-width="1.5" marker-end="url(#ae)"/>
+<line x1="570" y1="175" x2="570" y2="130" stroke="#378ADD" stroke-width="1.5" marker-end="url(#ae)"/>
+<text x="550" y="185" text-anchor="middle" fill="#378ADD" font-size="10" font-family="Prompt">น้ำเย็นผุดขึ้น ↑</text>
+<!-- Trade winds -->
+<line x1="500" y1="80" x2="200" y2="80" stroke="#1D9E75" stroke-width="2.5" marker-end="url(#ae)"/>
+<text x="350" y="73" text-anchor="middle" fill="#5DCAA5" font-size="12" font-family="Prompt" font-weight="500">← ลมค้าพัดแรงปกติ ←</text>
+<!-- Walker Circulation -->
+<path d="M180,55 C250,40 380,40 520,55" fill="none" stroke="#8B949E" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#ae)"/>
+<text x="350" y="48" text-anchor="middle" fill="#6E7681" font-size="10" font-family="Prompt">Walker Circulation →</text>
+<!-- Labels -->
+<text x="55" y="52" fill="#EF9F27" font-size="11" font-family="Prompt" font-weight="500">เอเชีย/ออสเตรเลีย</text>
+<text x="556" y="52" fill="#85B7EB" font-size="11" font-family="Prompt" font-weight="500">อเมริกาใต้</text>
+<text x="130" y="100" fill="#6E7681" font-size="10" font-family="Prompt">☁️ เมฆมาก ฝนชุก</text>
+<text x="510" y="100" fill="#6E7681" font-size="10" font-family="Prompt">☀️ แห้ง อากาศจม</text>
+
+<!-- === EL NINO === -->
+<text x="340" y="220" text-anchor="middle" fill="#E24B4A" font-size="14" font-family="Prompt" font-weight="600">El Niño — ลมค้าอ่อนลง / น้ำอุ่นไหลกลับ</text>
+<rect x="40" y="233" width="600" height="155" rx="10" fill="none" stroke="rgba(226,75,74,.3)" stroke-width="1"/>
+<rect x="40" y="308" width="600" height="80" rx="0 0 10 10" fill="#0A3D62" opacity="0.5"/>
+<!-- Warm water spreads east -->
+<rect x="40" y="308" width="600" height="50" rx="4" fill="rgba(226,75,74,.2)"/>
+<text x="340" y="338" text-anchor="middle" fill="#FAC775" font-size="11" font-family="Prompt" font-weight="500">น้ำอุ่นแผ่ไปทางตะวันออก →→→</text>
+<!-- Weak trade winds -->
+<line x1="450" y1="278" x2="300" y2="278" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#ae)"/>
+<text x="375" y="270" text-anchor="middle" fill="#F09595" font-size="12" font-family="Prompt">← ลมค้าอ่อนลง (อ่อน!) ←</text>
+<!-- No upwelling -->
+<text x="550" y="375" text-anchor="middle" fill="#E24B4A" font-size="10" font-family="Prompt">✗ Upwelling หยุด/ลดลง</text>
+<!-- Effects -->
+<text x="130" y="250" fill="#6E7681" font-size="10" font-family="Prompt">☀️ แล้ง ไฟป่า</text>
+<text x="460" y="250" fill="#6E7681" font-size="10" font-family="Prompt">🌧️ ฝนตกหนัก น้ำท่วม</text>
+<text x="550" y="298" fill="#E24B4A" font-size="10" font-family="Prompt">น้ำอุ่น → เมฆ → ฝน</text>
+<text x="130" y="298" fill="#EF9F27" font-size="10" font-family="Prompt">น้ำเย็น → แห้ง</text>
+<!-- Big arrow showing warm water movement -->
+<path d="M200,320 L500,320" fill="none" stroke="#EF9F27" stroke-width="2" marker-end="url(#ae)"/>
+
+<!-- === LA NINA === -->
+<text x="340" y="418" text-anchor="middle" fill="#378ADD" font-size="14" font-family="Prompt" font-weight="600">La Niña — ลมค้าแรงขึ้น / น้ำเย็นผุดมากขึ้น</text>
+<rect x="40" y="431" width="600" height="155" rx="10" fill="none" stroke="rgba(55,138,221,.3)" stroke-width="1"/>
+<rect x="40" y="506" width="600" height="80" rx="0 0 10 10" fill="#0A3D62" opacity="0.5"/>
+<!-- Extra warm west -->
+<rect x="40" y="506" width="200" height="50" rx="4" fill="rgba(226,75,74,.35)"/>
+<text x="140" y="536" text-anchor="middle" fill="#FAC775" font-size="11" font-family="Prompt" font-weight="500">น้ำอุ่นกองสูงฝั่งตะวันตก</text>
+<!-- Extra cold east -->
+<rect x="400" y="506" width="240" height="50" rx="4" fill="rgba(55,138,221,.35)"/>
+<text x="520" y="536" text-anchor="middle" fill="#85B7EB" font-size="11" font-family="Prompt" font-weight="500">น้ำเย็นผุดมากขึ้น ↑↑</text>
+<!-- Strong trade winds -->
+<line x1="540" y1="476" x2="180" y2="476" stroke="#378ADD" stroke-width="3" marker-end="url(#ae)"/>
+<text x="360" y="468" text-anchor="middle" fill="#85B7EB" font-size="12" font-family="Prompt" font-weight="600">←← ลมค้าแรงมาก! ←←</text>
+<!-- Effects -->
+<text x="130" y="448" fill="#6E7681" font-size="10" font-family="Prompt">🌧️🌧️ ฝนหนักมาก น้ำท่วม</text>
+<text x="460" y="448" fill="#6E7681" font-size="10" font-family="Prompt">☀️☀️ แห้งแล้งมากขึ้น</text>
+<!-- Upwelling arrows -->
+<line x1="480" y1="575" x2="480" y2="525" stroke="#378ADD" stroke-width="2" marker-end="url(#ae)"/>
+<line x1="520" y1="575" x2="520" y2="525" stroke="#378ADD" stroke-width="2" marker-end="url(#ae)"/>
+<line x1="560" y1="575" x2="560" y2="525" stroke="#378ADD" stroke-width="2" marker-end="url(#ae)"/>
+<text x="520" y="590" text-anchor="middle" fill="#378ADD" font-size="10" font-family="Prompt">Upwelling แรงมาก ↑↑↑</text>
+</svg>
+</div>
+
+<table class="data-table">
+<tr><th>สภาวะ</th><th>ลมค้า</th><th>อุณหภูมิน้ำทะเลฝั่ง E</th><th>Upwelling</th><th>ผลต่อไทย/เอเชีย</th></tr>
+<tr><td style="color:#5DCAA5">ปกติ</td><td>แรงปกติ</td><td>เย็น (ปกติ)</td><td>ปกติ</td><td>ฝนตามฤดูกาลปกติ</td></tr>
+<tr><td style="color:#F09595">El Niño</td><td>อ่อนลง/กลับทิศ</td><td>อุ่นผิดปกติ (+0.5°C↑)</td><td>ลดลง/หยุด</td><td>แล้งกว่าปกติ ฝนน้อย</td></tr>
+<tr><td style="color:#85B7EB">La Niña</td><td>แรงขึ้น</td><td>เย็นผิดปกติ (−0.5°C↓)</td><td>แรงมากขึ้น</td><td>ฝนมากกว่าปกติ น้ำท่วม</td></tr>
+</table>
+</div>
+
+<!-- 1.6 STORMS -->
+<div class="topic">
+<h3>1.6 พายุหมุนเขตร้อนและพายุฝนฟ้าคะนอง</h3>
+<h4>🌀 พายุหมุนเขตร้อน (Tropical Cyclone)</h4>
+<p>ก่อตัวเหนือมหาสมุทรเขตร้อนที่อุณหภูมิผิวน้ำ ≥ 26.5°C อากาศชื้นลอยตัวขึ้นเป็นวงหมุน (ซีกเหนือหมุนทวนเข็มนาฬิกา เพราะ Coriolis) ปล่อยพลังงานมหาศาลจาก<span class="keyword">ความร้อนแฝงของการควบแน่น</span></p>
+
+<table class="data-table">
+<tr><th>ระดับ</th><th>ความเร็วลม</th><th>ชื่อเรียก (ไทย)</th><th>ชื่อเรียก (สากล)</th></tr>
+<tr><td style="color:#5DCAA5">1</td><td>&lt; 63 km/h</td><td>พายุดีเปรสชัน</td><td>Tropical Depression</td></tr>
+<tr><td style="color:#85B7EB">2</td><td>63–117 km/h</td><td>พายุโซนร้อน</td><td>Tropical Storm</td></tr>
+<tr><td style="color:#EF9F27">3</td><td>118–220 km/h</td><td>ไต้ฝุ่น</td><td>Typhoon / Hurricane / Cyclone</td></tr>
+<tr><td style="color:#E24B4A">4+</td><td>&gt; 220 km/h</td><td>ซูเปอร์ไต้ฝุ่น</td><td>Super Typhoon (Cat 5)</td></tr>
+</table>
+
+<div class="info">🌏 ชื่อเรียกต่างกันตามภูมิภาค: <strong>Typhoon</strong> (แปซิฟิกตะวันตก), <strong>Hurricane</strong> (แอตแลนติก), <strong>Cyclone</strong> (มหาสมุทรอินเดีย)</div>
+
+<h4>⛈️ พายุฝนฟ้าคะนอง (Thunderstorm)</h4>
+<p>เกิดจากอากาศร้อนชื้นลอยตัวขึ้นอย่างรวดเร็ว (Convection) → เกิดเมฆคิวมูโลนิมบัส (Cb) → ฟ้าแลบ ฟ้าร้อง ฝนหนัก ลมกระโชก อาจมีลูกเห็บ</p>
+
+<h4>🌪️ ทอร์นาโด (Tornado)</h4>
+<p>ลมหมุนรุนแรงขนาดเล็กที่ยื่นจากเมฆ Cb ลงถึงพื้นดิน มีเส้นผ่านศูนย์กลาง 100–600 m ลมความเร็วถึง 500 km/h พบมากในสหรัฐอเมริกา (Tornado Alley)</p>
+</div>
+
+<!-- 1.7 WHAT IF -->
+<div class="topic">
+<h3>1.7 What If? — ถ้าโลกเปลี่ยนไป</h3>
+<div class="compare-grid">
+<div class="compare-card" style="border-left:3px solid var(--red)">
+<h5 style="color:var(--red)">ถ้าโลกหยุดหมุน?</h5>
+<p>• ไม่มี Coriolis Effect → ลมพัดตรงจากขั้วโลกสู่ศูนย์สูตร<br>• ไม่มีกลางวัน-กลางคืน 12 ชม. → ด้านหนึ่งร้อนจัดตลอด อีกด้านเย็นจัดตลอด<br>• ไม่เกิด 3 Cells → ไม่มีลมค้า ไม่มี Westerlies<br>• สนามแม่เหล็กโลกหายไป → รังสีอวกาศทำลายสิ่งมีชีวิต</p>
+</div>
+<div class="compare-card" style="border-left:3px solid var(--amber)">
+<h5 style="color:var(--amber)">ถ้าโลกไม่เอียง?</h5>
+<p>• ไม่มีฤดูกาล → อุณหภูมิคงที่ตลอดปี<br>• ไม่มีลมมรสุม → เพราะไม่มีการเปลี่ยนแปลงตามฤดู<br>• บริเวณเส้นศูนย์สูตรร้อนตลอด ขั้วโลกเย็นตลอด<br>• ระบบนิเวศเปลี่ยนแปลงรุนแรง การเกษตรกระทบ</p>
+</div>
+<div class="compare-card" style="border-left:3px solid var(--blue)">
+<h5 style="color:var(--blue)">ถ้าแสงอาทิตย์ไม่ตกตรง (มุมเฉียงทุกที่)?</h5>
+<p>• พลังงานกระจายบนพื้นที่กว้าง → โลกทั้งใบเย็นลง<br>• ไม่มีเขตร้อน ไม่มี ITCZ<br>• 3 Cells อ่อนลงมาก → ลมอ่อน ฝนน้อย<br>• มหาสมุทรแข็งตัวจากขั้วโลกลงมา → ยุคน้ำแข็ง</p>
+</div>
+<div class="compare-card" style="border-left:3px solid var(--teal)">
+<h5 style="color:var(--teal)">ถ้าโลกไม่เป็นทรงกลม (แบน)?</h5>
+<p>• แสงตกกระทบทุกที่เท่ากัน → อุณหภูมิเท่ากันทั่วโลก<br>• ไม่มี gradient อุณหภูมิ → ไม่เกิดลม<br>• ไม่มีความกดอากาศแตกต่าง → สภาพอากาศนิ่ง<br>• แรงโน้มถ่วงไม่สม่ำเสมอ → น้ำกองกลาง</p>
+</div>
+</div>
+</div>
+
+</div><!-- end Part 1 -->
+
+<!-- ===== PART 2: GEOLOGICAL ===== -->
+<div class="section">
+<div class="section-title"><div class="icon icon-red">🌋</div> Part 2 — ธรณีพิบัติภัย</div>
+
+<!-- 2.1 VOLCANO -->
+<div class="topic">
+<h3>2.1 ภูเขาไฟระเบิด</h3>
+<p>เกิดจากการแทรกดันของ<span class="keyword">แมกมา</span>ขึ้นมาบนผิวโลกตามช่องว่างหรือรอยแตกของเปลือกโลก ตำแหน่งส่วนใหญ่สัมพันธ์กับแนวรอยต่อของแผ่นธรณี</p>
+
+<h4>ประเภทของภูเขาไฟ</h4>
+<!-- SVG: Volcano Types -->
+<div class="svg-container">
+<svg viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg">
+<!-- Shield Volcano -->
+<text x="113" y="22" text-anchor="middle" fill="#EF9F27" font-size="13" font-family="Prompt" font-weight="600">ภูเขาไฟรูปโล่</text>
+<text x="113" y="38" text-anchor="middle" fill="#8B949E" font-size="10" font-family="Prompt">(Shield Volcano)</text>
+<path d="M20,180 Q60,165 80,160 Q100,155 113,150 Q126,155 146,160 Q166,165 206,180" fill="#8B4513" opacity="0.5" stroke="#EF9F27" stroke-width="1"/>
+<path d="M95,150 Q105,130 113,125 Q121,130 131,150" fill="#E24B4A" opacity="0.3"/>
+<text x="113" y="200" text-anchor="middle" fill="#6E7681" font-size="10" font-family="Prompt">แบนลาด ลาวาเหลวไหลไกล</text>
+<text x="113" y="215" text-anchor="middle" fill="#6E7681" font-size="10" font-family="Prompt">ซิลิกาต่ำ ไม่รุนแรง</text>
+<text x="113" y="230" text-anchor="middle" fill="#5DCAA5" font-size="10" font-family="Prompt">เช่น Mauna Loa, Hawaii</text>
+
+<!-- Composite Volcano -->
+<text x="340" y="22" text-anchor="middle" fill="#E24B4A" font-size="13" font-family="Prompt" font-weight="600">ภูเขาไฟสลับชั้น</text>
+<text x="340" y="38" text-anchor="middle" fill="#8B949E" font-size="10" font-family="Prompt">(Composite/Stratovolcano)</text>
+<path d="M250,180 Q280,135 300,110 Q320,85 340,60 Q360,85 380,110 Q400,135 430,180" fill="#8B4513" opacity="0.5" stroke="#E24B4A" stroke-width="1"/>
+<path d="M320,75 Q330,50 340,40 Q350,50 360,75" fill="#E24B4A" opacity="0.4"/>
+<!-- Eruption cloud -->
+<circle cx="340" cy="28" r="12" fill="#8B949E" opacity="0.2"/>
+<circle cx="330" cy="20" r="10" fill="#8B949E" opacity="0.15"/>
+<circle cx="352" cy="22" r="9" fill="#8B949E" opacity="0.15"/>
+<!-- Layers inside -->
+<path d="M285,155 Q340,140 395,155" fill="none" stroke="#EF9F27" stroke-width="0.8" stroke-dasharray="3,2"/>
+<path d="M300,135 Q340,122 380,135" fill="none" stroke="#EF9F27" stroke-width="0.8" stroke-dasharray="3,2"/>
+<text x="340" y="200" text-anchor="middle" fill="#6E7681" font-size="10" font-family="Prompt">ชันสูง สลับลาวา+เถ้า</text>
+<text x="340" y="215" text-anchor="middle" fill="#6E7681" font-size="10" font-family="Prompt">ซิลิกาสูง ระเบิดรุนแรง</text>
+<text x="340" y="230" text-anchor="middle" fill="#F09595" font-size="10" font-family="Prompt">เช่น Mt. Fuji, Mt. St. Helens</text>
+
+<!-- Cinder Cone -->
+<text x="567" y="22" text-anchor="middle" fill="#7F77DD" font-size="13" font-family="Prompt" font-weight="600">ภูเขาไฟรูปกรวย</text>
+<text x="567" y="38" text-anchor="middle" fill="#8B949E" font-size="10" font-family="Prompt">(Cinder Cone)</text>
+<path d="M510,180 Q530,130 545,100 Q555,80 567,70 Q579,80 589,100 Q604,130 624,180" fill="#8B4513" opacity="0.5" stroke="#7F77DD" stroke-width="1"/>
+<path d="M550,85 Q558,65 567,55 Q576,65 584,85" fill="#E24B4A" opacity="0.3"/>
+<text x="567" y="200" text-anchor="middle" fill="#6E7681" font-size="10" font-family="Prompt">เล็ก ชัน สมมาตร</text>
+<text x="567" y="215" text-anchor="middle" fill="#6E7681" font-size="10" font-family="Prompt">เศษหินภูเขาไฟทับถม</text>
+<text x="567" y="230" text-anchor="middle" fill="#AFA9EC" font-size="10" font-family="Prompt">เช่น Parícutin, Mexico</text>
+
+<!-- Legend -->
+<rect x="80" y="250" width="520" height="24" rx="6" fill="rgba(239,159,39,.08)" stroke="none"/>
+<text x="340" y="266" text-anchor="middle" fill="#EF9F27" font-size="11" font-family="Prompt">ปริมาณซิลิกาในแมกมา กำหนดความหนืด → ความรุนแรงของการระเบิด (ซิลิกาสูง = ระเบิดรุนแรง)</text>
+</svg>
+</div>
+
+<div class="highlight">💡 ภูเขาไฟที่เกิดจาก <strong>จุดร้อน (Hot Spot)</strong> เช่น Hawaii ไม่ได้อยู่บนแนวรอยต่อแผ่นธรณี แต่เกิดจากแมกมาแทรกดันจากชั้น mantle ลึก</div>
+</div>
+
+<!-- 2.2 EARTHQUAKE -->
+<div class="topic">
+<h3>2.2 แผ่นดินไหว</h3>
+<p>เกิดจากแผ่นธรณีเคลื่อนที่ → เสียดสี/ชนกัน → หินสะสมพลังงานจนแตกหัก → ปลดปล่อยพลังงานเป็น<span class="keyword">คลื่นไหวสะเทือน (Seismic Waves)</span></p>
+
+<h4>ศูนย์เกิด vs จุดเหนือศูนย์เกิด</h4>
+<ul>
+<li><span class="keyword">ศูนย์เกิดแผ่นดินไหว (Focus/Hypocenter)</span> = ตำแหน่งใต้ผิวโลกที่หินแตกหัก ปลดปล่อยพลังงาน</li>
+<li><span class="keyword">จุดเหนือศูนย์เกิด (Epicenter)</span> = จุดบนผิวโลกที่อยู่ตรงเหนือศูนย์เกิด → ได้รับผลกระทบมากที่สุด</li>
+</ul>
+
+<h4>ขนาด (Magnitude) vs ความรุนแรง (Intensity)</h4>
+<div class="danger">⚠️ หัวข้อนี้ออกข้อสอบบ่อยมาก — ต้องแยกให้ชัดว่าวัดอะไร ด้วยเครื่องมืออะไร</div>
+
+<table class="data-table">
+<tr><th></th><th style="color:#EF9F27">ขนาด (Magnitude)</th><th style="color:#E24B4A">ความรุนแรง (Intensity)</th></tr>
+<tr><td style="color:var(--text2)">วัดอะไร</td><td>ปริมาณพลังงานที่ปลดปล่อย</td><td>ผลกระทบ/ความเสียหายที่เกิดขึ้น</td></tr>
+<tr><td style="color:var(--text2)">วัดจากอะไร</td><td>แอมพลิจูดคลื่นจากเครื่อง Seismograph</td><td>ความรู้สึกผู้คน + ความเสียหายสิ่งก่อสร้าง</td></tr>
+<tr><td style="color:var(--text2)">มาตราที่ใช้</td><td>มาตราริกเตอร์ / มาตราขนาดโมเมนต์ (Mw)</td><td>มาตราเมอร์คัลลีปรับปรุงใหม่ (MMI)</td></tr>
+<tr><td style="color:var(--text2)">ค่าคงที่?</td><td>มีค่าเดียวต่อเหตุการณ์</td><td>แตกต่างตามระยะห่างจาก Epicenter</td></tr>
+<tr><td style="color:var(--text2)">ตัวอย่าง</td><td>แผ่นดินไหวขนาด 7.0</td><td>MMI XII ใกล้ Epicenter, MMI III ไกลออกไป</td></tr>
+</table>
+
+<div class="info">📌 <strong>ทำไมมาตราเมอร์คัลลี (MMI) นิยมใช้?</strong> เพราะประเมินจากความเสียหายที่เกิดขึ้นจริง ไม่ต้องใช้เครื่องมือราคาแพง สามารถสำรวจย้อนหลังได้ และบอกได้ว่าแต่ละพื้นที่ได้รับผลกระทบมากน้อยเพียงใด ทำเป็น "แผนที่ความเสียหาย" ได้ ซึ่งมาตราริกเตอร์ทำไม่ได้ (ให้ค่าเดียว)</div>
+
+<h4>การปฏิบัติตนเมื่อเกิดแผ่นดินไหว</h4>
+<div class="compare-grid">
+<div class="compare-card">
+<h5 style="color:var(--amber)">ก่อนเกิด</h5>
+<p>• เตรียมกระเป๋าฉุกเฉิน<br>• จัดวางเฟอร์นิเจอร์ยึดกับผนัง<br>• ฝึกซ้อมแผนอพยพ<br>• รู้ตำแหน่งวาล์วน้ำ-ไฟฟ้า</p>
+</div>
+<div class="compare-card">
+<h5 style="color:var(--red)">ระหว่างเกิด</h5>
+<p>• <strong>ในอาคาร:</strong> หมอบ-คลุม-เกาะ (Drop-Cover-Hold) ใต้โต๊ะแข็ง<br>• <strong>กลางแจ้ง:</strong> ออกห่างอาคาร สายไฟ เสาไฟ<br>• <strong>ในรถ:</strong> จอดข้างทาง ไม่จอดใต้สะพาน<br>• ห้ามวิ่ง! ห้ามใช้ลิฟต์!</p>
+</div>
+<div class="compare-card">
+<h5 style="color:var(--teal)">หลังเกิด</h5>
+<p>• ระวัง aftershock (แผ่นดินไหวตาม)<br>• ตรวจสอบอาคารก่อนเข้า<br>• ปิดแก๊ส-ไฟฟ้าถ้าสงสัยรั่ว<br>• ติดตามข่าวจากหน่วยงานราชการ</p>
+</div>
+</div>
+</div>
+
+<!-- 2.3 TSUNAMI -->
+<div class="topic">
+<h3>2.3 สึนามิ (Tsunami)</h3>
+<p>เกิดจากการแทนที่มวลน้ำอย่างเฉียบพลัน สาเหตุหลักคือแผ่นดินไหวใต้ทะเลที่ทำให้พื้นมหาสมุทรเลื่อนตัวในแนวดิ่ง (บริเวณแนวมุดตัวของแผ่นธรณี)</p>
+
+<h4>ลักษณะเฉพาะของสึนามิ</h4>
+<table class="data-table">
+<tr><th>ลักษณะ</th><th>ในทะเลลึก</th><th>เข้าสู่ชายฝั่ง (น้ำตื้น)</th></tr>
+<tr><td>ความเร็ว</td><td>สูงมาก 500–800 km/h</td><td>ลดลง 30–60 km/h</td></tr>
+<tr><td>ความยาวคลื่น</td><td>100–200 km</td><td>สั้นลง</td></tr>
+<tr><td>ความสูงคลื่น</td><td>น้อยมาก 30–60 cm</td><td>สูงขึ้นมาก 10–30+ m</td></tr>
+</table>
+
+<div class="danger">⚠️ <strong>สัญญาณเตือนธรรมชาติ:</strong> น้ำทะเลลดระดับลงอย่างรวดเร็วผิดปกติ → รีบอพยพขึ้นที่สูง! ระบบเตือนภัย DART (Deep Ocean Assessment and Reporting of Tsunami) ตรวจวัดแรงดันน้ำใต้มหาสมุทร</div>
+</div>
+
+</div><!-- end Part 2 -->
+</div><!-- end tab summary -->
+
+<!-- ==================== TAB 2: QUIZ 44 ==================== -->
+<div id="tab-quiz" class="tab-content">
+<div class="quiz-header">
+<div><strong style="font-size:16px">✏️ แบบทดสอบปรนัย 44 ข้อ</strong><br><span style="font-size:12px;color:var(--text3)">กดเลือกคำตอบ → เฉลยทันที</span></div>
+<div class="score-display" id="scoreDisplay">0 / 44</div>
+</div>
+<div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+
+<div id="quizContainer"></div>
+
+<div style="text-align:center;margin:24px 0">
+<button class="toggle-btn" onclick="resetQuiz()" style="border-color:var(--red);color:var(--red)">🔄 ทำใหม่ทั้งหมด</button>
+</div>
+</div>
+
+<!-- ==================== TAB 3: ESSAY 7 ==================== -->
+<div id="tab-essay" class="tab-content">
+<div class="section-title"><div class="icon icon-purple">📝</div> ข้อเขียน 7 ข้อ</div>
+
+<div class="essay-card">
+<h4 style="color:var(--red)">ข้อ 1: แผ่นดินไหว "ขนาด" กับ "ความรุนแรง" วัดต่างกันอย่างไร?</h4>
+<p style="font-size:13px;color:var(--text2)">อธิบายว่าขนาด (Magnitude) และความรุนแรง (Intensity) ของแผ่นดินไหวแตกต่างกันอย่างไร ใช้เครื่องมือหรือวิธีการใดในการวัด</p>
+<button class="toggle-btn" onclick="toggleAnswer(this)">ดูแนวคำตอบ</button>
+<div class="answer-guide">
+<h5>แนวคำตอบ</h5>
+<p><strong>ขนาด (Magnitude)</strong> คือค่าที่บ่งบอกปริมาณพลังงานที่ถูกปลดปล่อยจากศูนย์เกิดแผ่นดินไหว คำนวณจากค่าแอมพลิจูดของคลื่นไหวสะเทือนที่ตรวจวัดด้วยเครื่อง Seismograph แผ่นดินไหวแต่ละครั้งมีค่าขนาดเพียงค่าเดียว รายงานด้วยมาตราริกเตอร์หรือมาตราขนาดโมเมนต์ (Mw)</p>
+<p><strong>ความรุนแรง (Intensity)</strong> คือการประเมินผลกระทบจากแผ่นดินไหว ได้แก่ ความรู้สึกของผู้คน ความเสียหายของสิ่งก่อสร้าง และการเปลี่ยนแปลงของภูมิประเทศ ใช้มาตราเมอร์คัลลีปรับปรุงใหม่ (MMI) มีค่าแตกต่างกันตามระยะห่างจากจุดเหนือศูนย์เกิดแผ่นดินไหว</p>
+<h5>Keyword ที่ต้องมี</h5>
+<ul><li>พลังงาน / แอมพลิจูด / Seismograph / ริกเตอร์ / Mw</li><li>ผลกระทบ / ความเสียหาย / เมอร์คัลลี (MMI)</li><li>ค่าเดียว vs แตกต่างตามระยะทาง</li></ul>
+</div>
+</div>
+
+<div class="essay-card">
+<h4 style="color:var(--red)">ข้อ 2: มาตราวัดความรุนแรงที่นิยมใช้คืออะไร ทำไมจึงนิยมใช้?</h4>
+<p style="font-size:13px;color:var(--text2)">ระบุชื่อมาตราและอธิบายเหตุผลที่มาตรานี้ได้รับความนิยม</p>
+<button class="toggle-btn" onclick="toggleAnswer(this)">ดูแนวคำตอบ</button>
+<div class="answer-guide">
+<h5>แนวคำตอบ</h5>
+<p>มาตราที่นิยมใช้วัดความรุนแรงคือ <strong>มาตราเมอร์คัลลีปรับปรุงใหม่ (Modified Mercalli Intensity - MMI)</strong> แบ่ง 12 ระดับ (I–XII)</p>
+<p>เหตุผลที่นิยมใช้: (1) ประเมินจากความเสียหายจริงที่เกิดขึ้น ไม่จำเป็นต้องใช้เครื่องมือราคาแพง (2) สามารถสำรวจได้ภายหลังจากเหตุการณ์ (3) สร้างแผนที่แสดงระดับความเสียหายในแต่ละพื้นที่ได้ (ShakeMap) ซึ่งมีประโยชน์ต่อการบรรเทาสาธารณภัย (4) ใช้ได้กับแผ่นดินไหวในอดีตที่ไม่มีเครื่องมือบันทึก</p>
+</div>
+</div>
+
+<div class="essay-card">
+<h4 style="color:var(--red)">ข้อ 3: อธิบายวิธีเอาตัวรอดจากแผ่นดินไหว (ก่อน ระหว่าง หลัง)</h4>
+<button class="toggle-btn" onclick="toggleAnswer(this)">ดูแนวคำตอบ</button>
+<div class="answer-guide">
+<h5>แนวคำตอบ</h5>
+<p><strong>ก่อนเกิด:</strong> เตรียมกระเป๋าฉุกเฉิน ยึดเฟอร์นิเจอร์หนัก ฝึกซ้อมแผนอพยพ รู้ตำแหน่งวาล์วน้ำ-ไฟ-แก๊ส</p>
+<p><strong>ระหว่างเกิด:</strong> ในอาคาร → หมอบ-คลุม-เกาะ (Drop-Cover-Hold On) ใต้โต๊ะแข็งแรง ห้ามใช้ลิฟต์ กลางแจ้ง → ออกห่างอาคาร สายไฟ ในรถ → จอดข้างทาง</p>
+<p><strong>หลังเกิด:</strong> ระวัง aftershock ตรวจสอบความเสียหายอาคาร ปิดแก๊ส-ไฟฟ้า ติดตามข่าวจากกรมอุตุฯ หากอยู่ชายฝั่ง + รู้สึกแผ่นดินไหวหรือน้ำทะเลลดผิดปกติ → อพยพขึ้นที่สูงทันที (อาจเกิดสึนามิ)</p>
+</div>
+</div>
+
+<div class="essay-card">
+<h4 style="color:var(--blue)">ข้อ 4: อธิบายการหมุนเวียนอากาศ 3 Cells</h4>
+<p style="font-size:13px;color:var(--text2)">ระบุชื่อ ตำแหน่งละติจูด และทิศทางลมผิวพื้นของแต่ละ Cell</p>
+<button class="toggle-btn" onclick="toggleAnswer(this)">ดูแนวคำตอบ</button>
+<div class="answer-guide">
+<h5>แนวคำตอบ</h5>
+<p>การหมุนเวียนอากาศในแต่ละซีกโลกแบ่งเป็น 3 วงจร (Cell) เนื่องจากความแตกต่างของอุณหภูมิระหว่างเส้นศูนย์สูตรกับขั้วโลก ร่วมกับ Coriolis Effect จากการหมุนรอบตัวเองของโลก:</p>
+<ul>
+<li><strong>Hadley Cell (0°–30°):</strong> อากาศร้อนที่เส้นศูนย์สูตรลอยสูงขึ้น → ไหลไปทางขั้วโลก → จมลงที่ 30° → ไหลกลับที่ผิวพื้นเป็น "ลมค้า" (NE Trade Winds ซีกเหนือ, SE Trade Winds ซีกใต้)</li>
+<li><strong>Ferrel Cell (30°–60°):</strong> อากาศที่จมลงที่ 30° บางส่วนไหลไปทาง 60° → ถูก Coriolis เบน → เกิด "ลมตะวันตก" (Westerlies) อากาศแปรปรวน</li>
+<li><strong>Polar Cell (60°–90°):</strong> อากาศเย็นจากขั้วโลกจมลง → ไหลไปทาง 60° → เกิด "ลมขั้วโลก" (Polar Easterlies) เย็นและแห้ง</li>
+</ul>
+</div>
+</div>
+
+<div class="essay-card">
+<h4 style="color:var(--blue)">ข้อ 5: อธิบายลมมรสุมที่มีอิทธิพลต่อประเทศไทย</h4>
+<button class="toggle-btn" onclick="toggleAnswer(this)">ดูแนวคำตอบ</button>
+<div class="answer-guide">
+<h5>แนวคำตอบ</h5>
+<p>ประเทศไทยได้รับอิทธิพลจากลมมรสุม 2 ฤดู ซึ่งเป็น "ลมบก-ลมทะเลขนาดทวีป":</p>
+<ul>
+<li><strong>มรสุมตะวันตกเฉียงใต้ (พ.ค.–ต.ค.):</strong> แผ่นดินเอเชียร้อน (ความกดอากาศต่ำ) → ดูดลมจากมหาสมุทรอินเดีย → พาความชื้นมาก → ทำให้เกิดฤดูฝนในไทย</li>
+<li><strong>มรสุมตะวันออกเฉียงเหนือ (พ.ย.–ก.พ.):</strong> แผ่นดินเอเชียเย็น (ความกดอากาศสูง) → ลมหนาวจากไซบีเรีย/จีนพัดลงมา → แห้งและเย็น → ทำให้เกิดฤดูหนาวในไทย (ฝนตกชายฝั่งตะวันออกเพราะรับความชื้นจากอ่าวไทย)</li>
+</ul>
+<h5>Keyword</h5>
+<ul><li>ความกดอากาศ สูง/ต่ำ, ทิศ, ความชื้น, ฤดูกาล</li></ul>
+</div>
+</div>
+
+<div class="essay-card">
+<h4 style="color:var(--amber)">ข้อ 6: ถ้าโลกหยุดหมุน ไม่เอียง จะเกิดอะไรขึ้นกับระบบอากาศ?</h4>
+<button class="toggle-btn" onclick="toggleAnswer(this)">ดูแนวคำตอบ</button>
+<div class="answer-guide">
+<h5>แนวคำตอบ</h5>
+<p><strong>ถ้าหยุดหมุน:</strong> (1) ไม่มี Coriolis Effect → ลมพัดตรงจากความกดอากาศสูงไปต่ำ ไม่มีการเบน → ไม่เกิด 3 Cells (2) กลางวัน-กลางคืนยาวนานมาก (~6 เดือน) → ด้านรับแสงร้อนจัด ด้านมืดเย็นจัด (3) ความแตกต่างอุณหภูมิรุนแรง → ลมแรงจัดจากด้านเย็นไปด้านร้อน (4) สนามแม่เหล็กโลกหายไป → รังสีคอสมิกทำลายสิ่งมีชีวิต</p>
+<p><strong>ถ้าไม่เอียง:</strong> (1) ไม่มีฤดูกาล → อุณหภูมิคงที่ตลอดปีในแต่ละละติจูด (2) ไม่มีลมมรสุม → เพราะไม่มีการเปลี่ยนแปลงตามฤดู (3) เส้นศูนย์สูตรร้อนจัดถาวร ขั้วโลกเย็นตลอด (4) ป่าฝนและระบบนิเวศเปลี่ยนแปลงรุนแรง</p>
+</div>
+</div>
+
+<div class="essay-card">
+<h4 style="color:var(--amber)">ข้อ 7: ถ้าแสงอาทิตย์ไม่ตกกระทบพื้นผิวโลกในแนวตั้งฉากเลย จะเกิดอะไรขึ้น?</h4>
+<button class="toggle-btn" onclick="toggleAnswer(this)">ดูแนวคำตอบ</button>
+<div class="answer-guide">
+<h5>แนวคำตอบ</h5>
+<p>(1) พลังงานจากดวงอาทิตย์กระจายบนพื้นที่กว้าง → ทุกบริเวณได้รับพลังงานน้อยลง → อุณหภูมิเฉลี่ยของโลกลดลง</p>
+<p>(2) ไม่มีเขตร้อน (Tropics) เพราะไม่มีจุดที่รับแสงตรง → ไม่มี ITCZ (เขตบรรจบลมค้า) → ฝนลดลงทั่วโลก</p>
+<p>(3) การหมุนเวียนอากาศ 3 Cells อ่อนลงมาก เพราะ gradient อุณหภูมิระหว่างเส้นศูนย์สูตรกับขั้วโลกลดลง → ลมอ่อน พายุน้อยลง</p>
+<p>(4) มหาสมุทรเริ่มแข็งตัวจากขั้วโลกลงมา → เข้าสู่สภาวะคล้ายยุคน้ำแข็ง สิ่งมีชีวิตต้องปรับตัวหรือสูญพันธุ์</p>
+</div>
+</div>
+
+</div><!-- end tab essay -->
+
+</div><!-- end container -->
+
+<div style="text-align:center;padding:40px 20px;color:var(--text3);font-size:12px">
+  JARVIS Study System — Disaster Science Guide | Built for Tony 🔥
+</div>
+
+<script>
+// === QUIZ DATA ===
+const quizData = [
+// --- Group 1: 3 Cells + ลมประจำถิ่น (8) ---
+{g:"3 Cells + ลมประจำถิ่น",q:"Hadley Cell อยู่ในช่วงละติจูดใด?",o:["0°–30°","30°–60°","60°–90°","0°–60°"],a:0,e:"Hadley Cell อยู่ระหว่างเส้นศูนย์สูตร (0°) ถึงละติจูด 30° ทั้งเหนือและใต้"},
+{q:"ลมค้า (Trade Winds) ในซีกโลกเหนือพัดจากทิศใดไปทิศใด?",o:["ตะวันออกเฉียงเหนือ → ตะวันตกเฉียงใต้","ตะวันตก → ตะวันออก","เหนือ → ใต้","ตะวันตกเฉียงใต้ → ตะวันออกเฉียงเหนือ"],a:0,e:"ลมค้าในซีกเหนือพัดจาก NE→SW เพราะถูก Coriolis เบนไปทางขวา"},
+{q:"บริเวณ ITCZ (Intertropical Convergence Zone) มีลักษณะอากาศอย่างไร?",o:["แห้งแล้ง ท้องฟ้าใส","ฝนตกชุก เมฆมาก","หนาวจัด ลมแรง","อุณหภูมิต่ำ แห้ง"],a:1,e:"ITCZ คือบริเวณที่ลมค้าจากทั้งสองซีกมาบรรจบกัน อากาศร้อนลอยตัวขึ้น → เมฆก่อตัว → ฝนชุก"},
+{q:"Westerlies (ลมตะวันตก) เกิดใน Cell ใด?",o:["Hadley Cell","Ferrel Cell","Polar Cell","Walker Cell"],a:1,e:"Westerlies พัดในช่วง Ferrel Cell (30°–60°) จากทิศตะวันตกไปตะวันออก"},
+{q:"บริเวณละติจูด 30° เหนือ/ใต้ (Horse Latitudes) มักมีภูมิอากาศแบบใด?",o:["ฝนชุก ป่าดงดิบ","แห้งแล้ง ทะเลทราย","หนาวจัด หิมะตก","อบอุ่น ฝนปานกลาง"],a:1,e:"ที่ 30° อากาศจากชั้นบน (Hadley) จมลง → ความชื้นต่ำ → แห้งแล้ง ทะเลทรายใหญ่ของโลกอยู่บริเวณนี้"},
+{q:"Coriolis Effect ทำให้ลมในซีกโลกเหนือเบนไปทางใด?",o:["ซ้ายของทิศทางการเคลื่อนที่","ขวาของทิศทางการเคลื่อนที่","ตรงไปข้างหน้า","ย้อนกลับ"],a:1,e:"Coriolis Effect เบนลมไปทางขวาในซีกเหนือ ทางซ้ายในซีกใต้"},
+{q:"ข้อใดเป็นสาเหตุหลักที่ทำให้เกิดการหมุนเวียนอากาศบนโลก?",o:["แรงโน้มถ่วงของดวงจันทร์","ความแตกต่างของอุณหภูมิระหว่างเส้นศูนย์สูตรกับขั้วโลก","การปะทุของภูเขาไฟ","กระแสน้ำในมหาสมุทร"],a:1,e:"ความแตกต่างของอุณหภูมิ (เส้นศูนย์สูตรร้อน ขั้วโลกเย็น) ทำให้อากาศร้อนลอยขึ้นที่ศูนย์สูตร สร้าง convection cell"},
+{q:"Polar Easterlies พัดในช่วงละติจูดใด?",o:["0°–30°","30°–60°","60°–90°","0°–90°"],a:2,e:"Polar Easterlies พัดในช่วง Polar Cell (60°–90°) เป็นลมเย็นแห้งจากขั้วโลก"},
+
+// --- Group 2: ลมบก-ลมทะเล + มรสุม (6) ---
+{g:"ลมบก-ลมทะเล + มรสุม",q:"ในเวลากลางวัน ลมบกหรือลมทะเลที่พัดเข้าสู่ฝั่ง?",o:["ลมบก","ลมทะเล","ลมค้า","ลมตะวันตก"],a:1,e:"กลางวันพื้นดินร้อนเร็ว → อากาศเหนือดินลอยขึ้น → ลมจากทะเลพัดเข้าฝั่ง = ลมทะเล"},
+{q:"ลมบกพัดในช่วงเวลาใด?",o:["กลางวัน","กลางคืน","เช้ามืด–เที่ยง","เที่ยง–เย็น"],a:1,e:"กลางคืนพื้นดินเย็นเร็ว ทะเลยังอุ่น → อากาศเหนือทะเลลอยขึ้น → ลมจากบกพัดออกทะเล = ลมบก"},
+{q:"สาเหตุหลักของลมบก-ลมทะเลคืออะไร?",o:["Coriolis Effect","ความแตกต่างของความจุความร้อนจำเพาะระหว่างดินกับน้ำ","แรงโน้มถ่วง","การหมุนรอบตัวเองของโลก"],a:1,e:"น้ำมี specific heat capacity สูงกว่าดิน → ดินร้อนเร็ว/เย็นเร็ว น้ำร้อนช้า/เย็นช้า → สร้างความแตกต่างของอุณหภูมิ"},
+{q:"มรสุมตะวันตกเฉียงใต้พัดเข้าสู่ประเทศไทยในช่วงเดือนใด?",o:["พ.ย.–ก.พ.","มี.ค.–เม.ย.","พ.ค.–ต.ค.","ธ.ค.–มี.ค."],a:2,e:"มรสุมตะวันตกเฉียงใต้พัดช่วง พ.ค.–ต.ค. นำความชื้นจากมหาสมุทรอินเดีย → ฤดูฝน"},
+{q:"ลมมรสุมตะวันออกเฉียงเหนือนำอากาศแบบใดมาสู่ไทย?",o:["ร้อนชื้น ฝนตกหนัก","เย็นแห้ง","อบอุ่นชื้น","ร้อนแห้ง"],a:1,e:"ลมจากไซบีเรีย/จีน → เย็นและแห้ง → ฤดูหนาวของไทย"},
+{q:"ลมมรสุมเปรียบได้กับปรากฏการณ์ใดในระดับใหญ่?",o:["พายุหมุนเขตร้อน","ลมบก-ลมทะเลขนาดทวีป","ทอร์นาโด","เอลนีโญ"],a:1,e:"มรสุม = ลมบก-ลมทะเลในระดับทวีป เปลี่ยนทิศตามฤดูกาล"},
+
+// --- Group 3: El Niño / La Niña (6) ---
+{g:"El Niño / La Niña",q:"ปรากฏการณ์ El Niño ลมค้ามีการเปลี่ยนแปลงอย่างไร?",o:["แรงขึ้น","อ่อนลงหรือกลับทิศ","ไม่เปลี่ยนแปลง","เปลี่ยนทิศเป็นเหนือ-ใต้"],a:1,e:"El Niño → ลมค้าอ่อนลงหรือกลับทิศ → น้ำอุ่นแผ่ไปทางตะวันออก (อเมริกาใต้)"},
+{q:"ในสภาวะ La Niña ปรากฏการณ์ Upwelling บริเวณชายฝั่งอเมริกาใต้เป็นอย่างไร?",o:["หยุดลง","อ่อนลง","แรงมากขึ้น","เท่าเดิม"],a:2,e:"La Niña → ลมค้าแรงขึ้น → ดันน้ำผิวหน้าไปทางตะวันตกมากขึ้น → น้ำเย็นจากใต้ทะเลผุดขึ้นแรง (Upwelling แรง)"},
+{q:"El Niño ส่งผลต่อประเทศไทยอย่างไร?",o:["ฝนตกมากกว่าปกติ","แล้งกว่าปกติ ฝนน้อย","ไม่มีผล","เกิดหิมะตก"],a:1,e:"El Niño → น้ำอุ่นเลื่อนไปตะวันออก → เอเชียตะวันออกเฉียงใต้ได้รับความชื้นน้อยลง → แล้ง"},
+{q:"ENSO ย่อมาจากอะไร?",o:["El Niño Southern Oscillation","El Niño Sea Observation","Eastern Northern Storm Oscillation","Equatorial Natural Season Oscillation"],a:0,e:"ENSO = El Niño–Southern Oscillation คือปรากฏการณ์การแกว่งตัวของอุณหภูมิผิวน้ำทะเลแปซิฟิก"},
+{q:"Walker Circulation คืออะไร?",o:["กระแสน้ำอุ่นในมหาสมุทร","การหมุนเวียนอากาศในแนวตะวันออก-ตะวันตกเหนือมหาสมุทรแปซิฟิก","การหมุนเวียนอากาศแนวเหนือ-ใต้","กระแสลมบนชั้นบรรยากาศสูง"],a:1,e:"Walker Circulation = วงจรการหมุนเวียนอากาศแนว E-W เหนือแปซิฟิก (อากาศลอยขึ้นฝั่งตะวันตก จมลงฝั่งตะวันออก)"},
+{q:"ข้อใดเป็นลักษณะของ La Niña?",o:["น้ำทะเลฝั่งตะวันออกอุ่นผิดปกติ","ลมค้าอ่อนลง","น้ำทะเลฝั่งตะวันออกเย็นผิดปกติ ลมค้าแรงขึ้น","ไม่มี Upwelling"],a:2,e:"La Niña = ลมค้าแรงขึ้น → น้ำเย็นฝั่ง E เย็นกว่าปกติ + Upwelling แรง"},
+
+// --- Group 4: พายุ (6) ---
+{g:"พายุหมุน + ลมฟ้าอากาศ",q:"พายุหมุนเขตร้อนต้องการอุณหภูมิผิวน้ำทะเลอย่างน้อยเท่าใด?",o:["20°C","26.5°C","30°C","15°C"],a:1,e:"ต้องมีอุณหภูมิผิวน้ำ ≥ 26.5°C เพื่อให้น้ำระเหยและปลดปล่อยความร้อนแฝงเพียงพอ"},
+{q:"พายุหมุนเขตร้อนในซีกโลกเหนือหมุนในทิศทางใด?",o:["ตามเข็มนาฬิกา","ทวนเข็มนาฬิกา","ไม่หมุน","สลับไปมา"],a:1,e:"ซีกเหนือ Coriolis เบนลมไปทางขวา → พายุหมุนทวนเข็มนาฬิกา (ซีกใต้ตามเข็ม)"},
+{q:"ข้อใดเป็นชื่อเรียกพายุหมุนเขตร้อนในมหาสมุทรแปซิฟิกตะวันตก?",o:["Hurricane","Cyclone","Typhoon","Tornado"],a:2,e:"แปซิฟิกตะวันตก = Typhoon (ไต้ฝุ่น), แอตแลนติก = Hurricane, อินเดีย = Cyclone"},
+{q:"พายุดีเปรสชันมีความเร็วลมเท่าใด?",o:["น้อยกว่า 63 km/h","63–117 km/h","118–220 km/h","มากกว่า 220 km/h"],a:0,e:"ดีเปรสชัน < 63, พายุโซนร้อน 63–117, ไต้ฝุ่น 118–220, ซูเปอร์ไต้ฝุ่น > 220 km/h"},
+{q:"เมฆชนิดใดเกี่ยวข้องกับพายุฝนฟ้าคะนอง?",o:["Cirrus","Stratus","Cumulonimbus","Altocumulus"],a:2,e:"Cumulonimbus (Cb) = เมฆก่อตัวในแนวดิ่งสูง เกิดจาก Convection → ฝนหนัก ฟ้าแลบ"},
+{q:"ทอร์นาโดแตกต่างจากพายุหมุนเขตร้อนอย่างไร?",o:["ขนาดเล็กกว่ามาก เกิดบนบก","ขนาดใหญ่กว่า เกิดในทะเล","ไม่มีลมหมุน","มีฝนตกมากกว่า"],a:0,e:"ทอร์นาโด = ลมหมุนขนาดเล็ก (เส้นผ่านศูนย์กลาง 100–600 m) เกิดจากเมฆ Cb ลงถึงพื้นดิน"},
+
+// --- Group 5: โลกกลม เอียง หมุน (6) ---
+{g:"โลกกลม เอียง หมุน",q:"เพราะเหตุใดบริเวณเส้นศูนย์สูตรจึงมีอุณหภูมิสูงกว่าขั้วโลก?",o:["อยู่ใกล้ดวงอาทิตย์กว่า","แสงอาทิตย์ตกกระทบในมุมตั้งฉากมากกว่า","มีชั้นบรรยากาศหนากว่า","มีมหาสมุทรมากกว่า"],a:1,e:"โลกเป็นทรงกลม → แสงตกเกือบตั้งฉากที่ศูนย์สูตร (พลังงานกระจุกในพื้นที่เล็ก) → ร้อน"},
+{q:"แกนโลกเอียงทำมุมเท่าใดกับแนวตั้งฉากของระนาบวงโคจร?",o:["0°","23.5°","45°","66.5°"],a:1,e:"แกนโลกเอียง 23.5° ซึ่งเป็นสาเหตุหลักของการเกิดฤดูกาล"},
+{q:"ในวัน Summer Solstice (21 มิ.ย.) เกิดอะไรขึ้น?",o:["ซีกโลกเหนือเอียงเข้าหาดวงอาทิตย์","ซีกโลกใต้เอียงเข้าหาดวงอาทิตย์","ทั้งสองซีกได้รับแสงเท่ากัน","เกิดจันทรุปราคา"],a:0,e:"Summer Solstice = ซีกเหนือเอียงเข้าหาดวงอาทิตย์มากที่สุด → กลางวันยาวที่สุด → ฤดูร้อนซีกเหนือ"},
+{q:"ถ้าโลกหยุดหมุนรอบตัวเอง จะไม่เกิดปรากฏการณ์ใด?",o:["น้ำขึ้น-น้ำลง","Coriolis Effect","ฤดูกาล","สุริยุปราคา"],a:1,e:"Coriolis Effect เกิดจากการหมุนรอบตัวเองของโลก → หยุดหมุน = ไม่มี Coriolis"},
+{q:"ถ้าแกนโลกไม่เอียง สิ่งใดจะไม่เกิด?",o:["กลางวัน-กลางคืน","น้ำขึ้น-น้ำลง","ฤดูกาล","Coriolis Effect"],a:2,e:"ฤดูกาลเกิดจากแกนโลกเอียง → ไม่เอียง = ไม่มีฤดูกาล (อุณหภูมิคงที่ตลอดปี)"},
+{q:"Coriolis Effect มีค่าเป็นศูนย์ที่บริเวณใด?",o:["ขั้วโลก","เส้นศูนย์สูตร","ละติจูด 30°","ละติจูด 60°"],a:1,e:"ที่เส้นศูนย์สูตร ความเร็วเชิงเส้นสูงสุดแต่ Coriolis parameter (f = 2Ωsinφ) = 0 เพราะ sin0° = 0"},
+
+// --- Group 6: แผ่นดินไหว (6) ---
+{g:"แผ่นดินไหว",q:"ขนาดของแผ่นดินไหววัดจากอะไร?",o:["ความรู้สึกของผู้คน","ค่าแอมพลิจูดจากเครื่อง Seismograph","ความเสียหายของอาคาร","ความถี่ของ aftershock"],a:1,e:"ขนาด (Magnitude) คำนวณจากค่าแอมพลิจูดของคลื่นไหวสะเทือนที่เครื่อง Seismograph ตรวจวัดได้"},
+{q:"มาตราเมอร์คัลลีวัดสิ่งใด?",o:["ขนาดของแผ่นดินไหว","ความรุนแรง/ผลกระทบจากแผ่นดินไหว","ความเร็วคลื่นไหวสะเทือน","ความลึกของศูนย์เกิด"],a:1,e:"มาตราเมอร์คัลลี (MMI) วัดความรุนแรง/intensity จากผลกระทบจริง (ความรู้สึก ความเสียหาย)"},
+{q:"จุดเหนือศูนย์เกิดแผ่นดินไหว (Epicenter) คืออะไร?",o:["ตำแหน่งใต้ผิวโลกที่หินแตก","จุดบนผิวโลกที่อยู่ตรงเหนือศูนย์เกิด","สถานีตรวจวัดคลื่นไหว","บริเวณที่มีแรงสั่นน้อยที่สุด"],a:1,e:"Epicenter = จุดบนผิวโลกที่อยู่ตรงเหนือ Focus/Hypocenter → ได้รับผลกระทบมากที่สุด"},
+{q:"ข้อใดถูกต้องเกี่ยวกับขนาดแผ่นดินไหว?",o:["มีค่าเดียวต่อเหตุการณ์","แตกต่างตามระยะทาง","วัดจากความรู้สึกของคน","ใช้มาตราเมอร์คัลลี"],a:0,e:"ขนาด (Magnitude) มีค่าเดียวต่อเหตุการณ์ ส่วนความรุนแรง (Intensity) แตกต่างตามระยะห่าง"},
+{q:"ข้อใดควรทำเมื่อเกิดแผ่นดินไหวขณะอยู่ในอาคาร?",o:["วิ่งออกนอกอาคาร","ใช้ลิฟต์ลงชั้นล่าง","หมอบใต้โต๊ะแข็ง จับขาโต๊ะ","กระโดดออกหน้าต่าง"],a:2,e:"Drop-Cover-Hold On: หมอบลงใต้โต๊ะแข็ง ใช้แขนกันศีรษะ จับขาโต๊ะไว้ รอจนหยุดสั่น"},
+{q:"แผ่นดินไหวในไทยมักเกิดจากสาเหตุใด?",o:["ภูเขาไฟระเบิด","การเคลื่อนตัวของรอยเลื่อนมีพลังภายในประเทศ","การชนของอุกกาบาต","น้ำขึ้น-น้ำลง"],a:1,e:"ไทยไม่อยู่บนแนวรอยต่อแผ่นธรณี แต่มีรอยเลื่อนมีพลังหลายแนว เช่น รอยเลื่อนแม่จัน แม่อิง"},
+
+// --- Group 7: สึนามิ + ภูเขาไฟ (6) ---
+{g:"สึนามิ + ภูเขาไฟ",q:"สึนามิเมื่ออยู่ในทะเลลึกมีลักษณะอย่างไร?",o:["คลื่นสูงมาก ยาวน้อย","คลื่นต่ำมาก ยาวมาก เร็วมาก","คลื่นสูง ช้า","คลื่นไม่เกิด"],a:1,e:"ในทะเลลึกสึนามิมีความสูง 30–60 cm แต่ยาว 100–200 km และเร็ว 500–800 km/h จนสังเกตไม่ได้"},
+{q:"ข้อใดเป็นสัญญาณเตือนสึนามิตามธรรมชาติ?",o:["ท้องฟ้าเปลี่ยนสี","น้ำทะเลลดลงอย่างรวดเร็วผิดปกติ","นกบินสูงขึ้น","ลมหยุดพัด"],a:1,e:"น้ำทะเลลดลงอย่างรวดเร็ว = น้ำถูกดูดกลับก่อนคลื่นสึนามิเข้าถล่ม → ต้องรีบอพยพขึ้นที่สูง"},
+{q:"ภูเขาไฟชนิดใดมีการระเบิดรุนแรงที่สุด?",o:["ภูเขาไฟรูปโล่ (Shield)","ภูเขาไฟรูปกรวย (Cinder Cone)","ภูเขาไฟสลับชั้น (Stratovolcano)","ภูเขาไฟเกราะ"],a:2,e:"Stratovolcano มีแมกมาซิลิกาสูง → หนืดมาก → ก๊าซสะสม → ระเบิดรุนแรง เช่น Mt. St. Helens"},
+{q:"ภูเขาไฟบนหมู่เกาะฮาวายเกิดจากอะไร?",o:["แนวมุดตัวของแผ่นธรณี","จุดร้อน (Hot Spot)","สันเขากลางมหาสมุทร","รอยเลื่อนมีพลัง"],a:1,e:"ฮาวายเกิดจาก Hot Spot — แมกมาแทรกขึ้นมาจากชั้น Mantle ลึก ไม่ได้อยู่บนแนวรอยต่อแผ่นธรณี"},
+{q:"สึนามิส่วนใหญ่เกิดบริเวณใด?",o:["มหาสมุทรอินเดีย","มหาสมุทรแอตแลนติก","รอบมหาสมุทรแปซิฟิก (Ring of Fire)","ทะเลเมดิเตอร์เรเนียน"],a:2,e:"Ring of Fire รอบแปซิฟิก มีแนวมุดตัวแผ่นธรณียาว → แผ่นดินไหวบ่อย → สึนามิมากที่สุด"},
+{q:"ปริมาณซิลิกาในแมกมามีผลต่อสิ่งใด?",o:["สีของลาวา","ความหนืดของแมกมาและความรุนแรงของการระเบิด","ขนาดของภูเขาไฟเท่านั้น","อุณหภูมิของแมกมาเท่านั้น"],a:1,e:"ซิลิกาสูง → แมกมาหนืด → ก๊าซไม่ระบาย → ระเบิดรุนแรง | ซิลิกาต่ำ → เหลว → ไหลเงียบ"}
+];
+
+// === RENDER QUIZ ===
+let score=0, answered=0;
+function renderQuiz(){
+  const c=document.getElementById('quizContainer');
+  let html='', lastG='';
+  quizData.forEach((q,i)=>{
+    if(q.g && q.g!==lastG){html+=`<div class="q-group-title">${q.g}</div>`;lastG=q.g;}
+    html+=`<div class="q-card" id="qc${i}"><div class="q-num">ข้อ ${i+1}/44</div><div class="q-text">${q.q}</div><div class="q-options">`;
+    q.o.forEach((opt,j)=>{
+      html+=`<button class="q-opt" id="qo${i}_${j}" onclick="pickAnswer(${i},${j})">${String.fromCharCode(65+j)}) ${opt}</button>`;
+    });
+    html+=`</div><div class="q-explain" id="qe${i}">${q.e}</div></div>`;
+  });
+  c.innerHTML=html;
+}
+function pickAnswer(qi,oi){
+  const q=quizData[qi];
+  const card=document.getElementById('qc'+qi);
+  const explain=document.getElementById('qe'+qi);
+  // disable all
+  q.o.forEach((_,j)=>{
+    const btn=document.getElementById('qo'+qi+'_'+j);
+    btn.classList.add('picked');
+    if(j===q.a) btn.classList.add('show-correct','right');
+    else if(j===oi) btn.classList.add('wr');
+  });
+  if(oi===q.a){
+    card.classList.add('correct');
+    explain.className='q-explain show right-bg';
+    explain.innerHTML='✅ ถูกต้อง! '+q.e;
+    score++;
+  } else {
+    card.classList.add('wrong');
+    explain.className='q-explain show wrong-bg';
+    explain.innerHTML='❌ ผิด — คำตอบที่ถูกคือ '+String.fromCharCode(65+q.a)+') '+q.e;
+  }
+  answered++;
+  document.getElementById('scoreDisplay').textContent=score+' / 44';
+  document.getElementById('progressFill').style.width=(answered/44*100)+'%';
+}
+function resetQuiz(){
+  score=0;answered=0;
+  document.getElementById('scoreDisplay').textContent='0 / 44';
+  document.getElementById('progressFill').style.width='0%';
+  renderQuiz();
+}
+renderQuiz();
+
+// === TAB SWITCH ===
+function switchTab(t){
+  document.querySelectorAll('.tab-content').forEach(e=>e.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(e=>e.classList.remove('active'));
+  document.getElementById('tab-'+t).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// === ESSAY TOGGLE ===
+function toggleAnswer(btn){
+  const guide=btn.nextElementSibling;
+  guide.classList.toggle('show');
+  btn.textContent=guide.classList.contains('show')?'ซ่อนแนวคำตอบ':'ดูแนวคำตอบ';
+}
+</script>
+</body>
+</html>
