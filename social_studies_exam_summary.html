@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สรุปสังคมศึกษา | เศรษฐศาสตร์ & พระพุทธศาสนา</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Economics — money palette */
+    --eco-bg: #F4F3EC;
+    --eco-deep: #0B3D2E;
+    --eco-deep2: #0F5240;
+    --eco-gold: #C9A227;
+    --eco-gold-light: #E8D18A;
+    --eco-ink: #17241C;
+    --eco-card: #FFFFFF;
+    --eco-line: #D8D4C2;
+
+    /* Buddhism — dharma palette */
+    --dh-bg: #FBF3E4;
+    --dh-maroon: #6B1F1F;
+    --dh-maroon2: #8A2E2E;
+    --dh-gold: #C99A2E;
+    --dh-gold-light: #E7C878;
+    --dh-ink: #3A2113;
+    --dh-card: #FFFCF5;
+    --dh-line: #E3CFA0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Kanit', 'Noto Serif Thai', sans-serif;
+    background: #E9E6DB;
+    color:#1c1c1a;
+    line-height:1.7;
+  }
+
+  /* ---------- TOP NAV ---------- */
+  .topnav{
+    position:sticky; top:0; z-index:50;
+    display:flex; gap:10px; justify-content:center;
+    padding:14px 16px;
+    background:#1a1a18;
+    border-bottom:2px solid var(--eco-gold);
+  }
+  .topnav a{
+    text-decoration:none;
+    font-weight:600; font-size:14px;
+    padding:9px 20px; border-radius:999px;
+    letter-spacing:.3px;
+    transition: transform .15s ease;
+  }
+  .topnav a:hover{ transform: translateY(-2px); }
+  .nav-eco{ background: linear-gradient(180deg, var(--eco-gold-light), var(--eco-gold)); color:var(--eco-deep); }
+  .nav-dh{ background: linear-gradient(180deg, var(--dh-gold-light), var(--dh-gold)); color:var(--dh-maroon); }
+
+  /* ---------- HERO ---------- */
+  .masthead{
+    text-align:center; padding:52px 20px 40px;
+    background:#1a1a18; color:#f4f1e6;
+  }
+  .masthead .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:4px; font-size:12px;
+    color: var(--eco-gold-light); text-transform:uppercase;
+  }
+  .masthead h1{
+    font-size:clamp(28px, 5vw, 44px);
+    font-weight:700; margin:10px 0 8px;
+  }
+  .masthead p{ color:#c9c6b8; font-size:14px; }
+
+  /* ================= ECONOMICS SECTION ================= */
+  .eco-section{ background:var(--eco-bg); color:var(--eco-ink); }
+  .section-hero{
+    padding:56px 20px 34px; text-align:center;
+    background:
+      repeating-linear-gradient(115deg, rgba(201,162,39,.07) 0px, rgba(201,162,39,.07) 2px, transparent 2px, transparent 34px),
+      linear-gradient(180deg, var(--eco-deep), var(--eco-deep2));
+    color:#f1efe4;
+  }
+  .section-hero .tag{
+    display:inline-block; font-family:'JetBrains Mono',monospace;
+    font-size:12px; letter-spacing:3px; color:var(--eco-gold-light);
+    border:1px solid var(--eco-gold); border-radius:999px;
+    padding:5px 16px; margin-bottom:14px;
+  }
+  .section-hero h2{ font-size:clamp(30px,5vw,46px); font-weight:700; }
+  .section-hero p{ color:#d9d6c5; max-width:560px; margin:12px auto 0; font-size:15px;}
+
+  .container{ max-width:880px; margin:0 auto; padding:44px 20px; }
+
+  .card{
+    background:var(--eco-card);
+    border:1px solid var(--eco-line);
+    border-left:5px solid var(--eco-gold);
+    border-radius:10px;
+    padding:24px 26px;
+    margin-bottom:22px;
+  }
+  .card h3{
+    font-size:19px; font-weight:600; color:var(--eco-deep);
+    margin-bottom:14px; display:flex; align-items:center; gap:10px;
+  }
+  .card h3 .num{
+    font-family:'JetBrains Mono',monospace; font-size:13px;
+    background:var(--eco-deep); color:var(--eco-gold-light);
+    padding:3px 9px; border-radius:6px;
+  }
+  .card ul{ padding-left:20px; }
+  .card li{ margin-bottom:6px; font-size:15px;}
+  .card p{ font-size:15px; margin-bottom:8px;}
+
+  .compare-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:16px;
+  }
+  @media(max-width:640px){ .compare-grid{grid-template-columns:1fr;} }
+  .compare-box{
+    border-radius:10px; padding:18px 20px;
+  }
+  .compare-box.up{ background:#E8F3EA; border:1px solid #9FCBA6; }
+  .compare-box.down{ background:#F6E9E4; border:1px solid #D9AE9A; }
+  .compare-box h4{ font-size:16px; margin-bottom:8px; }
+  .compare-box.up h4{ color:#1E5C33; }
+  .compare-box.down h4{ color:#8A4326; }
+  .compare-box ul{ padding-left:18px; font-size:14px; }
+  .compare-box li{ margin-bottom:5px; }
+
+  .stat-table{ width:100%; border-collapse:collapse; font-size:14px; }
+  .stat-table th, .stat-table td{
+    text-align:left; padding:9px 10px; border-bottom:1px solid var(--eco-line);
+  }
+  .stat-table th{ color:var(--eco-deep); font-weight:600; }
+  .stat-table td.val{ font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--eco-gold); text-align:right; }
+
+  .glossary{
+    columns:2; column-gap:28px; font-size:14px;
+  }
+  @media(max-width:640px){ .glossary{ columns:1; } }
+  .glossary div{ break-inside:avoid; margin-bottom:10px; }
+  .glossary b{ color:var(--eco-deep); }
+
+  .pill{
+    display:inline-block; font-size:12px; font-weight:600;
+    background:var(--eco-deep); color:var(--eco-gold-light);
+    padding:3px 12px; border-radius:999px; margin-bottom:16px;
+  }
+
+  /* quiz */
+  .quiz-item{
+    background:var(--eco-card); border:1px solid var(--eco-line);
+    border-radius:10px; padding:18px 20px; margin-bottom:14px;
+  }
+  .quiz-q{ font-weight:600; font-size:15px; margin-bottom:10px; }
+  .quiz-choices{ display:grid; gap:8px; }
+  .choice-btn{
+    text-align:left; font-family:inherit; font-size:14px;
+    background:#FAF9F4; border:1px solid var(--eco-line); border-radius:8px;
+    padding:9px 14px; cursor:pointer; transition:.15s;
+  }
+  .choice-btn:hover{ border-color:var(--eco-gold); }
+  .choice-btn.correct{ background:#DFF1E2; border-color:#3E8E5A; font-weight:600; }
+  .choice-btn.wrong{ background:#F7DEDA; border-color:#C0503C; }
+  .choice-btn.disabled{ pointer-events:none; opacity:.6; }
+  .quiz-reveal{
+    font-size:13px; margin-top:10px; padding:8px 12px;
+    background:#FFF6DD; border-left:3px solid var(--eco-gold);
+    border-radius:6px; display:none;
+  }
+  .quiz-reveal.show{ display:block; }
+
+  /* ================= BUDDHISM SECTION ================= */
+  .dh-section{ background:var(--dh-bg); color:var(--dh-ink); }
+  .dh-hero{
+    padding:56px 20px 34px; text-align:center;
+    background:
+      radial-gradient(circle at 50% 120%, rgba(233,200,120,.25), transparent 60%),
+      linear-gradient(180deg, var(--dh-maroon), var(--dh-maroon2));
+    color:#fbead0;
+  }
+  .dh-hero .tag{
+    display:inline-block; font-family:'Noto Serif Thai',serif;
+    font-size:13px; letter-spacing:3px; color:var(--dh-gold-light);
+    border:1px solid var(--dh-gold); border-radius:999px;
+    padding:5px 18px; margin-bottom:14px;
+  }
+  .dh-hero h2{ font-family:'Noto Serif Thai',serif; font-size:clamp(30px,5vw,46px); font-weight:700; }
+  .dh-hero p{ color:#e9d3ae; max-width:560px; margin:12px auto 0; font-size:15px; }
+  .lotus-divider{ display:flex; justify-content:center; margin:18px 0; opacity:.85; }
+
+  .dh-card{
+    background:var(--dh-card);
+    border:1px solid var(--dh-line);
+    border-radius:14px;
+    padding:26px 28px;
+    margin-bottom:24px;
+    position:relative;
+    box-shadow: 0 1px 0 var(--dh-gold-light) inset;
+  }
+  .dh-card::before{
+    content:"";
+    position:absolute; top:0; left:0; right:0; height:4px;
+    background:linear-gradient(90deg, var(--dh-gold), var(--dh-maroon), var(--dh-gold));
+    border-radius:14px 14px 0 0;
+  }
+  .dh-card h3{
+    font-family:'Noto Serif Thai',serif;
+    font-size:21px; font-weight:600; color:var(--dh-maroon);
+    margin-bottom:6px;
+  }
+  .dh-card .dh-sub{
+    font-size:13px; color:#8a6a3f; margin-bottom:16px; font-style:italic;
+  }
+  .dh-list{ list-style:none; counter-reset:dh; padding:0; }
+  .dh-list li{
+    counter-increment:dh;
+    display:flex; gap:12px; padding:10px 0;
+    border-top:1px dashed var(--dh-line);
+    font-size:15px;
+  }
+  .dh-list li:first-child{ border-top:none; }
+  .dh-list li::before{
+    content: counter(dh);
+    flex-shrink:0; width:26px; height:26px; border-radius:50%;
+    background:var(--dh-maroon); color:var(--dh-gold-light);
+    font-size:13px; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono',monospace;
+  }
+
+  footer{
+    text-align:center; padding:34px 20px; background:#1a1a18; color:#a9a698;
+    font-size:12px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="nav-eco" href="#eco">เศรษฐศาสตร์</a>
+  <a class="nav-dh" href="#dhamma">พระพุทธศาสนา</a>
+</nav>
+
+<header class="masthead">
+  <div class="eyebrow">สรุปวิชาสังคมศึกษา — แนวข้อสอบจากคาบเรียน</div>
+  <h1>Social Studies Exam Digest</h1>
+  <p>สองพาร์ท : เงินและตลาด (เศรษฐศาสตร์) · หลักธรรมคำสอน (พระพุทธศาสนา)</p>
+</header>
+
+<!-- ============ ECONOMICS ============ -->
+<section class="eco-section" id="eco">
+  <div class="section-hero">
+    <span class="tag">PART 01 — ECONOMICS</span>
+    <h2>เศรษฐศาสตร์</h2>
+    <p>เงินเฟ้อ เงินฝืด นโยบายการคลัง กลไกตลาด และตัวเลขเศรษฐกิจไทย</p>
+  </div>
+
+  <div class="container">
+
+    <div class="card">
+      <h3><span class="num">01</span>ภาวะเงินเฟ้อ vs ภาวะเงินฝืด</h3>
+      <div class="compare-grid">
+        <div class="compare-box up">
+          <h4>▲ เงินเฟ้อ (Inflation)</h4>
+          <p style="font-size:14px;margin-bottom:8px;">อุปสงค์ &gt; อุปทาน</p>
+          <ul>
+            <li><b>สาเหตุ:</b> กักตุนสินค้า สงคราม ฤดูกาล ลดการผลิต</li>
+            <li><b>3 ระดับ:</b> อ่อน &lt;5% / ปานกลาง 5–20% / รุนแรง &gt;20%</li>
+            <li><b>ผลกระทบ:</b> ตกงาน (บริษัทจ้างงานไม่ไหว)</li>
+            <li><b>แก้ไข:</b> ลดปริมาณเงิน (การเงิน) / เก็บภาษีเพิ่ม (การคลัง)</li>
+          </ul>
+        </div>
+        <div class="compare-box down">
+          <h4>▼ เงินฝืด (Deflation)</h4>
+          <p style="font-size:14px;margin-bottom:8px;">อุปสงค์ &lt; อุปทาน</p>
+          <ul>
+            <li><b>ความหมาย:</b> ราคาสินค้าลดลงเรื่อย ๆ เงินในระบบน้อยเกินไป</li>
+            <li><b>ผลกระทบ:</b> ขายของไม่ได้ ลดการผลิต เลิกจ้าง เศรษฐกิจตกต่ำ</li>
+            <li><b>แก้ไข (การเงิน):</b> เพิ่มปริมาณเงิน ลดดอกเบี้ย ลดเงินสำรองธนาคาร</li>
+            <li><b>แก้ไข (การคลัง):</b> ลดภาษี เพิ่มรายจ่ายรัฐกระตุ้นเศรษฐกิจ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="num">02</span>กฎของอุปสงค์ และ กฎของอุปทาน</h3>
+      <div class="compare-grid">
+        <div class="compare-box up">
+          <h4>กฎของอุปสงค์ (Law of Demand)</h4>
+          <p style="font-size:14px;margin-bottom:8px;"><b>ราคา (P)</b> กับ <b>ปริมาณซื้อ (Q<sub>D</sub>)</b> สัมพันธ์ <b>ตรงกันข้าม</b> (Inverse) เมื่อปัจจัยอื่นคงที่ (Ceteris Paribus)</p>
+          <ul>
+            <li>ราคาเพิ่มขึ้น (↑) → ปริมาณซื้อลดลง (↓)</li>
+            <li>ราคาลดลง (↓) → ปริมาณซื้อเพิ่มขึ้น (↑)</li>
+          </ul>
+        </div>
+        <div class="compare-box down">
+          <h4>กฎของอุปทาน (Law of Supply)</h4>
+          <p style="font-size:14px;margin-bottom:8px;"><b>ราคา (P)</b> กับ <b>ปริมาณขาย (Q<sub>S</sub>)</b> สัมพันธ์ <b>ทิศทางเดียวกัน</b> (Direct) เมื่อปัจจัยอื่นคงที่</p>
+          <ul>
+            <li>ราคาเพิ่มขึ้น (↑) → ปริมาณขายเพิ่มขึ้น (↑) เพราะผู้ผลิตกำไรมากขึ้น</li>
+            <li>ราคาลดลง (↓) → ปริมาณขายลดลง (↓)</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:14px; font-size:13px; color:#5c6b60;">Free Trade — ข้อตกลงการค้าเสรี (ระยะเวลา 15 ปี) · คำถามชวนคิด: เงินคืออะไร? สถาบันการเงินมีอะไรบ้าง?</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="num">03</span>นโยบายการคลัง 3 แบบ (Fiscal Policy)</h3>
+      <p>คือการบริหาร <b>รายรับ (ภาษี)</b> และ <b>รายจ่าย (งบประมาณ)</b> ของรัฐบาลเพื่อรักษาเสถียรภาพเศรษฐกิจ</p>
+      <table class="stat-table">
+        <tr><th>รูปแบบ</th><th>ลักษณะ</th><th>เป้าหมาย</th></tr>
+        <tr><td><b>ขาดดุล</b><br>Deficit</td><td>รายจ่าย &gt; รายรับ (กู้เงินมาชดเชย)</td><td>กระตุ้นเศรษฐกิจในภาวะตกต่ำ / เงินฝืด</td></tr>
+        <tr><td><b>เกินดุล</b><br>Surplus</td><td>รายรับ &gt; รายจ่าย (เก็บภาษีได้มากกว่าจ่าย)</td><td>ชะลอความร้อนแรงในภาวะเงินเฟ้อ</td></tr>
+        <tr><td><b>สมดุล</b><br>Balanced</td><td>รายรับ = รายจ่าย</td><td>ใช้เมื่อเศรษฐกิจปกติมีเสถียรภาพดี</td></tr>
+      </table>
+      <ul style="margin-top:14px;">
+        <li><b>ปีงบประมาณ:</b> เริ่ม 1 ตุลาคม – 30 กันยายน ของปีถัดไป</li>
+        <li><b>หนี้สาธารณะ</b> = การกู้ยืมจากต่างประเทศของรัฐบาล</li>
+        <li>โครงสร้างภาษี: รายได้ 150,000–300,000 บาท → 5% / รายได้ &gt;5 ล้านบาท → 35%</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="num">04</span>มาตรการหดตัว vs ผ่อนคลาย (แก้เงินเฟ้อ–เงินฝืด)</h3>
+      <p style="font-size:14px;">เครื่องมือที่ธนาคารกลาง (นโยบายการเงิน) และรัฐบาล (นโยบายการคลัง) เลือกใช้ — <b>เงินเฟ้อ ใช้มาตรการหดตัว (Tightening)</b> ส่วน <b>เงินฝืด ใช้มาตรการผ่อนคลาย (Easy/Expansionary)</b></p>
+      <table class="stat-table">
+        <tr><th>เครื่องมือ</th><th>ภาวะเงินเฟ้อ (หดตัว)</th><th>ภาวะเงินฝืด (ผ่อนคลาย)</th></tr>
+        <tr><td>เป้าหมายหลัก</td><td>ลดปริมาณเงิน / ลดการใช้จ่าย</td><td>เพิ่มปริมาณเงิน / กระตุ้นการใช้จ่าย</td></tr>
+        <tr><td>ภาษี (การคลัง)</td><td>เพิ่มภาษี</td><td>ลดภาษี</td></tr>
+        <tr><td>งบประมาณ (การคลัง)</td><td>ลดรายจ่ายรัฐ / เกินดุล</td><td>เพิ่มรายจ่ายรัฐ / ขาดดุล</td></tr>
+        <tr><td>อัตราดอกเบี้ย (การเงิน)</td><td>ขึ้นดอกเบี้ย (ส่งเสริมออม)</td><td>ลดดอกเบี้ย (กระตุ้นกู้ยืม)</td></tr>
+        <tr><td>อัตราเงินสำรองฯ (การเงิน)</td><td>เพิ่มสัดส่วนเงินสำรอง</td><td>ลดสัดส่วนเงินสำรอง</td></tr>
+        <tr><td>พันธบัตรรัฐบาล (การเงิน)</td><td>ธนาคารกลางขายพันธบัตร (ดูดเงินออก)</td><td>ธนาคารกลางซื้อพันธบัตรคืน (ปล่อยเงินเข้า)</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3><span class="num">05</span>สถิติและนวัตกรรมเศรษฐกิจไทย</h3>
+      <p><b>ค่าจ้างขั้นต่ำ (เริ่ม 1 กรกฎาคม 2568)</b></p>
+      <table class="stat-table">
+        <tr><th>พื้นที่</th><td class="val">อัตรา</td></tr>
+        <tr><td>ระยอง / ภูเก็ต / กทม. / ชลบุรี / ฉะเชิงเทรา</td><td class="val">400 บาท</td></tr>
+        <tr><td>นครราชสีมา</td><td class="val">359 บาท</td></tr>
+        <tr><td>ยะลา / ปัตตานี / นราธิวาส (ต่ำสุด)</td><td class="val">337 บาท</td></tr>
+      </table>
+      <ul style="margin-top:14px;">
+        <li><b>Thailand 4.0</b> — โมเดลยกระดับรายได้ประชาชน</li>
+        <li><b>เมือง EEC</b> — ฉะเชิงเทรา ระยอง ชลบุรี</li>
+        <li>อุตสาหกรรมทดแทนนำเข้า = อุตสาหกรรมเบา เช่น ทอผ้า-เสื้อผ้า</li>
+        <li>อยุธยา = อุตสาหกรรมกรดมะนาวสด</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="num">06</span>ธนาคารกลาง</h3>
+      <ul>
+        <li>ผู้ว่าการธนาคารแห่งประเทศไทย: <b>วิทัย รัตนากร</b></li>
+        <li>หน้าที่หลัก: กำหนดนโยบายการเงิน / ดูแลรายรับ-รายจ่ายรัฐบาลและหนี้สาธารณะ</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="num">07</span>ศัพท์เศรษฐศาสตร์ (20 คำ)</h3>
+      <div class="glossary">
+        <div><b>National Income</b> — รายได้ประชาชาติ</div>
+        <div><b>National Product</b> — ผลผลิตประชาชาติ</div>
+        <div><b>Money Supply</b> — ปริมาณเงิน</div>
+        <div><b>Capital Market</b> — ตลาดทุน</div>
+        <div><b>Free Trade Area</b> — เขตการค้าเสรี</div>
+        <div><b>Tax Policy</b> — นโยบายภาษี</div>
+        <div><b>Public Debt Policy</b> — นโยบายหนี้สาธารณะ</div>
+        <div><b>Monetary Policy</b> — นโยบายการเงิน</div>
+        <div><b>Restrictive Monetary Policy</b> — นโยบายการเงินเข้มงวด</div>
+        <div><b>Foreign Buyers</b> — นักลงทุนต่างชาติ</div>
+        <div><b>Labour Intensive</b> — การใช้แรงงานเข้มข้น</div>
+        <div><b>Deficit Budget</b> — งบประมาณขาดดุล</div>
+        <div><b>Index of Openness</b> — ดัชนีความเปิดของเศรษฐกิจ</div>
+        <div><b>Gross Domestic Product</b> — ผลิตภัณฑ์มวลรวมในประเทศ</div>
+        <div><b>Deflation</b> — ภาวะเงินฝืด</div>
+        <div><b>Financial Market</b> — ตลาดการเงิน</div>
+        <div><b>Fiscal Policy</b> — นโยบายการคลัง</div>
+        <div><b>Gross National Product</b> — ผลิตภัณฑ์มวลรวมประชาชาติ</div>
+        <div><b>Easy Monetary Policy</b> — นโยบายการเงินผ่อนคลาย</div>
+        <div><b>Inflation</b> — ภาวะเงินเฟ้อ</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="pill">MOCK EXAM</span>
+      <h3 style="margin-top:0;"><span class="num">Q</span>ข้อสอบจำลอง เศรษฐศาสตร์ 40 ข้อ (กดเพื่อตรวจคำตอบ)</h3>
+      <div id="quiz-container"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ BUDDHISM ============ -->
+<section class="dh-section" id="dhamma">
+  <div class="dh-hero">
+    <span class="tag">ภาค ๒ — พระพุทธศาสนา</span>
+    <h2>หลักธรรมคำสอน</h2>
+    <p>พาร์ทข้อเขียน — ต้องจดจำเนื้อหาให้แม่นเพื่อนำไปเขียนตอบในห้องสอบ</p>
+  </div>
+
+  <div class="container">
+
+    <div class="lotus-divider">
+      <svg width="60" height="30" viewBox="0 0 60 30" fill="none">
+        <path d="M30 28 C10 28 4 14 12 6 C18 14 24 20 30 22 C36 20 42 14 48 6 C56 14 50 28 30 28Z" fill="none" stroke="#C99A2E" stroke-width="1.5"/>
+        <circle cx="30" cy="24" r="3" fill="#C99A2E"/>
+      </svg>
+    </div>
+
+    <div class="dh-card">
+      <h3>๑. กุลจิรัฏฐิติกาลธรรม ๔</h3>
+      <div class="dh-sub">ธรรมสำหรับรักษาความมั่นคงของตระกูลให้ยั่งยืน</div>
+      <ol class="dh-list">
+        <li>ของหมดหรือของหาย รู้จักหามาไว้</li>
+        <li>รู้จักบูรณะซ่อมแซมของเก่าที่ชำรุด รู้จักประหยัดและระมัดระวังในการใช้ของ</li>
+        <li>รู้จักประมาณในการกินการใช้ เดินสายกลาง กินอยู่ตามอัตภาพของครอบครัว</li>
+        <li>ตั้งผู้มีศีลธรรมดูแลบ้าน</li>
+      </ol>
+    </div>
+
+    <div class="dh-card">
+      <h3>๒. สังคหวัตถุ ๔</h3>
+      <div class="dh-sub">ธรรมเครื่องยึดเหนี่ยวใจคนและประสานหมู่คณะ</div>
+      <ol class="dh-list">
+        <li><b>ทาน</b> — การเอื้อเฟื้อเผื่อแผ่ช่วยเหลือกันและกัน</li>
+        <li><b>ปิยวาจา</b> — พูดจากันด้วยความสุภาพอ่อนโยน</li>
+        <li><b>อัตถจริยา</b> — การทำประโยชน์ให้แก่ส่วนรวม</li>
+        <li><b>สมานัตตตา</b> — ทำตนเสมอต้นเสมอปลาย</li>
+      </ol>
+    </div>
+
+    <div class="dh-card">
+      <h3>๓. อคติ ๔</h3>
+      <div class="dh-sub">ความลำเอียง ๔ ประการ</div>
+      <ol class="dh-list">
+        <li>ลำเอียงเพราะชอบ (ฉันทาคติ)</li>
+        <li>ลำเอียงเพราะชัง (โทสาคติ)</li>
+        <li>ลำเอียงเพราะหลง (โมหาคติ)</li>
+        <li>ลำเอียงเพราะกลัว (ภยาคติ)</li>
+      </ol>
+    </div>
+
+    <div class="dh-card">
+      <h3>๔. วัชชีอปริหานิยธรรม ๗</h3>
+      <div class="dh-sub">ธรรมอันเป็นไปเพื่อความไม่เสื่อมของหมู่คณะ</div>
+      <ol class="dh-list">
+        <li>หมั่นประชุมกันเป็นประจำ</li>
+        <li>พร้อมเพรียงกันในกิจต่าง ๆ</li>
+        <li>ไม่ล้มล้างหลักการเก่าโดยปราศจากเหตุผล</li>
+        <li>รับฟังผู้อาวุโส</li>
+        <li>ไม่ข่มเหงสตรี</li>
+        <li>เคารพบูชาเจดีย์หรือศาสนสถาน</li>
+        <li>คุ้มครองคนดีมีศีลธรรม</li>
+      </ol>
+    </div>
+
+    <div class="dh-card">
+      <h3>๕. พรหมวิหาร ๔</h3>
+      <div class="dh-sub">ธรรมประจำใจอันประเสริฐ</div>
+      <ol class="dh-list">
+        <li><b>เมตตา</b> — ปรารถนาให้ทุกคนในโลกมีแต่ความสุข</li>
+        <li><b>กรุณา</b> — ปรารถนาให้ทุกคนพ้นจากทุกข์และปัญหาต่าง ๆ</li>
+        <li><b>มุทิตา</b> — ดีใจด้วยเมื่อคนอื่นมีความสุข</li>
+        <li><b>อุเบกขา</b> — ทำใจเป็นกลางเมื่อเห็นคนได้รับผลจากการกระทำของตน</li>
+      </ol>
+    </div>
+
+    <div class="lotus-divider">
+      <svg width="60" height="30" viewBox="0 0 60 30" fill="none">
+        <path d="M30 28 C10 28 4 14 12 6 C18 14 24 20 30 22 C36 20 42 14 48 6 C56 14 50 28 30 28Z" fill="none" stroke="#C99A2E" stroke-width="1.5"/>
+        <circle cx="30" cy="24" r="3" fill="#C99A2E"/>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+<footer>สรุปวิชาสังคมศึกษา — จัดทำเพื่อใช้ทบทวนก่อนสอบ</footer>
+
+<script>
+const quizData = [
+  { q: "ภาวะที่อุปสงค์มากกว่าอุปทาน เรียกว่าอะไร?", choices: ["เงินฝืด","เงินเฟ้อ","เงินตึงตัว","ดุลยภาพ"], correct: 1,
+    note: "เงินเฟ้อ เกิดเมื่ออุปสงค์ (Demand) มากกว่าอุปทาน (Supply)" },
+  { q: "เงินเฟ้อระดับใดที่เริ่มสร้างความเดือดร้อนแก่ประชาชน?", choices: ["น้อยกว่า 5%","5–20%","มากกว่า 20%","ไม่มีข้อถูก"], correct: 1,
+    note: "ระดับปานกลาง 5–20% ต่อปี เริ่มส่งผลเดือดร้อน" },
+  { q: "หากต้องการแก้ปัญหาเงินฝืด ธนาคารกลางควรทำอย่างไร?", choices: ["ขึ้นดอกเบี้ย","ลดปริมาณเงิน","ลดดอกเบี้ย / เพิ่มปริมาณเงิน","เก็บภาษีเพิ่ม"], correct: 2,
+    note: "นโยบายการเงินแก้เงินฝืด คือ เพิ่มปริมาณเงิน ลดดอกเบี้ย" },
+  { q: "ปีงบประมาณของไทยเริ่มต้นวันที่เท่าไร?", choices: ["1 มกราคม","1 ตุลาคม","1 เมษายน","1 กันยายน"], correct: 1,
+    note: "ปีงบประมาณ เริ่ม 1 ตุลาคม ถึง 30 กันยายนของปีถัดไป" },
+  { q: "จังหวัดใดมีค่าแรงขั้นต่ำสูงสุด (400 บาท)?", choices: ["นครราชสีมา","ยะลา","ระยอง","ปัตตานี"], correct: 2,
+    note: "ระยอง ภูเก็ต กทม. ชลบุรี ฉะเชิงเทรา = 400 บาท" },
+  { q: "ผู้ว่าการธนาคารแห่งประเทศไทยคนปัจจุบันคือใคร?", choices: ["เศรษฐา ทวีสิน","วิทัย รัตนากร","เชาว์ เก่งชน","ดอน นาครทรรพ"], correct: 1,
+    note: "วิทัย รัตนากร ดำรงตำแหน่งผู้ว่าการธนาคารแห่งประเทศไทย" },
+  { q: "คำว่า Deflation แปลว่าอะไร?", choices: ["ภาวะเงินเฟ้อ","ภาวะเงินฝืด","นโยบายการคลัง","ตลาดทุน"], correct: 1,
+    note: "Deflation = ภาวะเงินฝืด" },
+  { q: "หนี้สาธารณะ หมายถึงอะไร?", choices: ["การกู้ยืมจากต่างประเทศของรัฐบาล","หนี้บัตรเครดิตประชาชน","หนี้ของเอกชน","เงินฝากธนาคาร"], correct: 0,
+    note: "หนี้สาธารณะ คือ การกู้ยืมจากต่างประเทศ" },
+  { q: "เมืองใดต่อไปนี้อยู่ในเขต EEC?", choices: ["เชียงใหม่","ฉะเชิงเทรา / ชลบุรี / ระยอง","ภูเก็ต","ขอนแก่น"], correct: 1,
+    note: "EEC ครอบคลุม ฉะเชิงเทรา ชลบุรี ระยอง" },
+  { q: "รายได้มากกว่า 5 ล้านบาท เสียภาษีในอัตราเท่าไร?", choices: ["5%","15%","25%","35%"], correct: 3,
+    note: "อัตราภาษีสูงสุดของโครงสร้างนี้คือ 35%" },
+
+  { q: "ตามกฎของอุปสงค์ (Law of Demand) เมื่อราคาสินค้าเพิ่มขึ้น ปริมาณความต้องการซื้อจะเป็นอย่างไร?", choices: ["เพิ่มขึ้น","ลดลง","คงที่","ไม่แน่นอน"], correct: 1,
+    note: "ราคากับปริมาณซื้อสัมพันธ์ตรงกันข้าม (Inverse Relationship)" },
+  { q: "ความสัมพันธ์ระหว่างราคากับปริมาณเสนอขาย ตามกฎของอุปทาน เป็นแบบใด?", choices: ["ทิศทางตรงกันข้าม","ทิศทางเดียวกัน","ไม่มีความสัมพันธ์","สัมพันธ์แบบสุ่ม"], correct: 1,
+    note: "กฎของอุปทาน: ราคากับปริมาณขายสัมพันธ์ทิศทางเดียวกัน (Direct Relationship)" },
+  { q: "เงื่อนไขสำคัญที่ต้องมีเสมอเมื่อพิจารณากฎของอุปสงค์-อุปทาน คือข้อใด?", choices: ["Ceteris Paribus (ปัจจัยอื่นคงที่)","Free Trade","Fiscal Deficit","Money Supply"], correct: 0,
+    note: "ต้องกำหนดให้ปัจจัยอื่นนอกจากราคาคงที่เสมอ (Ceteris Paribus)" },
+  { q: "เพราะเหตุใดเมื่อราคาสินค้าสูงขึ้น ผู้ผลิตจึงมักผลิตสินค้าออกขายมากขึ้น?", choices: ["เพราะต้นทุนลดลง","เพราะได้กำไรมากขึ้น","เพราะรัฐบาลบังคับ","เพราะผู้บริโภคต้องการมากขึ้น"], correct: 1,
+    note: "ราคาสูงขึ้นทำให้ผู้ผลิตได้กำไรต่อหน่วยมากขึ้น จึงเสนอขายเพิ่มขึ้น" },
+  { q: "หากราคาสินค้าลดลง ปริมาณเสนอขายของผู้ผลิตตามกฎของอุปทานจะเป็นอย่างไร?", choices: ["เพิ่มขึ้น","ลดลง","คงที่","เพิ่มขึ้นแล้วลดลง"], correct: 1,
+    note: "ราคาลดลง ผู้ผลิตเสนอขายลดลงตามทิศทางเดียวกัน" },
+
+  { q: "นโยบายการคลังแบบใดที่รัฐบาลตั้งรายจ่ายมากกว่ารายรับ?", choices: ["ขาดดุล","เกินดุล","สมดุล","อิสระ"], correct: 0,
+    note: "นโยบายการคลังแบบขาดดุล (Deficit) รายจ่าย > รายรับ" },
+  { q: "นโยบายการคลังแบบเกินดุล เหมาะสำหรับแก้ปัญหาภาวะเศรษฐกิจใด?", choices: ["เงินฝืด","เงินเฟ้อ","เศรษฐกิจตกต่ำ","ว่างงานสูง"], correct: 1,
+    note: "เกินดุล (รายรับ>รายจ่าย) ใช้ชะลอความร้อนแรงในภาวะเงินเฟ้อ" },
+  { q: "นโยบายการคลังแบบขาดดุล เหมาะสำหรับแก้ปัญหาภาวะเศรษฐกิจใด?", choices: ["เงินเฟ้อรุนแรง","เงินฝืด / เศรษฐกิจตกต่ำ","เศรษฐกิจสมดุล","ตลาดทุนร้อนแรง"], correct: 1,
+    note: "ขาดดุลใช้กระตุ้นเศรษฐกิจในภาวะเงินฝืดหรือตกต่ำ" },
+  { q: "นโยบายการคลังแบบสมดุล (Balanced) คือข้อใด?", choices: ["รายรับ > รายจ่าย","รายรับ < รายจ่าย","รายรับ = รายจ่าย","ไม่มีการเก็บภาษี"], correct: 2,
+    note: "สมดุล คือ รายรับเท่ากับรายจ่ายพอดี ใช้เมื่อเศรษฐกิจมีเสถียรภาพดี" },
+  { q: "ในภาวะเงินเฟ้อ รัฐบาลควรใช้มาตรการด้านงบประมาณแบบใด?", choices: ["เพิ่มรายจ่ายรัฐ / ขาดดุล","ลดรายจ่ายรัฐ / เกินดุล","คงงบประมาณเดิม","ยกเลิกการเก็บภาษี"], correct: 1,
+    note: "เงินเฟ้อต้องใช้มาตรการหดตัว: ลดรายจ่ายรัฐหรือใช้นโยบายเกินดุล" },
+
+  { q: "ในภาวะเงินฝืด ธนาคารกลางควรปรับอัตราดอกเบี้ยอย่างไร?", choices: ["ขึ้นดอกเบี้ย","ลดดอกเบี้ย","คงดอกเบี้ยไว้เท่าเดิม","ยกเลิกดอกเบี้ย"], correct: 1,
+    note: "เงินฝืดใช้มาตรการผ่อนคลาย: ลดดอกเบี้ยเพื่อกระตุ้นการกู้ยืม" },
+  { q: "ในภาวะเงินเฟ้อ ธนาคารกลางควรปรับอัตราดอกเบี้ยอย่างไร?", choices: ["ขึ้นดอกเบี้ย","ลดดอกเบี้ย","คงที่","ไม่เกี่ยวข้องกับดอกเบี้ย"], correct: 0,
+    note: "เงินเฟ้อใช้มาตรการหดตัว: ขึ้นดอกเบี้ยเพื่อส่งเสริมการออม ลดการกู้ยืม" },
+  { q: "หากธนาคารกลางต้องการดูดเงินออกจากระบบเพื่อแก้ปัญหาเงินเฟ้อ ควรทำอย่างไรกับพันธบัตรรัฐบาล?", choices: ["ซื้อพันธบัตรคืน","ขายพันธบัตร","ยกเลิกพันธบัตร","แจกพันธบัตรฟรี"], correct: 1,
+    note: "ธนาคารกลางขายพันธบัตร เพื่อดูดเงินออกจากมือประชาชน" },
+  { q: "หากธนาคารกลางต้องการปล่อยเงินเข้าสู่ระบบเพื่อแก้ปัญหาเงินฝืด ควรทำอย่างไรกับพันธบัตรรัฐบาล?", choices: ["ขายพันธบัตร","ซื้อพันธบัตรคืน","เพิ่มดอกเบี้ยพันธบัตร","หยุดออกพันธบัตร"], correct: 1,
+    note: "ธนาคารกลางซื้อพันธบัตรคืน เพื่อปล่อยเงินเข้าสู่ระบบ" },
+  { q: "การเพิ่มสัดส่วนเงินสำรองของธนาคารพาณิชย์ ส่งผลอย่างไรและใช้แก้ปัญหาภาวะใด?", choices: ["ปล่อยกู้ได้มากขึ้น / แก้เงินฝืด","ปล่อยกู้ได้น้อยลง / แก้เงินเฟ้อ","ดอกเบี้ยลดลง / แก้เงินฝืด","ไม่มีผลต่อการปล่อยกู้"], correct: 1,
+    note: "เพิ่มเงินสำรอง ทำให้ธนาคารพาณิชย์ปล่อยกู้ได้น้อยลง ใช้แก้เงินเฟ้อ" },
+  { q: "การลดสัดส่วนเงินสำรองของธนาคารพาณิชย์ ใช้แก้ปัญหาภาวะเศรษฐกิจใด?", choices: ["เงินเฟ้อ","เงินฝืด","ดุลการค้าเกินดุล","ตลาดทุนตกต่ำ"], correct: 1,
+    note: "ลดเงินสำรอง ทำให้ปล่อยกู้ได้มากขึ้น ใช้กระตุ้นในภาวะเงินฝืด" },
+  { q: "มาตรการแบบหดตัว (Tightening / Restrictive) ใช้แก้ปัญหาภาวะเศรษฐกิจใด?", choices: ["เงินฝืด","เงินเฟ้อ","ว่างงาน","เศรษฐกิจตกต่ำ"], correct: 1,
+    note: "มาตรการหดตัวใช้แก้ภาวะเงินเฟ้อ โดยลดปริมาณเงินในระบบ" },
+  { q: "มาตรการแบบผ่อนคลาย (Easy / Expansionary) ใช้แก้ปัญหาภาวะเศรษฐกิจใด?", choices: ["เงินเฟ้อ","เงินฝืด","ตลาดทุนร้อนแรง","การส่งออกล้นตลาด"], correct: 1,
+    note: "มาตรการผ่อนคลายใช้แก้ภาวะเงินฝืด โดยเพิ่มปริมาณเงินในระบบ" },
+  { q: "เป้าหมายหลักของมาตรการแบบหดตัวคือข้อใด?", choices: ["เพิ่มปริมาณเงิน / กระตุ้นการใช้จ่าย","ลดปริมาณเงิน / ลดการใช้จ่าย","เพิ่มการส่งออก","ลดอัตราภาษีนำเข้า"], correct: 1,
+    note: "มาตรการหดตัวมุ่งลดปริมาณเงินในระบบและลดการใช้จ่าย" },
+  { q: "เป้าหมายหลักของมาตรการแบบผ่อนคลายคือข้อใด?", choices: ["ลดปริมาณเงินในระบบ","เพิ่มปริมาณเงิน / กระตุ้นการใช้จ่าย","เพิ่มภาษีนำเข้า","ลดการลงทุนภาครัฐ"], correct: 1,
+    note: "มาตรการผ่อนคลายมุ่งเพิ่มปริมาณเงินและกระตุ้นการใช้จ่าย" },
+
+  { q: "การขึ้นภาษีเพื่อแก้ปัญหาเงินเฟ้อ มีวัตถุประสงค์หลักตามข้อใด?", choices: ["เพิ่มเงินให้ประชาชนใช้จ่ายมากขึ้น","ลดเงินที่ประชาชนเหลือไปใช้จ่าย","เพิ่มการลงทุนของเอกชน","ลดต้นทุนการผลิต"], correct: 1,
+    note: "ขึ้นภาษีทำให้ประชาชนเหลือเงินไปใช้จ่ายน้อยลง ช่วยลดเงินเฟ้อ" },
+  { q: "การลดภาษีเพื่อแก้ปัญหาเงินฝืด มีวัตถุประสงค์หลักตามข้อใด?", choices: ["ลดปริมาณเงินหมุนเวียน","เพิ่มเงินให้ประชาชนไปใช้จ่ายมากขึ้น","เพิ่มภาระหนี้สาธารณะ","ลดการนำเข้าสินค้า"], correct: 1,
+    note: "ลดภาษีทำให้ประชาชนมีเงินเหลือไปใช้จ่ายมากขึ้น กระตุ้นเศรษฐกิจในภาวะเงินฝืด" },
+  { q: "หากเศรษฐกิจกำลังเข้าสู่ภาวะเงินเฟ้อรุนแรง รัฐบาลและธนาคารกลางควรดำเนินนโยบายแบบใดร่วมกัน?", choices: ["นโยบายการคลังขาดดุล + ลดดอกเบี้ย","นโยบายการคลังเกินดุล + ขึ้นดอกเบี้ย","นโยบายการคลังสมดุล + คงดอกเบี้ย","นโยบายการคลังขาดดุล + ขึ้นดอกเบี้ย"], correct: 1,
+    note: "เงินเฟ้อต้องใช้มาตรการหดตัวทั้งสองด้าน: การคลังเกินดุล และการเงินขึ้นดอกเบี้ย" },
+  { q: "เศรษฐกิจซบเซาและมีการเลิกจ้างงานจำนวนมาก ควรใช้นโยบายแบบใด?", choices: ["การคลังขาดดุล + ลดดอกเบี้ย","การคลังเกินดุล + ขึ้นดอกเบี้ย","การคลังสมดุล + ขึ้นดอกเบี้ย","การคลังเกินดุล + ลดดอกเบี้ย"], correct: 0,
+    note: "ภาวะเงินฝืด/เศรษฐกิจตกต่ำ ต้องใช้มาตรการผ่อนคลาย: ขาดดุล + ลดดอกเบี้ย" },
+  { q: "ข้อใดไม่ใช่เครื่องมือของนโยบายการเงิน?", choices: ["อัตราดอกเบี้ย","อัตราเงินสำรองธนาคารพาณิชย์","การเก็บภาษี","การซื้อ-ขายพันธบัตรรัฐบาล"], correct: 2,
+    note: "การเก็บภาษีเป็นเครื่องมือของนโยบายการคลัง ไม่ใช่การเงิน" },
+  { q: "ข้อใดไม่ใช่เครื่องมือของนโยบายการคลัง?", choices: ["ภาษี","งบประมาณรายจ่ายรัฐ","อัตราดอกเบี้ย","หนี้สาธารณะ"], correct: 2,
+    note: "อัตราดอกเบี้ยเป็นเครื่องมือของนโยบายการเงิน ไม่ใช่การคลัง" },
+
+  { q: "จังหวัดใดต่อไปนี้ไม่ได้อยู่ในกลุ่มค่าแรงขั้นต่ำต่ำสุด (337 บาท)?", choices: ["ยะลา","ปัตตานี","นราธิวาส","ระยอง"], correct: 3,
+    note: "ระยองอยู่ในกลุ่มค่าแรงสูงสุด 400 บาท ไม่ใช่กลุ่มต่ำสุด" },
+  { q: "จังหวัดใดต่อไปนี้ไม่ได้อยู่ในเขตพื้นที่ EEC?", choices: ["ฉะเชิงเทรา","ชลบุรี","ระยอง","เชียงใหม่"], correct: 3,
+    note: "EEC ครอบคลุมเฉพาะฉะเชิงเทรา ชลบุรี และระยอง" },
+  { q: "การพัฒนาอุตสาหกรรมทดแทนนำเข้าของไทยในอดีต เน้นอุตสาหกรรมประเภทใด?", choices: ["อุตสาหกรรมหนัก","อุตสาหกรรมเบา เช่น ทอผ้า-เสื้อผ้า","อุตสาหกรรมเทคโนโลยีขั้นสูง","อุตสาหกรรมพลังงาน"], correct: 1,
+    note: "เน้นอุตสาหกรรมเบา เช่น อุตสาหกรรมทอผ้า-เสื้อผ้า" },
+  { q: "GDP (Gross Domestic Product) หมายถึงข้อใด?", choices: ["ผลิตภัณฑ์มวลรวมประชาชาติ","ผลิตภัณฑ์มวลรวมในประเทศ","รายได้ประชาชาติ","ปริมาณเงินหมุนเวียน"], correct: 1,
+    note: "GDP = ผลิตภัณฑ์มวลรวมในประเทศ (ต่างจาก GNP ที่นับรวมนอกประเทศด้วย)" }
+];
+
+const container = document.getElementById('quiz-container');
+quizData.forEach((item, qi) => {
+  const wrap = document.createElement('div');
+  wrap.className = 'quiz-item';
+
+  const qEl = document.createElement('div');
+  qEl.className = 'quiz-q';
+  qEl.textContent = (qi+1) + '. ' + item.q;
+  wrap.appendChild(qEl);
+
+  const choicesEl = document.createElement('div');
+  choicesEl.className = 'quiz-choices';
+
+  const revealEl = document.createElement('div');
+  revealEl.className = 'quiz-reveal';
+  revealEl.textContent = item.note;
+
+  item.choices.forEach((choiceText, ci) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.textContent = String.fromCharCode(65+ci) + ') ' + choiceText;
+    btn.addEventListener('click', () => {
+      const allBtns = choicesEl.querySelectorAll('.choice-btn');
+      allBtns.forEach(b => b.classList.add('disabled'));
+      if (ci === item.correct) {
+        btn.classList.add('correct');
+      } else {
+        btn.classList.add('wrong');
+        allBtns[item.correct].classList.add('correct');
+      }
+      revealEl.classList.add('show');
+    });
+    choicesEl.appendChild(btn);
+  });
+
+  wrap.appendChild(choicesEl);
+  wrap.appendChild(revealEl);
+  container.appendChild(wrap);
+});
+</script>
+
+</body>
+</html>
