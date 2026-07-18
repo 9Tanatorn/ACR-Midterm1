@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Midterm ม.6 — Study Guide & Exam Sim</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+  
+  :root {
+    --bg: #0a1628;
+    --bg2: #0f1f3a;
+    --bg3: #152a4a;
+    --card: #12253f;
+    --card-hover: #1a3055;
+    --cyan: #00d4ff;
+    --cyan2: #00b8d9;
+    --cyan-dim: rgba(0,212,255,0.15);
+    --cyan-glow: rgba(0,212,255,0.08);
+    --yellow: #ffd600;
+    --yellow-dim: rgba(255,214,0,0.12);
+    --green: #00e676;
+    --green-dim: rgba(0,230,118,0.12);
+    --red: #ff5252;
+    --red-dim: rgba(255,82,82,0.12);
+    --orange: #ff9100;
+    --orange-dim: rgba(255,145,0,0.12);
+    --purple: #b388ff;
+    --purple-dim: rgba(179,136,255,0.12);
+    --pink: #ff80ab;
+    --pink-dim: rgba(255,128,171,0.12);
+    --text: #e0e6f0;
+    --text2: #8a9bbd;
+    --text3: #5a6d8a;
+    --border: rgba(0,212,255,0.15);
+    --font: 'IBM Plex Sans Thai', 'Space Grotesk', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+    min-height: 100vh;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 20px 16px 60px; }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 40px 20px 30px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 30px;
+    position: relative;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 60px; height: 3px;
+    background: var(--cyan);
+    border-radius: 2px;
+  }
+  .header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .header .sub {
+    font-size: 14px;
+    color: var(--text2);
+  }
+  .header .badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 14px;
+    background: var(--cyan-dim);
+    border: 1px solid rgba(0,212,255,0.25);
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--cyan);
+    font-weight: 500;
+  }
+
+  /* Nav */
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav a {
+    padding: 6px 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav a:hover, .nav a:focus {
+    background: var(--cyan-dim);
+    color: var(--cyan);
+    border-color: rgba(0,212,255,0.4);
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 36px;
+    scroll-margin-top: 60px;
+  }
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--cyan);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--cyan);
+    color: var(--bg);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .section-desc {
+    font-size: 13px;
+    color: var(--text2);
+    margin-bottom: 16px;
+    padding-left: 38px;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Vocab Cluster */
+  .prep-cluster {
+    margin-bottom: 16px;
+  }
+  .prep-tag {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--mono);
+    margin-bottom: 8px;
+  }
+  .prep-tag.to { background: var(--cyan-dim); color: var(--cyan); border: 1px solid rgba(0,212,255,0.3); }
+  .prep-tag.at { background: var(--yellow-dim); color: var(--yellow); border: 1px solid rgba(255,214,0,0.3); }
+  .prep-tag.about { background: var(--orange-dim); color: var(--orange); border: 1px solid rgba(255,145,0,0.3); }
+  .prep-tag.of { background: var(--purple-dim); color: var(--purple); border: 1px solid rgba(179,136,255,0.3); }
+  .prep-tag.for { background: var(--green-dim); color: var(--green); border: 1px solid rgba(0,230,118,0.3); }
+  .prep-tag.in { background: var(--pink-dim); color: var(--pink); border: 1px solid rgba(255,128,171,0.3); }
+  .prep-tag.on { background: var(--red-dim); color: var(--red); border: 1px solid rgba(255,82,82,0.3); }
+  .prep-tag.from { background: rgba(100,181,246,0.12); color: #64b5f6; border: 1px solid rgba(100,181,246,0.3); }
+
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .vocab-item {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 6px 10px;
+    background: var(--bg2);
+    border-radius: 6px;
+    font-size: 13px;
+  }
+  .vocab-item .en {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .vocab-item .th {
+    color: var(--text3);
+    font-size: 12px;
+  }
+
+  /* Phrasal verb cards */
+  .pv-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(0,212,255,0.06);
+    font-size: 13px;
+  }
+  .pv-item:last-child { border-bottom: none; }
+  .pv-item .pv-en {
+    color: var(--cyan);
+    font-weight: 500;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  .pv-item .pv-th { color: var(--text2); font-size: 12px; }
+
+  /* Grammar box */
+  .grammar-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .grammar-col {
+    background: var(--bg2);
+    border-radius: 8px;
+    padding: 14px;
+    border-top: 3px solid;
+  }
+  .grammar-col.simple { border-color: var(--cyan); }
+  .grammar-col.cont { border-color: var(--green); }
+  .grammar-col h4 {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .grammar-col.simple h4 { color: var(--cyan); }
+  .grammar-col.cont h4 { color: var(--green); }
+  .grammar-col .formula {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text2);
+    margin-bottom: 8px;
+    padding: 4px 8px;
+    background: var(--bg);
+    border-radius: 4px;
+  }
+  .grammar-col ul {
+    list-style: none;
+    font-size: 12px;
+    color: var(--text);
+  }
+  .grammar-col ul li {
+    padding: 2px 0;
+    padding-left: 14px;
+    position: relative;
+  }
+  .grammar-col.simple ul li::before { content: '▸'; position: absolute; left: 0; color: var(--cyan); }
+  .grammar-col.cont ul li::before { content: '▸'; position: absolute; left: 0; color: var(--green); }
+
+  .example-pair {
+    background: var(--bg2);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-left: 3px solid var(--border);
+  }
+  .example-pair .ex-en {
+    font-size: 13px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .example-pair .ex-note {
+    font-size: 12px;
+    color: var(--text3);
+  }
+  .example-pair .hl-s { color: var(--cyan); font-weight: 600; }
+  .example-pair .hl-c { color: var(--green); font-weight: 600; }
+
+  /* Signal words */
+  .signal-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+  .signal-tag {
+    padding: 3px 10px;
+    border-radius: 14px;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: var(--mono);
+  }
+  .signal-tag.s { background: var(--cyan-dim); color: var(--cyan); }
+  .signal-tag.c { background: var(--green-dim); color: var(--green); }
+
+  /* Stative verb warning */
+  .warning {
+    background: var(--red-dim);
+    border: 1px solid rgba(255,82,82,0.25);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 13px;
+  }
+  .warning .label { color: var(--red); font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+  .warning .content { color: var(--text2); font-size: 12px; }
+
+  /* Dialog phrases */
+  .dialog-group {
+    margin-bottom: 14px;
+  }
+  .dialog-label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+  .dialog-phrases {
+    padding-left: 12px;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 2;
+  }
+
+  /* Linking words */
+  .link-group {
+    margin-bottom: 10px;
+  }
+  .link-cat {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .link-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .link-tag {
+    padding: 4px 10px;
+    border-radius: 14px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  /* Article structure */
+  .article-step {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,212,255,0.06);
+  }
+  .article-step:last-child { border-bottom: none; }
+  .article-step .step-num {
+    width: 30px;
+    height: 30px;
+    background: var(--cyan);
+    color: var(--bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .article-step .step-content h5 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .article-step .step-content p {
+    font-size: 12px;
+    color: var(--text2);
+  }
+  .article-step .step-content .phrase {
+    color: var(--yellow);
+    font-style: italic;
+  }
+
+  /* QUIZ */
+  .quiz-container { margin-top: 16px; }
+  .quiz-q {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .quiz-q.answered-correct { border-color: rgba(0,230,118,0.4); }
+  .quiz-q.answered-wrong { border-color: rgba(255,82,82,0.4); }
+  .quiz-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .quiz-text {
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.8;
+  }
+  .quiz-text .blank {
+    display: inline-block;
+    min-width: 80px;
+    border-bottom: 2px solid var(--cyan);
+    text-align: center;
+    font-weight: 600;
+    color: var(--cyan);
+    padding: 0 4px;
+  }
+  .quiz-opts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .quiz-opt {
+    padding: 8px 12px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    font-family: var(--font);
+  }
+  .quiz-opt:hover:not(:disabled) {
+    background: var(--cyan-dim);
+    border-color: rgba(0,212,255,0.4);
+  }
+  .quiz-opt:disabled { cursor: default; opacity: 0.7; }
+  .quiz-opt.correct {
+    background: var(--green-dim) !important;
+    border-color: var(--green) !important;
+    color: var(--green) !important;
+    font-weight: 600;
+  }
+  .quiz-opt.wrong {
+    background: var(--red-dim) !important;
+    border-color: var(--red) !important;
+    color: var(--red) !important;
+    text-decoration: line-through;
+  }
+  .quiz-explain {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .quiz-explain.show { display: block; }
+  .quiz-explain.correct-exp {
+    background: var(--green-dim);
+    color: var(--green);
+  }
+  .quiz-explain.wrong-exp {
+    background: var(--red-dim);
+    color: var(--red);
+  }
+
+  /* Score */
+  .score-bar {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    display: none;
+  }
+  .score-bar.show { display: block; }
+  .score-bar .score-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--cyan);
+  }
+  .score-bar .score-label {
+    font-size: 14px;
+    color: var(--text2);
+  }
+  .score-bar .score-msg {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--text2);
+  }
+
+  /* Rearrange quiz */
+  .rearrange-area {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .rearrange-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: grab;
+    font-size: 13px;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .rearrange-item:active { cursor: grabbing; }
+  .rearrange-item .drag-handle {
+    color: var(--text3);
+    font-size: 14px;
+  }
+  .rearrange-item.selected {
+    border-color: var(--cyan);
+    background: var(--cyan-dim);
+  }
+
+  .check-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--cyan);
+    color: var(--bg);
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: var(--font);
+    transition: all 0.2s;
+  }
+  .check-btn:hover { filter: brightness(1.1); }
+
+  /* Responsive */
+  @media (max-width: 500px) {
+    .grammar-box { grid-template-columns: 1fr; }
+    .quiz-opts { grid-template-columns: 1fr; }
+    .vocab-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Tip box */
+  .tip {
+    background: var(--yellow-dim);
+    border: 1px solid rgba(255,214,0,0.2);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 12px;
+    color: var(--yellow);
+    margin-bottom: 12px;
+  }
+  .tip .tip-label { font-weight: 600; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 30px 0 10px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text3);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>ENGLISH MIDTERM ม.6</h1>
+  <div class="sub">Prepare Level 7 (B2) — Units 2–4 | 15 คะแนน</div>
+  <div class="badge">STUDY GUIDE + EXAM SIMULATION</div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <a href="#vocab">Vocabulary</a>
+  <a href="#phrasal">Phrasal Verbs</a>
+  <a href="#grammar">Grammar</a>
+  <a href="#dialog">Dialog</a>
+  <a href="#linking">Linking Words</a>
+  <a href="#article">Article Writing</a>
+  <a href="#quiz">ทำข้อสอบ</a>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 1: VOCABULARY -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section" id="vocab">
+  <div class="section-title"><span class="num">1</span> Vocabulary — Adjective + Preposition</div>
+  <div class="section-desc">จัดกลุ่มตาม Preposition เพื่อจำง่าย — คำที่ใช้ preposition เดียวกันอยู่ด้วยกัน</div>
+
+  <!-- TO -->
+  <div class="prep-cluster">
+    <div class="prep-tag to">+ TO</div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><span class="en">addicted to</span><span class="th">เสพติด</span></div>
+      <div class="vocab-item"><span class="en">similar to</span><span class="th">คล้ายกับ</span></div>
+      <div class="vocab-item"><span class="en">devoted to</span><span class="th">ทุ่มเทให้</span></div>
+      <div class="vocab-item"><span class="en">attached to</span><span class="th">ผูกพันกับ</span></div>
+      <div class="vocab-item"><span class="en">accustomed to</span><span class="th">คุ้นเคยกับ</span></div>
+      <div class="vocab-item"><span class="en">allergic to</span><span class="th">แพ้</span></div>
+      <div class="vocab-item"><span class="en">kind/rude to</span><span class="th">ใจดี/หยาบคาย</span></div>
+      <div class="vocab-item"><span class="en">used to</span><span class="th">เคยชินกับ</span></div>
+    </div>
+    <div class="tip" style="margin-top:8px;">
+      <span class="tip-label">จำง่าย:</span> TO = ชี้ไปหา "ใครสักคน/สิ่งใดสิ่งหนึ่ง" → addicted <u>ไปหา</u> สิ่งนั้น, similar <u>ไปหา</u> สิ่งนั้น
+    </div>
+  </div>
+
+  <!-- AT -->
+  <div class="prep-cluster">
+    <div class="prep-tag at">+ AT</div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><span class="en">good at</span><span class="th">เก่ง</span></div>
+      <div class="vocab-item"><span class="en">bad at</span><span class="th">ไม่เก่ง</span></div>
+      <div class="vocab-item"><span class="en">hopeless at</span><span class="th">ทำไม่ได้เลย</span></div>
+      <div class="vocab-item"><span class="en">brilliant at</span><span class="th">เก่งมาก</span></div>
+      <div class="vocab-item"><span class="en">amazed at</span><span class="th">ทึ่ง</span></div>
+      <div class="vocab-item"><span class="en">surprised at</span><span class="th">ประหลาดใจ</span></div>
+    </div>
+    <div class="tip" style="margin-top:8px;">
+      <span class="tip-label">จำง่าย:</span> AT = "ความสามารถ" หรือ "ปฏิกิริยาต่อสิ่งที่เห็น" → good <u>at</u> ทักษะ, amazed <u>at</u> สิ่งที่เจอ
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="prep-cluster">
+    <div class="prep-tag about">+ ABOUT</div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><span class="en">worried about</span><span class="th">กังวลเรื่อง</span></div>
+      <div class="vocab-item"><span class="en">cautious about</span><span class="th">ระวังเรื่อง</span></div>
+      <div class="vocab-item"><span class="en">curious about</span><span class="th">อยากรู้เรื่อง</span></div>
+      <div class="vocab-item"><span class="en">excited about</span><span class="th">ตื่นเต้นเรื่อง</span></div>
+      <div class="vocab-item"><span class="en">serious about</span><span class="th">จริงจังเรื่อง</span></div>
+      <div class="vocab-item"><span class="en">concerned about</span><span class="th">ห่วงใยเรื่อง</span></div>
+    </div>
+    <div class="tip" style="margin-top:8px;">
+      <span class="tip-label">จำง่าย:</span> ABOUT = "เรื่องอะไร" → ความรู้สึกที่มี <u>เกี่ยวกับ</u> topic บางอย่าง
+    </div>
+  </div>
+
+  <!-- OF -->
+  <div class="prep-cluster">
+    <div class="prep-tag of">+ OF</div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><span class="en">aware of</span><span class="th">ตระหนัก</span></div>
+      <div class="vocab-item"><span class="en">afraid of</span><span class="th">กลัว</span></div>
+      <div class="vocab-item"><span class="en">proud of</span><span class="th">ภูมิใจ</span></div>
+      <div class="vocab-item"><span class="en">jealous of</span><span class="th">อิจฉา</span></div>
+      <div class="vocab-item"><span class="en">fond of</span><span class="th">ชอบ/รัก</span></div>
+      <div class="vocab-item"><span class="en">ashamed of</span><span class="th">อาย/ละอาย</span></div>
+      <div class="vocab-item"><span class="en">capable of</span><span class="th">สามารถ</span></div>
+      <div class="vocab-item"><span class="en">tired of</span><span class="th">เบื่อ</span></div>
+    </div>
+    <div class="tip" style="margin-top:8px;">
+      <span class="tip-label">จำง่าย:</span> OF = "ครอบครอง/เป็นส่วนหนึ่ง" → ความรู้สึกที่ <u>เป็นของ</u> สิ่งนั้น → afraid <u>of</u> spiders, proud <u>of</u> you
+    </div>
+  </div>
+
+  <!-- FOR -->
+  <div class="prep-cluster">
+    <div class="prep-tag for">+ FOR</div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><span class="en">famous for</span><span class="th">โด่งดังเรื่อง</span></div>
+      <div class="vocab-item"><span class="en">responsible for</span><span class="th">รับผิดชอบ</span></div>
+      <div class="vocab-item"><span class="en">ready for</span><span class="th">พร้อมสำหรับ</span></div>
+      <div class="vocab-item"><span class="en">grateful for</span><span class="th">ขอบคุณสำหรับ</span></div>
+      <div class="vocab-item"><span class="en">suitable for</span><span class="th">เหมาะสำหรับ</span></div>
+      <div class="vocab-item"><span class="en">sorry for</span><span class="th">เสียใจที่</span></div>
+    </div>
+  </div>
+
+  <!-- IN -->
+  <div class="prep-cluster">
+    <div class="prep-tag in">+ IN</div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><span class="en">interested in</span><span class="th">สนใจ</span></div>
+      <div class="vocab-item"><span class="en">involved in</span><span class="th">มีส่วนร่วม</span></div>
+      <div class="vocab-item"><span class="en">successful in</span><span class="th">ประสบความสำเร็จ</span></div>
+      <div class="vocab-item"><span class="en">disappointed in</span><span class="th">ผิดหวังใน</span></div>
+    </div>
+  </div>
+
+  <!-- ON -->
+  <div class="prep-cluster">
+    <div class="prep-tag on">+ ON</div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><span class="en">keen on</span><span class="th">ชอบ/กระตือรือร้น</span></div>
+      <div class="vocab-item"><span class="en">dependent on</span><span class="th">พึ่งพา</span></div>
+      <div class="vocab-item"><span class="en">based on</span><span class="th">อิงจาก</span></div>
+      <div class="vocab-item"><span class="en">focused on</span><span class="th">โฟกัสที่</span></div>
+    </div>
+  </div>
+
+  <!-- FROM -->
+  <div class="prep-cluster">
+    <div class="prep-tag from">+ FROM</div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><span class="en">different from</span><span class="th">ต่างจาก</span></div>
+      <div class="vocab-item"><span class="en">absent from</span><span class="th">ขาดจาก</span></div>
+      <div class="vocab-item"><span class="en">safe from</span><span class="th">ปลอดภัยจาก</span></div>
+      <div class="vocab-item"><span class="en">separate from</span><span class="th">แยกจาก</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 2: PHRASAL VERBS -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section" id="phrasal">
+  <div class="section-title"><span class="num">2</span> Phrasal Verbs — Units 3 & 4</div>
+  <div class="section-desc">จัดกลุ่มตามหัวข้อ: Thinking/Learning (Unit 3) และ Health/Stress (Unit 4)</div>
+
+  <div class="card">
+    <div class="card-title" style="color: var(--cyan);">🧠 Thinking & Learning — Unit 3</div>
+    <div class="pv-item"><span class="pv-en">come up with</span><span class="pv-th">คิดขึ้นมาได้ (idea/plan)</span></div>
+    <div class="pv-item"><span class="pv-en">figure out</span><span class="pv-th">หาคำตอบ / ทำความเข้าใจ</span></div>
+    <div class="pv-item"><span class="pv-en">read up on</span><span class="pv-th">ค้นคว้าหาข้อมูลเรื่อง</span></div>
+    <div class="pv-item"><span class="pv-en">think over</span><span class="pv-th">ไตร่ตรองอย่างรอบคอบ</span></div>
+    <div class="pv-item"><span class="pv-en">think through</span><span class="pv-th">คิดให้ถี่ถ้วน (ผลกระทบ)</span></div>
+    <div class="pv-item"><span class="pv-en">think up</span><span class="pv-th">คิดประดิษฐ์ขึ้นมา (ข้อแก้ตัว)</span></div>
+    <div class="pv-item"><span class="pv-en">take in</span><span class="pv-th">ซึมซับ / ทำความเข้าใจ</span></div>
+    <div class="pv-item"><span class="pv-en">piece together</span><span class="pv-th">ปะติดปะต่อข้อมูล</span></div>
+    <div class="pv-item"><span class="pv-en">mull over</span><span class="pv-th">ครุ่นคิด (ใช้เวลานาน)</span></div>
+    <div class="pv-item"><span class="pv-en">swot up on</span><span class="pv-th">ท่องหนังสือหนัก (ก่อนสอบ)</span></div>
+    <div class="pv-item"><span class="pv-en">brush up on</span><span class="pv-th">ทบทวน / ฝึกทักษะ</span></div>
+    <div class="pv-item"><span class="pv-en">puzzle out</span><span class="pv-th">คิดแก้ปัญหาที่ซับซ้อน</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color: var(--green);">💪 Health & Stress — Unit 4</div>
+    <div class="pv-item"><span class="pv-en">burn out</span><span class="pv-th">เหนื่อยล้าหมดแรง</span></div>
+    <div class="pv-item"><span class="pv-en">wind down</span><span class="pv-th">ผ่อนคลายลง</span></div>
+    <div class="pv-item"><span class="pv-en">work out</span><span class="pv-th">ออกกำลังกาย / หาทางแก้</span></div>
+    <div class="pv-item"><span class="pv-en">chill out</span><span class="pv-th">พักผ่อนสบายๆ</span></div>
+    <div class="pv-item"><span class="pv-en">cut down on</span><span class="pv-th">ลดปริมาณ (สิ่งไม่ดี)</span></div>
+    <div class="pv-item"><span class="pv-en">get over</span><span class="pv-th">หายจาก (ป่วย/เศร้า)</span></div>
+    <div class="pv-item"><span class="pv-en">come down with</span><span class="pv-th">เริ่มป่วยเป็น</span></div>
+    <div class="pv-item"><span class="pv-en">pass out</span><span class="pv-th">หมดสติ / เป็นลม</span></div>
+    <div class="pv-item"><span class="pv-en">look after</span><span class="pv-th">ดูแล</span></div>
+    <div class="pv-item"><span class="pv-en">put up with</span><span class="pv-th">ทน / อดทน</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color: var(--orange);">📝 Abstract Nouns — Unit 3</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+      <div class="pv-item"><span class="pv-en">know →</span><span class="pv-th">knowledge</span></div>
+      <div class="pv-item"><span class="pv-en">intelligent →</span><span class="pv-th">intelligence</span></div>
+      <div class="pv-item"><span class="pv-en">curious →</span><span class="pv-th">curiosity</span></div>
+      <div class="pv-item"><span class="pv-en">achieve →</span><span class="pv-th">achievement</span></div>
+      <div class="pv-item"><span class="pv-en">confident →</span><span class="pv-th">confidence</span></div>
+      <div class="pv-item"><span class="pv-en">conscious →</span><span class="pv-th">consciousness</span></div>
+      <div class="pv-item"><span class="pv-en">perceive →</span><span class="pv-th">perception</span></div>
+      <div class="pv-item"><span class="pv-en">concentrate →</span><span class="pv-th">concentration</span></div>
+      <div class="pv-item"><span class="pv-en">creative →</span><span class="pv-th">creativity</span></div>
+      <div class="pv-item"><span class="pv-en">imagine →</span><span class="pv-th">imagination</span></div>
+    </div>
+    <div class="tip" style="margin-top: 10px;">
+      <span class="tip-label">Pattern:</span> -tion/-sion (action→noun), -ment (achieve), -ence/-ance (confide), -ity (curious), -ness (conscious)
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 3: GRAMMAR -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section" id="grammar">
+  <div class="section-title"><span class="num">3</span> Grammar — Present Perfect Simple vs Continuous</div>
+  <div class="section-desc">Grammar หลักจาก Unit 2 — จุดที่ออกสอบมากที่สุด</div>
+
+  <div class="grammar-box">
+    <div class="grammar-col simple">
+      <h4>Present Perfect Simple</h4>
+      <div class="formula">S + have/has + V3 (past participle)</div>
+      <ul>
+        <li>ผลสำเร็จ / เสร็จแล้ว</li>
+        <li>จำนวนครั้ง / ปริมาณ</li>
+        <li>ประสบการณ์ (ever/never)</li>
+        <li>สถานะถาวร + for/since</li>
+      </ul>
+    </div>
+    <div class="grammar-col cont">
+      <h4>Present Perfect Continuous</h4>
+      <div class="formula">S + have/has been + V-ing</div>
+      <ul>
+        <li>กิจกรรมยังทำอยู่ / เพิ่งหยุด</li>
+        <li>เน้นระยะเวลา (how long)</li>
+        <li>เน้นกระบวนการ</li>
+        <li>สถานะชั่วคราว</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 14px;">
+    <div style="font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 6px;">Signal Words</div>
+    <div style="margin-bottom: 6px; font-size: 12px; color: var(--text2);">SIMPLE ↓</div>
+    <div class="signal-row">
+      <span class="signal-tag s">already</span>
+      <span class="signal-tag s">yet</span>
+      <span class="signal-tag s">just</span>
+      <span class="signal-tag s">ever</span>
+      <span class="signal-tag s">never</span>
+      <span class="signal-tag s">how many</span>
+      <span class="signal-tag s">so far</span>
+      <span class="signal-tag s">three times</span>
+    </div>
+    <div style="margin-bottom: 6px; font-size: 12px; color: var(--text2);">CONTINUOUS ↓</div>
+    <div class="signal-row">
+      <span class="signal-tag c">all day</span>
+      <span class="signal-tag c">all morning</span>
+      <span class="signal-tag c">lately</span>
+      <span class="signal-tag c">recently</span>
+      <span class="signal-tag c">for hours</span>
+      <span class="signal-tag c">how long</span>
+    </div>
+  </div>
+
+  <div style="font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 8px;">ตัวอย่างจากหนังสือ (Unit 2)</div>
+
+  <div class="example-pair" style="border-color: var(--cyan);">
+    <div class="ex-en">Kerry <span class="hl-s">has worked</span> for three of the biggest fashion labels in the world.</div>
+    <div class="ex-note">→ ผลงาน/ประสบการณ์สะสม (เน้น "3 แบรนด์" = จำนวน)</div>
+  </div>
+  <div class="example-pair" style="border-color: var(--green);">
+    <div class="ex-en">Kerry <span class="hl-c">has been working</span> in Paris for most of this week. She's back tomorrow.</div>
+    <div class="ex-note">→ กิจกรรมชั่วคราวที่ยังดำเนินอยู่ ("this week" = เน้นช่วงเวลา, ยังไม่จบ)</div>
+  </div>
+  <div class="example-pair" style="border-color: var(--cyan);">
+    <div class="ex-en">I<span class="hl-s">'ve never worn</span> high-heel shoes in my life.</div>
+    <div class="ex-note">→ ประสบการณ์ (never = ไม่เคยทำ)</div>
+  </div>
+  <div class="example-pair" style="border-color: var(--green);">
+    <div class="ex-en">I <span class="hl-c">haven't been wearing</span> a jumper lately as it's been so sunny.</div>
+    <div class="ex-note">→ สถานะชั่วคราว ("lately" = ช่วงนี้, อาจเปลี่ยน)</div>
+  </div>
+  <div class="example-pair" style="border-color: var(--cyan);">
+    <div class="ex-en">I<span class="hl-s">'ve always thought</span> that blue is your colour.</div>
+    <div class="ex-note">→ ความเชื่อ/ทัศนคติถาวร (always = ตลอดมา)</div>
+  </div>
+  <div class="example-pair" style="border-color: var(--green);">
+    <div class="ex-en">I<span class="hl-c">'ve been thinking</span> all morning about that coat I saw in the sales.</div>
+    <div class="ex-note">→ กระบวนการที่ยังดำเนินอยู่ ("all morning" = เน้นระยะเวลา)</div>
+  </div>
+
+  <div class="warning">
+    <div class="label">⚠ Stative Verbs — ห้ามใช้ Continuous</div>
+    <div class="content">
+      know, believe, want, need, prefer, love, hate, belong, own, understand, mean, remember, realise<br>
+      ✗ I've <s>been knowing</s> him for years → ✓ I've <b>known</b> him for years<br>
+      ✗ She's <s>been wanting</s> this bag forever → ✓ She's <b>wanted</b> this bag forever
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 4: SITUATIONAL DIALOG -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section" id="dialog">
+  <div class="section-title"><span class="num">4</span> Situational Dialog</div>
+  <div class="section-desc">วลีสำคัญจาก Units 2–4 ที่ใช้ในสถานการณ์ต่างๆ</div>
+
+  <div class="card">
+    <div class="dialog-group">
+      <div class="dialog-label" style="background: var(--cyan-dim); color: var(--cyan);">Introducing opinions (Unit 2)</div>
+      <div class="dialog-phrases">
+        To be honest, … / To tell the truth, …<br>
+        I guess … / Personally speaking, …<br>
+        I would say … / If you ask me, …<br>
+        In my opinion, … / As far as I'm concerned, …
+      </div>
+    </div>
+    <div class="dialog-group">
+      <div class="dialog-label" style="background: var(--green-dim); color: var(--green);">Offering help (Unit 3)</div>
+      <div class="dialog-phrases">
+        Shall I …? / Would you like me to …?<br>
+        Can I help you with …? / Let me … for you.<br>
+        I'll … if you like. / Do you need a hand with …?
+      </div>
+    </div>
+    <div class="dialog-group">
+      <div class="dialog-label" style="background: var(--orange-dim); color: var(--orange);">Generalising (Unit 4)</div>
+      <div class="dialog-phrases">
+        In general, … / On the whole, …<br>
+        Generally speaking, … / As a rule, …<br>
+        Most people tend to … / By and large, …
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 5: LINKING WORDS -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section" id="linking">
+  <div class="section-title"><span class="num">5</span> Linking Words — สำหรับ Sentence Rearrangement</div>
+  <div class="section-desc">ใช้เชื่อมประโยค + เป็น key ในการเรียงลำดับ</div>
+
+  <div class="card">
+    <div class="link-group">
+      <div class="link-cat" style="color: var(--cyan);">Contrast (ขัดแย้ง)</div>
+      <div class="link-tags">
+        <span class="link-tag" style="background:var(--cyan-dim);color:var(--cyan);">even though</span>
+        <span class="link-tag" style="background:var(--cyan-dim);color:var(--cyan);">however</span>
+        <span class="link-tag" style="background:var(--cyan-dim);color:var(--cyan);">whereas</span>
+        <span class="link-tag" style="background:var(--cyan-dim);color:var(--cyan);">on the other hand</span>
+        <span class="link-tag" style="background:var(--cyan-dim);color:var(--cyan);">in contrast</span>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-cat" style="color: var(--green);">Condition (เงื่อนไข)</div>
+      <div class="link-tags">
+        <span class="link-tag" style="background:var(--green-dim);color:var(--green);">provided (that)</span>
+        <span class="link-tag" style="background:var(--green-dim);color:var(--green);">once</span>
+        <span class="link-tag" style="background:var(--green-dim);color:var(--green);">as long as</span>
+        <span class="link-tag" style="background:var(--green-dim);color:var(--green);">unless</span>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-cat" style="color: var(--yellow);">Cause / Result</div>
+      <div class="link-tags">
+        <span class="link-tag" style="background:var(--yellow-dim);color:var(--yellow);">now (that)</span>
+        <span class="link-tag" style="background:var(--yellow-dim);color:var(--yellow);">because / since</span>
+        <span class="link-tag" style="background:var(--yellow-dim);color:var(--yellow);">as a result</span>
+        <span class="link-tag" style="background:var(--yellow-dim);color:var(--yellow);">therefore</span>
+        <span class="link-tag" style="background:var(--yellow-dim);color:var(--yellow);">consequently</span>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-cat" style="color: var(--purple);">Addition</div>
+      <div class="link-tags">
+        <span class="link-tag" style="background:var(--purple-dim);color:var(--purple);">in addition</span>
+        <span class="link-tag" style="background:var(--purple-dim);color:var(--purple);">moreover</span>
+        <span class="link-tag" style="background:var(--purple-dim);color:var(--purple);">furthermore</span>
+        <span class="link-tag" style="background:var(--purple-dim);color:var(--purple);">what's more</span>
+      </div>
+    </div>
+    <div class="link-group">
+      <div class="link-cat" style="color: var(--pink);">Conclusion / Summary</div>
+      <div class="link-tags">
+        <span class="link-tag" style="background:var(--pink-dim);color:var(--pink);">in conclusion</span>
+        <span class="link-tag" style="background:var(--pink-dim);color:var(--pink);">to sum up</span>
+        <span class="link-tag" style="background:var(--pink-dim);color:var(--pink);">all in all</span>
+        <span class="link-tag" style="background:var(--pink-dim);color:var(--pink);">on the whole</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <span class="tip-label">เทคนิคเรียงประโยค:</span> ดู linking word → ระบุ logic (ขัดแย้ง? เพิ่มเติม? สรุป?) → ดู pronoun (it/this/they อ้างถึงอะไร) → ดู tense ต้องสอดคล้อง
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 6: ARTICLE WRITING -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section" id="article">
+  <div class="section-title"><span class="num">6</span> Writing an Article</div>
+  <div class="section-desc">โครงสร้าง + เทคนิค B2 Article (140–190 words)</div>
+
+  <div class="card">
+    <div class="article-step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h5>Title + Introduction</h5>
+        <p>ตั้ง catchy title → เปิดด้วย rhetorical question หรือ surprising fact<br>
+        <span class="phrase">"Have you ever wondered why…?"</span> / <span class="phrase">"It's a well-known fact that…"</span></p>
+      </div>
+    </div>
+    <div class="article-step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h5>Body paragraph 1</h5>
+        <p>ประเด็นแรก + ตัวอย่าง → ใช้ "you" address ผู้อ่าน<br>
+        <span class="phrase">"You might be surprised to learn that…"</span> / <span class="phrase">"Most of us would agree that…"</span></p>
+      </div>
+    </div>
+    <div class="article-step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h5>Body paragraph 2</h5>
+        <p>มุมมองเพิ่มเติมหรือด้านตรงข้าม → ใช้ linking words<br>
+        <span class="phrase">"On the other hand…"</span> / <span class="phrase">"What's more…"</span> / <span class="phrase">"However…"</span></p>
+      </div>
+    </div>
+    <div class="article-step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h5>Conclusion</h5>
+        <p>สรุป + ให้ recommendation / personal opinion<br>
+        <span class="phrase">"All in all, …"</span> / <span class="phrase">"To sum up, I believe that…"</span> / <span class="phrase">"Why not give it a try?"</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="warning" style="background: var(--cyan-glow); border-color: rgba(0,212,255,0.2);">
+    <div class="label" style="color: var(--cyan);">Article ≠ Essay</div>
+    <div class="content" style="color: var(--text2);">
+      <b>Article</b>: ต้องมี catchy title, ใช้ "you" พูดกับผู้อ่าน, rhetorical questions OK, semi-formal, entertaining<br>
+      <b>Essay</b>: ไม่มี title, ห้าม "you", formal/neutral, impersonal, argument + evidence
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 7: EXAM SIMULATION QUIZ -->
+<!-- ═══════════════════════════════════════ -->
+<div class="section" id="quiz">
+  <div class="section-title"><span class="num">7</span> แบบทดสอบจำลองข้อสอบ</div>
+  <div class="section-desc">20 ข้อ ครอบคลุมทุกหัวข้อ — กดเลือกคำตอบแล้วดูเฉลยทันที</div>
+
+  <div class="quiz-container" id="quizArea"></div>
+  <div class="score-bar" id="scoreBar">
+    <div class="score-num" id="scoreNum">0/20</div>
+    <div class="score-label">คะแนนรวม</div>
+    <div class="score-msg" id="scoreMsg"></div>
+  </div>
+</div>
+
+<div class="footer">
+  JARVIS Study System — Prepare Level 7 (B2) Midterm Guide<br>
+  Generated for Tony | สู้ๆ ครับ Sir 🏆
+</div>
+
+</div>
+
+<script>
+const quizData = [
+  // === VOCAB: Adj + Prep (1-5) ===
+  {
+    type: "vocab", label: "Vocabulary — Adj + Prep",
+    text: "She's completely _____ fashion. She reads every magazine and follows all the latest trends.",
+    blank: "addicted _____",
+    opts: ["A) addicted to", "B) addicted of", "C) addicted about", "D) addicted with"],
+    answer: 0,
+    explain: "addicted + TO เสมอ → addicted to fashion (เสพติดแฟชั่น)"
+  },
+  {
+    type: "vocab", label: "Vocabulary — Adj + Prep",
+    text: "I'm absolutely _____ making decisions about clothes. I never know what to choose!",
+    blank: "hopeless _____",
+    opts: ["A) hopeless about", "B) hopeless in", "C) hopeless at", "D) hopeless for"],
+    answer: 2,
+    explain: "hopeless + AT → ใช้กับความสามารถ: good at, bad at, hopeless at, brilliant at"
+  },
+  {
+    type: "vocab", label: "Vocabulary — Adj + Prep",
+    text: "Tom needs to be more _____ spending too much money on designer brands.",
+    blank: "cautious _____",
+    opts: ["A) cautious for", "B) cautious of", "C) cautious about", "D) cautious at"],
+    answer: 2,
+    explain: "cautious + ABOUT → ระมัดระวังเรื่อง… (ABOUT = เกี่ยวกับ topic)"
+  },
+  {
+    type: "vocab", label: "Vocabulary — Adj + Prep",
+    text: "This jacket is very _____ the one I saw in the shop window last week.",
+    blank: "similar _____",
+    opts: ["A) similar with", "B) similar as", "C) similar to", "D) similar of"],
+    answer: 2,
+    explain: "similar + TO เสมอ → similar to (คล้ายกับ)"
+  },
+  {
+    type: "vocab", label: "Vocabulary — Adj + Prep",
+    text: "Are you _____ the environmental impact of fast fashion?",
+    blank: "aware _____",
+    opts: ["A) aware about", "B) aware of", "C) aware for", "D) aware to"],
+    answer: 1,
+    explain: "aware + OF → ตระหนักรู้ถึงสิ่งนั้น"
+  },
+  // === PHRASAL VERBS (6-9) ===
+  {
+    type: "pv", label: "Phrasal Verbs — Thinking",
+    text: "I can't _____ why this maths problem is so difficult. I've tried everything.",
+    blank: "_____",
+    opts: ["A) figure out", "B) think up", "C) come up with", "D) read up on"],
+    answer: 0,
+    explain: "figure out = หาคำตอบ/ทำความเข้าใจสิ่งที่ซับซ้อน"
+  },
+  {
+    type: "pv", label: "Phrasal Verbs — Thinking",
+    text: "We need to _____ a solution before the deadline tomorrow.",
+    blank: "_____",
+    opts: ["A) mull over", "B) come up with", "C) take in", "D) piece together"],
+    answer: 1,
+    explain: "come up with = คิดขึ้นมาได้ (idea, plan, solution)"
+  },
+  {
+    type: "pv", label: "Phrasal Verbs — Health",
+    text: "You look exhausted. You should _____ and relax this evening.",
+    blank: "_____",
+    opts: ["A) burn out", "B) cut down on", "C) wind down", "D) pass out"],
+    answer: 2,
+    explain: "wind down = ผ่อนคลายลง (หลังทำงานหนัก)"
+  },
+  {
+    type: "pv", label: "Phrasal Verbs — Health",
+    text: "The doctor said I should _____ sugary drinks to improve my health.",
+    blank: "_____",
+    opts: ["A) get over", "B) work out", "C) put up with", "D) cut down on"],
+    answer: 3,
+    explain: "cut down on = ลดปริมาณ (สิ่งที่ไม่ดี เช่น น้ำตาล, บุหรี่)"
+  },
+  // === GRAMMAR: Present Perfect (10-15) ===
+  {
+    type: "grammar", label: "Grammar — Present Perfect",
+    text: "I _____ three pairs of jeans this year. I think that's enough!",
+    blank: "_____",
+    opts: ["A) have bought", "B) have been buying", "C) am buying", "D) was buying"],
+    answer: 0,
+    explain: "เน้นจำนวน (three pairs) → Present Perfect Simple"
+  },
+  {
+    type: "grammar", label: "Grammar — Present Perfect",
+    text: "Sorry I'm late. _____ long?",
+    blank: "_____ you _____ waiting",
+    opts: ["A) Did you wait", "B) Have you waited", "C) Have you been waiting", "D) Are you waiting"],
+    answer: 2,
+    explain: "ถามว่ารอนานไหม → เน้นระยะเวลาของกิจกรรม → Present Perfect Continuous"
+  },
+  {
+    type: "grammar", label: "Grammar — Present Perfect",
+    text: "She _____ as a fashion designer since 2015. It's a permanent career.",
+    blank: "_____",
+    opts: ["A) has been working", "B) has worked", "C) is working", "D) worked"],
+    answer: 1,
+    explain: "สถานะถาวร (permanent career) + since → Present Perfect Simple"
+  },
+  {
+    type: "grammar", label: "Grammar — Present Perfect",
+    text: "Your eyes are red. _____ ?",
+    blank: "_____",
+    opts: ["A) Did you cry", "B) Have you cried", "C) Have you been crying", "D) Do you cry"],
+    answer: 2,
+    explain: "เห็นหลักฐานปัจจุบัน (ตาแดง) ของกิจกรรมที่เพิ่งหยุด → Present Perfect Continuous"
+  },
+  {
+    type: "grammar", label: "Grammar — Present Perfect",
+    text: "I _____ this book for three weeks but I still haven't finished it.",
+    blank: "_____",
+    opts: ["A) read", "B) have read", "C) have been reading", "D) am reading"],
+    answer: 2,
+    explain: "กิจกรรมที่ยังดำเนินอยู่ (haven't finished) + for three weeks → Continuous"
+  },
+  {
+    type: "grammar", label: "Grammar — Stative Verb Trap",
+    text: "I _____ him since primary school. He's one of my oldest friends.",
+    blank: "_____",
+    opts: ["A) have been knowing", "B) have known", "C) am knowing", "D) knew"],
+    answer: 1,
+    explain: "know = stative verb → ห้ามใช้ continuous → have known"
+  },
+  // === LINKING WORDS / SENTENCE (16-17) ===
+  {
+    type: "linking", label: "Linking Words",
+    text: "I can visit you more often _____ I've got a car.",
+    blank: "_____",
+    opts: ["A) even though", "B) provided that", "C) now that", "D) once"],
+    answer: 2,
+    explain: "now that = เพราะตอนนี้… (เหตุที่เพิ่งเกิด → ผลในปัจจุบัน)"
+  },
+  {
+    type: "linking", label: "Linking Words",
+    text: "I'll lend you my camera, _____ you look after it properly.",
+    blank: "_____",
+    opts: ["A) even though", "B) now that", "C) provided", "D) whereas"],
+    answer: 2,
+    explain: "provided (that) = ถ้าหาก… (เงื่อนไข) = as long as"
+  },
+  // === DIALOG (18-19) ===
+  {
+    type: "dialog", label: "Situational Dialog",
+    text: "A: I have so much homework to do tonight.<br>B: _____ I help you with the science project?",
+    blank: "_____",
+    opts: ["A) Will", "B) Shall", "C) Do", "D) Am"],
+    answer: 1,
+    explain: "Shall I …? = วลีเสนอช่วยเหลือ (offering help)"
+  },
+  {
+    type: "dialog", label: "Situational Dialog",
+    text: "_____, I think uniforms are a good idea because everyone looks equal.",
+    blank: "_____",
+    opts: ["A) Generally speaking", "B) To be honest", "C) On the whole", "D) As a rule"],
+    answer: 1,
+    explain: "To be honest = วลีแนะนำความคิดเห็นส่วนตัว (introducing opinions)"
+  },
+  // === ARTICLE WRITING (20) ===
+  {
+    type: "article", label: "Article Writing",
+    text: "Which opening sentence is BEST for an article about stress in students?",
+    blank: "",
+    opts: [
+      "A) This essay will discuss stress.",
+      "B) Have you ever felt so stressed that you couldn't think straight?",
+      "C) Stress is bad for students.",
+      "D) In this essay, I will argue that stress is a problem."
+    ],
+    answer: 1,
+    explain: "Article ต้องเปิดด้วย rhetorical question หรือ engaging hook → ข้อ B ดึงดูดผู้อ่านด้วยคำถาม + ใช้ 'you' (ต่างจาก Essay)"
+  }
+];
+
+// Render quiz
+const quizArea = document.getElementById('quizArea');
+let score = 0;
+let answered = 0;
+
+quizData.forEach((q, i) => {
+  const div = document.createElement('div');
+  div.className = 'quiz-q';
+  div.id = `q${i}`;
+  div.innerHTML = `
+    <div class="quiz-label">${q.label} — ข้อ ${i+1}/20</div>
+    <div class="quiz-text">${q.text}</div>
+    <div class="quiz-opts" id="opts${i}">
+      ${q.opts.map((o, j) => `<button class="quiz-opt" onclick="checkAns(${i},${j})">${o}</button>`).join('')}
+    </div>
+    <div class="quiz-explain" id="exp${i}"></div>
+  `;
+  quizArea.appendChild(div);
+});
+
+function checkAns(qi, oi) {
+  const q = quizData[qi];
+  const container = document.getElementById(`q${qi}`);
+  const opts = document.getElementById(`opts${qi}`).querySelectorAll('.quiz-opt');
+  const exp = document.getElementById(`exp${qi}`);
+  
+  // Disable all opts
+  opts.forEach((o, j) => {
+    o.disabled = true;
+    if (j === q.answer) o.classList.add('correct');
+    if (j === oi && oi !== q.answer) o.classList.add('wrong');
+  });
+
+  const isCorrect = oi === q.answer;
+  if (isCorrect) {
+    score++;
+    container.classList.add('answered-correct');
+    exp.className = 'quiz-explain show correct-exp';
+    exp.innerHTML = `✅ ถูกต้อง! ${q.explain}`;
+  } else {
+    container.classList.add('answered-wrong');
+    exp.className = 'quiz-explain show wrong-exp';
+    exp.innerHTML = `❌ ผิด — ${q.explain}`;
+  }
+
+  answered++;
+  if (answered === quizData.length) {
+    showScore();
+  }
+}
+
+function showScore() {
+  const bar = document.getElementById('scoreBar');
+  const num = document.getElementById('scoreNum');
+  const msg = document.getElementById('scoreMsg');
+  bar.classList.add('show');
+  num.textContent = `${score}/${quizData.length}`;
+  
+  const pct = (score / quizData.length) * 100;
+  if (pct >= 90) msg.textContent = "เยี่ยมมาก Sir! พร้อมสอบแล้ว 🏆";
+  else if (pct >= 70) msg.textContent = "ดีครับ แต่ยังมีจุดที่ต้องทบทวน 📚";
+  else if (pct >= 50) msg.textContent = "ต้องทบทวนเพิ่มครับ Sir โดยเฉพาะจุดที่ผิด ⚡";
+  else msg.textContent = "ต้องอ่านเนื้อหาซ้ำครับ Sir แล้วลองทำใหม่อีกรอบ 💪";
+  
+  bar.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+</body>
+</html>
