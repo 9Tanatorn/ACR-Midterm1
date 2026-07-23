@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Midterm ม.6 — Complete Study Guide</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{
+--bg:#faf8f5;--bg2:#f1eeea;--card:#fff;
+--t1:#1a1a2e;--t2:#555;--t3:#999;
+--bdr:#e0ddd8;--bdr2:#d0cdc8;
+--f:'IBM Plex Sans Thai','Space Grotesk',sans-serif;
+--m:'IBM Plex Mono',monospace;
+--u2:#6C5CE7;--u2b:#a29bfe;--u2bg:#f0edff;
+--u3:#00B894;--u3b:#55efc4;--u3bg:#e8fff7;
+--u4:#E17055;--u4b:#fab1a0;--u4bg:#fff0ec;
+--u11:#FD79A8;--u11b:#fd79a8;--u11bg:#fff0f6;
+--u12:#0984E3;--u12b:#74b9ff;--u12bg:#eaf4ff;
+--accent:#6C5CE7;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--f);background:var(--bg);color:var(--t1);line-height:1.7;font-size:15px}
+.c{max-width:840px;margin:0 auto;padding:20px 16px 60px}
+.hdr{text-align:center;padding:48px 20px 36px;position:relative;overflow:hidden;border-radius:20px;margin-bottom:28px;
+background:linear-gradient(135deg,#6C5CE7 0%,#a29bfe 40%,#fd79a8 70%,#fab1a0 100%)}
+.hdr *{position:relative;z-index:1}
+.hdr h1{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#fff;letter-spacing:-.5px;margin-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,.15)}
+.hdr .sub{font-size:14px;color:rgba(255,255,255,.85)}
+.hdr .badge{display:inline-block;margin-top:10px;padding:5px 16px;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);border-radius:20px;font-size:12px;color:#fff;font-weight:500}
+.nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px;position:sticky;top:0;z-index:100;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--bdr)}
+.nav a{padding:6px 14px;background:var(--card);border:1px solid var(--bdr);border-radius:20px;color:var(--t2);text-decoration:none;font-size:12px;font-weight:500;transition:all .2s;white-space:nowrap}
+.nav a:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.sec{margin-bottom:36px;scroll-margin-top:58px}
+.st{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.st .n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:10px;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+.sd{font-size:13px;color:var(--t2);margin-bottom:16px;padding-left:40px}
+.card{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:18px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ct{font-size:14px;font-weight:600;margin-bottom:10px}
+.prep-cluster{margin-bottom:14px}
+.ptag{display:inline-flex;align-items:center;gap:4px;padding:4px 14px;border-radius:20px;font-size:14px;font-weight:700;font-family:var(--m);margin-bottom:8px;color:#fff}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.vi{display:flex;align-items:baseline;gap:6px;padding:7px 10px;border-radius:10px;font-size:13px;border:1px solid transparent;transition:all .15s}
+.vi:hover{transform:translateX(2px)}
+.vi .en{font-weight:500;color:var(--t1)}.vi .th{color:var(--t3);font-size:11px;margin-left:auto}
+.pvi{display:flex;justify-content:space-between;align-items:baseline;padding:8px 12px;border-radius:10px;font-size:13px;transition:all .15s}
+.pvi:hover{transform:translateX(2px)}
+.pvi .pe{font-weight:600;font-family:var(--m);font-size:13px}
+.pvi .pt{color:var(--t2);font-size:12px;text-align:right;max-width:50%}
+.gbox{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.gcol{border-radius:14px;padding:14px;border-top:4px solid}
+.gcol h4{font-size:13px;font-weight:600;margin-bottom:5px}
+.gcol .fm{font-family:var(--m);font-size:12px;color:var(--t2);margin-bottom:8px;padding:4px 8px;background:var(--bg2);border-radius:8px;display:inline-block}
+.gcol ul{list-style:none;font-size:12px}.gcol ul li{padding:3px 0 3px 14px;position:relative}
+.gcol ul li::before{content:'•';position:absolute;left:0;font-weight:700}
+.ep{border-radius:12px;padding:12px;margin-bottom:6px;border-left:4px solid}
+.ep .ee{font-size:13px;margin-bottom:2px}.ep .en2{font-size:11px;color:var(--t2)}
+.hl{font-weight:700}
+.tip{border-radius:12px;padding:12px;font-size:12px;margin:8px 0;display:flex;align-items:flex-start;gap:8px}
+.tip-icon{font-size:18px;flex-shrink:0;line-height:1}
+.warn{border-radius:12px;padding:12px;font-size:12px;margin:8px 0;border:1px solid}
+.sr{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
+.stag{padding:3px 10px;border-radius:14px;font-size:11px;font-weight:600;font-family:var(--m)}
+.dg{margin-bottom:12px}
+.dl{font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;display:inline-block;color:#fff;margin-bottom:6px}
+.dp{padding-left:12px;font-size:13px;line-height:2;color:var(--t1)}
+.lkg{margin-bottom:10px}
+.lkc{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.lkt{display:flex;flex-wrap:wrap;gap:4px}
+.lk{padding:4px 10px;border-radius:14px;font-size:12px;font-weight:500;color:#fff}
+.as{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--bdr)}
+.as:last-child{border-bottom:none}
+.as .sn{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0;margin-top:2px}
+.as .sc h5{font-size:14px;font-weight:600;margin-bottom:2px}.as .sc p{font-size:12px;color:var(--t2)}
+.as .sc .ph{font-style:italic;font-weight:500}
+.exam-hero{border-radius:18px;padding:20px;margin-bottom:16px;color:#fff;text-align:center}
+.exam-hero h3{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;margin-bottom:4px}
+.exam-hero p{font-size:12px;opacity:.9}
+.qq{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:all .3s}
+.qq.ac{border-color:#00b894;background:#e8fff7}.qq.aw{border-color:#e17055;background:#fff0ec}
+.ql{font-size:10px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.qt{font-size:13px;margin-bottom:10px;line-height:1.8}
+.qo{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.qb{padding:8px 12px;background:var(--bg);border:1px solid var(--bdr);border-radius:10px;color:var(--t1);font-size:12px;cursor:pointer;transition:all .2s;text-align:left;font-family:var(--f)}
+.qb:hover:not(:disabled){background:var(--u2bg);border-color:var(--u2b);transform:translateY(-1px)}
+.qb:disabled{cursor:default;opacity:.7}
+.qb.ok{background:#d4edda!important;border-color:#00b894!important;color:#00703c!important;font-weight:600}
+.qb.no{background:#ffeaea!important;border-color:#e17055!important;color:#c0392b!important;text-decoration:line-through}
+.qe{display:none;margin-top:10px;padding:10px;border-radius:10px;font-size:12px;line-height:1.6}
+.qe.sh{display:block}.qe.ce{background:#d4edda;color:#00703c}.qe.we{background:#ffeaea;color:#c0392b}
+.sb{border-radius:16px;padding:24px;text-align:center;display:none;color:#fff}
+.sb.sh{display:block}
+.sb .snum{font-family:'Space Grotesk',sans-serif;font-size:40px;font-weight:700}
+.sb .sl{font-size:14px;opacity:.85}.sb .sm{margin-top:6px;font-size:13px;opacity:.9}
+.tab-bar{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap}
+.tab-btn{padding:6px 14px;background:var(--card);border:1px solid var(--bdr);border-radius:20px;color:var(--t2);font-size:12px;font-weight:500;cursor:pointer;font-family:var(--f);transition:all .2s}
+.tab-btn:hover{background:var(--bg2)}
+.tab-btn.active{color:#fff}
+.footer{text-align:center;padding:30px 0 10px;font-size:12px;color:var(--t3)}
+.note-box{background:#fff8e1;border:1px solid #f0c27f;border-radius:12px;padding:12px;font-size:12px;color:#8a6d1f;margin-bottom:16px}
+@media(max-width:500px){.gbox,.qo,.vg{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="c">
+
+<div class="hdr">
+<h1>ENGLISH MIDTERM ม.6</h1>
+<div class="sub">Prepare Level 7 (B2) — Units 2–4 & 11–12 | 15 คะแนน</div>
+<div class="badge">✦ COMPLETE GUIDE + 2 SEPARATE EXAM SETS ✦</div>
+</div>
+
+<div class="note-box">
+📌 <b>หมายเหตุจาก JARVIS:</b> Vocabulary ทุกคำในไฟล์นี้ตรงกับ Vocabulary List หน้า 142–145 ในหนังสือ 100% ส่วนโจทย์ฝึกหัดเป็นโจทย์ที่ผมสร้างขึ้นใหม่ให้ตรงกับคำศัพท์/แกรมมาร์ที่ยืนยันแล้ว (ไม่ใช่โจทย์คำต่อคำจากหนังสือ เนื่องจากข้อจำกัดด้านลิขสิทธิ์และขนาดไฟล์) หากมีโจทย์ review จริงจากหนังสือ ส่งรูปมาเพิ่มได้ครับ
+</div>
+
+<div class="nav">
+<a href="#u2">Unit 2</a><a href="#u3">Unit 3</a><a href="#u4">Unit 4</a>
+<a href="#u11">Unit 11</a><a href="#u12">Unit 12</a>
+<a href="#writing">Writing Guide</a>
+<a href="#exam1" style="background:var(--u2);color:#fff;border-color:var(--u2)">📝 Exam 1: English</a>
+<a href="#exam2" style="background:var(--u12);color:#fff;border-color:var(--u12)">📘 Exam 2: For Skill</a>
+</div>
+
+<!-- ═══════════ UNIT 2 ═══════════ -->
+<div class="sec" id="u2">
+<div class="st"><span class="n" style="background:var(--u2)">2</span> <span style="color:var(--u2)">Addicted to fashion</span></div>
+<div class="sd">Personality: Adj + Preposition / Verb + Preposition / Grammar: Present Perfect</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u2)">📌 Adjective + Preposition — จัดกลุ่มตาม preposition (ยิ่งกลุ่มเดียวกันยิ่งจำง่าย)</div>
+
+<div class="prep-cluster">
+<div class="ptag" style="background:linear-gradient(135deg,#e17055,#fab1a0)">+ABOUT ×3</div>
+<div class="vg">
+<div class="vi" style="background:#fff0ec"><span class="en">bothered about</span><span class="th">กังวล/รู้สึกว่าสำคัญ</span></div>
+<div class="vi" style="background:#fff0ec"><span class="en">cautious about</span><span class="th">ระมัดระวัง</span></div>
+<div class="vi" style="background:#fff0ec"><span class="en">decisive about</span><span class="th">ตัดสินใจเด็ดขาด</span></div>
+</div>
+<div class="tip" style="background:#fff0ec;color:#e17055"><span class="tip-icon">💡</span> <b>Pattern:</b> ABOUT มักตามหลัง adjective ที่บอกความรู้สึก/ทัศนคติต่อ "เรื่องหนึ่งเรื่องใด" (a topic/situation) ไม่ใช่ต่อคนหรือสิ่งของโดยตรง</div>
+<div class="ep" style="border-color:#e17055;background:#fff0ec">
+<div class="ee">"I'm not <b>bothered about</b> what other people think of my style."</div>
+<div class="en2">→ ไม่ได้สนใจ/กังวลว่าคนอื่นจะคิดยังไง</div>
+</div>
+<div class="ep" style="border-color:#e17055;background:#fff0ec">
+<div class="ee">"She's always <b>cautious about</b> spending money on designer brands."</div>
+<div class="en2">→ ระมัดระวังเรื่องการใช้เงิน</div>
+</div>
+</div>
+
+<div class="prep-cluster">
+<div class="ptag" style="background:linear-gradient(135deg,#6c5ce7,#a29bfe)">+OF ×3</div>
+<div class="vg">
+<div class="vi" style="background:#f0edff"><span class="en">aware of</span><span class="th">ตระหนักรู้ถึง</span></div>
+<div class="vi" style="background:#f0edff"><span class="en">critical of</span><span class="th">วิพากษ์วิจารณ์</span></div>
+<div class="vi" style="background:#f0edff"><span class="en">jealous of</span><span class="th">อิจฉา</span></div>
+</div>
+<div class="tip" style="background:#f0edff;color:#6c5ce7"><span class="tip-icon">💡</span> <b>Pattern:</b> OF มักตามหลัง adjective ที่แสดง "ความรู้สึกที่มีทิศทางไปยังสิ่งใดสิ่งหนึ่งที่เป็นเจ้าของ/แหล่งที่มา" — คิดว่าเป็นความรู้สึก "ที่มาจาก" สิ่งนั้น</div>
+<div class="ep" style="border-color:#6c5ce7;background:#f0edff">
+<div class="ee">"He's always <b>critical of</b> the way I dress for school."</div>
+<div class="en2">→ วิพากษ์วิจารณ์วิธีแต่งตัว</div>
+</div>
+<div class="ep" style="border-color:#6c5ce7;background:#f0edff">
+<div class="ee">"I'm not <b>jealous of</b> her clothes, I just admire her style."</div>
+<div class="en2">→ ไม่ได้อิจฉา แต่ชื่นชม</div>
+</div>
+</div>
+
+<div class="prep-cluster">
+<div class="ptag" style="background:linear-gradient(135deg,#0984e3,#74b9ff)">+TO ×2</div>
+<div class="vg">
+<div class="vi" style="background:#eaf4ff"><span class="en">addicted to</span><span class="th">เสพติด/หมกมุ่น</span></div>
+<div class="vi" style="background:#eaf4ff"><span class="en">loyal to</span><span class="th">จงรักภักดี/ซื่อสัตย์</span></div>
+</div>
+<div class="ep" style="border-color:#0984e3;background:#eaf4ff">
+<div class="ee">"My sister is completely <b>addicted to</b> online shopping."</div>
+<div class="en2">→ เสพติดการช้อปปิ้งออนไลน์</div>
+</div>
+<div class="ep" style="border-color:#0984e3;background:#eaf4ff">
+<div class="ee">"He's very <b>loyal to</b> his favourite brands and never changes."</div>
+<div class="en2">→ ซื่อสัตย์ต่อแบรนด์โปรด</div>
+</div>
+</div>
+
+<div class="prep-cluster">
+<div class="cat-label" style="font-size:12px;font-weight:600;color:var(--t2);margin-bottom:6px">คำที่เหลือ (preposition ไม่ซ้ำ)</div>
+<div class="vg">
+<div class="vi" style="background:#fff8e1"><span class="en">hopeless <b style="color:#e67e22">at</b></span><span class="th">ทำไม่ได้เลย</span></div>
+<div class="vi" style="background:#fce4ec"><span class="en">impressed <b style="color:#e91e63">by</b></span><span class="th">ประทับใจ</span></div>
+<div class="vi" style="background:#e8f5e9"><span class="en">adventurous <b style="color:#27ae60">with</b></span><span class="th">กล้าลอง</span></div>
+<div class="vi" style="background:#fff0ec"><span class="en">mean <b style="color:#e17055">about</b></span><span class="th">ใจร้าย/ขี้บ่น</span></div>
+</div>
+<div class="ep" style="border-color:#e67e22;background:#fff8e1">
+<div class="ee">"I'm completely <b>hopeless at</b> matching colours when I get dressed."</div>
+<div class="en2">→ ทำไม่ได้เลยเรื่องจับคู่สี</div>
+</div>
+<div class="ep" style="border-color:#e91e63;background:#fce4ec">
+<div class="ee">"I was really <b>impressed by</b> her creative outfit at the party."</div>
+<div class="en2">→ ประทับใจกับชุดที่สร้างสรรค์</div>
+</div>
+</div>
+
+<div class="warn" style="background:#ffeaea;border-color:#e17055;color:#c0392b">
+⚠ <b>ข้อควรระวัง:</b> Preposition หลัง adjective ต้องท่องเป็นคู่เสมอ (ห้ามเดา!) เพราะภาษาไทยไม่มี preposition แบบนี้ ลองสังเกตว่าตัวเดียวกันอาจใช้ preposition ต่างกันในความหมายต่าง เช่น <b>critical of</b> (วิจารณ์) ≠ <b>critical for</b> (ไม่มีวลีนี้ในหนังสือ ต้องระวังอย่าปนกับคำอื่น)
+</div>
+</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u2)">📌 Verb + Preposition</div>
+<div class="pvi" style="background:var(--u2bg)"><span class="pe" style="color:var(--u2)">apologise (for)</span><span class="pt">ขอโทษเรื่อง...</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u2)">compare with</span><span class="pt">เปรียบเทียบกับ</span></div>
+<div class="pvi" style="background:var(--u2bg)"><span class="pe" style="color:var(--u2)">cope (with)</span><span class="pt">รับมือกับ</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u2)">depend on</span><span class="pt">พึ่งพา/ขึ้นอยู่กับ</span></div>
+<div class="pvi" style="background:var(--u2bg)"><span class="pe" style="color:var(--u2)">do without</span><span class="pt">อยู่ได้โดยไม่มี</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u2)">have heard of</span><span class="pt">เคยได้ยินเรื่อง</span></div>
+<div class="pvi" style="background:var(--u2bg)"><span class="pe" style="color:var(--u2)">laugh at</span><span class="pt">หัวเราะเยาะ</span></div>
+
+<div style="margin-top:10px">
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg)">
+<div class="ee">"I need to <b>apologise for</b> being so rude yesterday."</div>
+<div class="en2">→ ขอโทษที่เสียมารยาทเมื่อวาน</div>
+</div>
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg)">
+<div class="ee">"Don't <b>compare</b> yourself <b>with</b> other people on social media."</div>
+<div class="en2">→ อย่าเปรียบเทียบตัวเองกับคนอื่น</div>
+</div>
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg)">
+<div class="ee">"I can't <b>do without</b> my phone for even a day."</div>
+<div class="en2">→ อยู่ไม่ได้ถ้าไม่มีโทรศัพท์</div>
+</div>
+</div>
+</div>
+
+<!-- U2 Grammar - EXPANDED -->
+<div class="card">
+<div class="ct" style="color:var(--u2)">📐 Grammar: Present Perfect Simple vs Continuous</div>
+<div class="gbox">
+<div class="gcol" style="background:var(--u2bg);border-color:var(--u2)"><h4 style="color:var(--u2)">Simple</h4><div class="fm">S + have/has + V3</div>
+<ul style="color:var(--u2)"><li>ผลสำเร็จ/เสร็จแล้ว</li><li>จำนวนครั้ง/ปริมาณ</li><li>ประสบการณ์ (ever/never)</li><li>สถานะถาวร (+for/since)</li></ul></div>
+<div class="gcol" style="background:var(--u3bg);border-color:var(--u3)"><h4 style="color:var(--u3)">Continuous</h4><div class="fm">S + have/has been + V-ing</div>
+<ul style="color:var(--u3)"><li>ยังทำอยู่/เพิ่งหยุด</li><li>เน้นระยะเวลา (how long)</li><li>เน้นกระบวนการ</li><li>สถานะชั่วคราว</li></ul></div>
+</div>
+
+<div style="font-size:13px;font-weight:600;color:var(--t2);margin-bottom:6px">🔑 หลักการเลือก: ถามตัวเองว่า...</div>
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg)">
+<div class="ee">1️⃣ ประโยคนี้เน้น <b>"ผล/จำนวนครั้ง"</b> หรือ <b>"ระยะเวลาที่ทำ"</b>?</div>
+<div class="en2">เน้นผล/จำนวน → Simple | เน้นระยะเวลา → Continuous</div>
+</div>
+<div class="ep" style="border-color:var(--u3);background:var(--u3bg)">
+<div class="ee">2️⃣ กิจกรรมนี้ <b>"จบแล้วเห็นผล"</b> หรือ <b>"ยังทำอยู่/เพิ่งหยุด"</b>?</div>
+<div class="en2">จบแล้ว → Simple | ยังทำอยู่ → Continuous</div>
+</div>
+
+<div style="margin-bottom:6px;font-size:12px;font-weight:600;color:var(--t2)">Signal Words</div>
+<div style="font-size:11px;color:var(--t3);margin-bottom:3px">SIMPLE:</div>
+<div class="sr"><span class="stag" style="background:var(--u2bg);color:var(--u2)">already</span><span class="stag" style="background:var(--u2bg);color:var(--u2)">yet</span><span class="stag" style="background:var(--u2bg);color:var(--u2)">just</span><span class="stag" style="background:var(--u2bg);color:var(--u2)">ever</span><span class="stag" style="background:var(--u2bg);color:var(--u2)">never</span><span class="stag" style="background:var(--u2bg);color:var(--u2)">how many</span><span class="stag" style="background:var(--u2bg);color:var(--u2)">so far</span><span class="stag" style="background:var(--u2bg);color:var(--u2)">this month</span></div>
+<div style="font-size:11px;color:var(--t3);margin-bottom:3px">CONTINUOUS:</div>
+<div class="sr"><span class="stag" style="background:var(--u3bg);color:var(--u3)">all day</span><span class="stag" style="background:var(--u3bg);color:var(--u3)">lately</span><span class="stag" style="background:var(--u3bg);color:var(--u3)">recently</span><span class="stag" style="background:var(--u3bg);color:var(--u3)">for hours</span><span class="stag" style="background:var(--u3bg);color:var(--u3)">how long</span><span class="stag" style="background:var(--u3bg);color:var(--u3)">since this morning</span></div>
+
+<div style="font-size:13px;font-weight:600;color:var(--t2);margin:12px 0 6px">📖 ตัวอย่างเปรียบเทียบเพิ่มเติม</div>
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg)"><div class="ee">Kerry <b style="color:var(--u2)">has worked</b> for three of the biggest fashion labels.</div><div class="en2">→ จำนวน (3 แบรนด์) = Simple</div></div>
+<div class="ep" style="border-color:var(--u3);background:var(--u3bg)"><div class="ee">Kerry <b style="color:var(--u3)">has been working</b> in Paris for most of this week.</div><div class="en2">→ กิจกรรมชั่วคราวยังดำเนินอยู่ = Continuous</div></div>
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg)"><div class="ee">I<b style="color:var(--u2)">'ve never worn</b> high-heel shoes in my life.</div><div class="en2">→ ประสบการณ์ (never) = Simple</div></div>
+<div class="ep" style="border-color:var(--u3);background:var(--u3bg)"><div class="ee">I <b style="color:var(--u3)">haven't been wearing</b> a jumper lately as it's been sunny.</div><div class="en2">→ สถานะชั่วคราว (lately) = Continuous</div></div>
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg)"><div class="ee">I<b style="color:var(--u2)">'ve always thought</b> blue is your colour.</div><div class="en2">→ ความเชื่อถาวร = Simple</div></div>
+<div class="ep" style="border-color:var(--u3);background:var(--u3bg)"><div class="ee">I<b style="color:var(--u3)">'ve been thinking</b> all morning about that coat.</div><div class="en2">→ กระบวนการ (all morning) = Continuous</div></div>
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg)"><div class="ee">She <b style="color:var(--u2)">has bought</b> five new outfits this month.</div><div class="en2">→ จำนวน (five) + this month (ยังไม่จบเดือนแต่นับผล) = Simple</div></div>
+<div class="ep" style="border-color:var(--u3);background:var(--u3bg)"><div class="ee">She <b style="color:var(--u3)">has been saving</b> money for a new phone since January.</div><div class="en2">→ กระบวนการต่อเนื่อง (saving) + since = Continuous</div></div>
+
+<div class="warn" style="background:#ffeaea;border-color:#e17055;color:#c0392b;margin-top:10px">⚠ <b>Stative Verbs — ห้ามใช้ Continuous:</b><br>
+know, believe, want, need, prefer, love, hate, belong, own, understand, mean, remember, realise<br>
+✗ I've <s>been knowing</s> him for years → ✓ I've <b>known</b> him for years<br>
+✗ She's <s>been wanting</s> this bag forever → ✓ She's <b>wanted</b> this bag forever</div>
+</div>
+</div>
+
+<!-- ═══════════ UNIT 3 ═══════════ -->
+<div class="sec" id="u3">
+<div class="st"><span class="n" style="background:var(--u3)">3</span> <span style="color:var(--u3)">All in the mind</span></div>
+<div class="sd">Abstract Nouns / Phrasal Verbs: Learning & Thinking / Grammar: Phrasal Verbs</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u3)">📌 Abstract Nouns</div>
+<div class="vg">
+<div class="vi" style="background:var(--u3bg)"><span class="en">agreement</span><span class="th">ข้อตกลง</span></div>
+<div class="vi" style="background:var(--u3bg)"><span class="en">ambition</span><span class="th">ความทะเยอทะยาน</span></div>
+<div class="vi" style="background:var(--u3bg)"><span class="en">belief</span><span class="th">ความเชื่อ</span></div>
+<div class="vi" style="background:var(--u3bg)"><span class="en">development</span><span class="th">การพัฒนา</span></div>
+<div class="vi" style="background:var(--u3bg)"><span class="en">drive</span><span class="th">แรงขับ/พลัง</span></div>
+<div class="vi" style="background:var(--u3bg)"><span class="en">luck</span><span class="th">โชค</span></div>
+<div class="vi" style="background:var(--u3bg)"><span class="en">problem-solving</span><span class="th">การแก้ปัญหา</span></div>
+<div class="vi" style="background:var(--u3bg)"><span class="en">success</span><span class="th">ความสำเร็จ</span></div>
+<div class="vi" style="background:var(--u3bg)"><span class="en">thought</span><span class="th">ความคิด</span></div>
+</div>
+</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u3)">📌 Phrasal Verbs: Learning & Thinking</div>
+<div class="pvi" style="background:var(--u3bg)"><span class="pe" style="color:var(--u3)">back up</span><span class="pt">สำรองข้อมูล</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u3)">face up to</span><span class="pt">เผชิญหน้ากับ</span></div>
+<div class="pvi" style="background:var(--u3bg)"><span class="pe" style="color:var(--u3)">focus on</span><span class="pt">มุ่งเน้นที่</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u3)">get in / get into</span><span class="pt">เข้าเรียนได้</span></div>
+<div class="pvi" style="background:var(--u3bg)"><span class="pe" style="color:var(--u3)">mix up</span><span class="pt">สับสน/ปนกัน</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u3)">think through</span><span class="pt">คิดให้ถี่ถ้วน</span></div>
+</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u3)">📐 Grammar: Phrasal Verbs — Separable vs Inseparable</div>
+<div class="gbox">
+<div class="gcol" style="background:var(--u2bg);border-color:var(--u2)"><h4 style="color:var(--u2)">Separable</h4>
+<ul style="color:var(--u2)"><li>แยก object ระหว่างกลางได้</li><li>ถ้า object เป็น pronoun ต้องแยก</li><li>back <b>it</b> up ✓ / back up <b>it</b> ✗</li></ul></div>
+<div class="gcol" style="background:var(--u4bg);border-color:var(--u4)"><h4 style="color:var(--u4)">Inseparable</h4>
+<ul style="color:var(--u4)"><li>แยก object ไม่ได้</li><li>object ตามหลังเสมอ</li><li>face up to <b>it</b> ✓ / face <b>it</b> up to ✗</li></ul></div>
+</div>
+<div class="tip" style="background:var(--u3bg);color:var(--u3)"><span class="tip-icon">💡</span> <b>วิธีจำ:</b> Phrasal verbs 3 คำ (verb+adv+prep เช่น face up to, get into) มักจะ inseparable ส่วน 2 คำ (verb+adv เช่น back up, mix up) มักจะ separable</div>
+<div style="font-size:13px;font-weight:600;color:var(--t2);margin:10px 0 6px">📖 ตัวอย่างเพิ่มเติม</div>
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg)"><div class="ee">"I forgot to <b>back it up</b> before the crash." <span style="color:var(--u2)">(separable)</span></div><div class="en2">→ ลืมสำรองข้อมูลก่อนเครื่องพัง</div></div>
+<div class="ep" style="border-color:var(--u4);background:var(--u4bg)"><div class="ee">"You have to <b>face up to it</b> eventually." <span style="color:var(--u4)">(inseparable)</span></div><div class="en2">→ ต้องเผชิญหน้ากับมันในที่สุด</div></div>
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg)"><div class="ee">"Don't <b>mix</b> the twins <b>up</b> — call them by name." <span style="color:var(--u2)">(separable)</span></div><div class="en2">→ อย่าสับสนฝาแฝด</div></div>
+<div class="ep" style="border-color:var(--u4);background:var(--u4bg)"><div class="ee">"She managed to <b>get into it</b> after months of practice." <span style="color:var(--u4)">(inseparable)</span></div><div class="en2">→ เข้าได้หลังฝึกซ้อมหลายเดือน</div></div>
+</div>
+</div>
+
+<!-- ═══════════ UNIT 4 ═══════════ -->
+<div class="sec" id="u4">
+<div class="st"><span class="n" style="background:var(--u4)">4</span> <span style="color:var(--u4)">Take it easy</span></div>
+<div class="sd">Stress / Phrasal Verbs: Health / Grammar: Modals</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u4)">📌 Stress</div>
+<div class="pvi" style="background:var(--u4bg)"><span class="pe" style="color:var(--u4)">faint</span><span class="pt">เป็นลม</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u4)">feel dizzy</span><span class="pt">วิงเวียน</span></div>
+<div class="pvi" style="background:var(--u4bg)"><span class="pe" style="color:var(--u4)">get in a panic</span><span class="pt">ตื่นตระหนก</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u4)">go over and over in your mind</span><span class="pt">คิดวนซ้ำ</span></div>
+<div class="pvi" style="background:var(--u4bg)"><span class="pe" style="color:var(--u4)">have an upset stomach</span><span class="pt">ปวดท้อง</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u4)">have difficulty sleeping</span><span class="pt">นอนไม่หลับ</span></div>
+<div class="pvi" style="background:var(--u4bg)"><span class="pe" style="color:var(--u4)">lose your appetite</span><span class="pt">เบื่ออาหาร</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u4)">lose your temper</span><span class="pt">โมโห</span></div>
+</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u4)">📌 Phrasal Verbs: Health</div>
+<div class="pvi" style="background:var(--u4bg)"><span class="pe" style="color:var(--u4)">calm down</span><span class="pt">สงบลง</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u4)">come down with</span><span class="pt">เริ่มป่วยเป็น</span></div>
+<div class="pvi" style="background:var(--u4bg)"><span class="pe" style="color:var(--u4)">come round</span><span class="pt">ฟื้นสติ</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u4)">get (sb) down</span><span class="pt">ทำให้หดหู่</span></div>
+<div class="pvi" style="background:var(--u4bg)"><span class="pe" style="color:var(--u4)">get over</span><span class="pt">หายจาก</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u4)">throw up</span><span class="pt">อาเจียน</span></div>
+</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u4)">📐 Grammar: Modals — Necessity, Obligation, Prohibition, Advice</div>
+<div class="vg" style="gap:6px">
+<div class="vi" style="background:var(--u4bg);flex-direction:column;align-items:flex-start"><span class="en" style="color:var(--u4);font-weight:600">must / have to</span><span class="th">จำเป็นต้อง</span></div>
+<div class="vi" style="background:#ffeaea;flex-direction:column;align-items:flex-start"><span class="en" style="color:#c0392b;font-weight:600">mustn't</span><span class="th">ห้าม!</span></div>
+<div class="vi" style="background:var(--u3bg);flex-direction:column;align-items:flex-start"><span class="en" style="color:var(--u3);font-weight:600">should / ought to</span><span class="th">ควรจะ</span></div>
+<div class="vi" style="background:var(--u12bg);flex-direction:column;align-items:flex-start"><span class="en" style="color:var(--u12);font-weight:600">don't have to / needn't</span><span class="th">ไม่จำเป็น</span></div>
+</div>
+<div style="font-size:13px;font-weight:600;color:var(--t2);margin:10px 0 6px">📖 ตัวอย่างเพิ่มเติม</div>
+<div class="ep" style="border-color:var(--u4);background:var(--u4bg)"><div class="ee">"You <b>must</b> get enough sleep before an exam."</div><div class="en2">→ ต้องนอนให้พอก่อนสอบ (เน้นจำเป็นมาก)</div></div>
+<div class="ep" style="border-color:#c0392b;background:#ffeaea"><div class="ee">"You <b>mustn't</b> skip meals when you're stressed."</div><div class="en2">→ ห้ามงดมื้ออาหารตอนเครียด</div></div>
+<div class="ep" style="border-color:var(--u3);background:var(--u3bg)"><div class="ee">"You <b>should</b> try breathing exercises to relax."</div><div class="en2">→ ควรลองฝึกหายใจ (คำแนะนำ ไม่บังคับ)</div></div>
+<div class="ep" style="border-color:var(--u12);background:var(--u12bg)"><div class="ee">"You <b>don't have to</b> finish it today, there's no rush."</div><div class="en2">→ ไม่ต้องทำเสร็จวันนี้ก็ได้</div></div>
+<div class="ep" style="border-color:var(--u4);background:var(--u4bg)"><div class="ee">"Students <b>have to</b> wear the school uniform every day."</div><div class="en2">→ ต้องใส่ชุดนักเรียนทุกวัน (obligation จากกฎ)</div></div>
+<div class="warn" style="background:#fff8e1;border-color:#f0c27f;color:#e67e22;margin-top:8px">⚠ <b>mustn't ≠ don't have to</b> (จุดออกสอบบ่อยที่สุด!)<br>
+<b>mustn't</b> = ห้ามทำ (มีผลเสียถ้าทำ) → You mustn't smoke here.<br>
+<b>don't have to</b> = ไม่จำเป็น (ทำก็ได้ไม่ทำก็ได้) → You don't have to wear a tie.</div>
+</div>
+</div>
+
+<!-- ═══════════ UNIT 11 ═══════════ -->
+<div class="sec" id="u11">
+<div class="st"><span class="n" style="background:var(--u11)">11</span> <span style="color:var(--u11)">We are family</span></div>
+<div class="sd">Phrasal Verbs: Relationships / Compound Adjectives / Grammar: Relative Clauses</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u11)">📌 Phrasal Verbs: Relationships</div>
+<div class="pvi" style="background:var(--u11bg)"><span class="pe" style="color:var(--u11)">count on (sb)</span><span class="pt">พึ่งพา/ไว้ใจ</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u11)">fall out (with) (sb)</span><span class="pt">ทะเลาะ/เลิกเป็นเพื่อน</span></div>
+<div class="pvi" style="background:var(--u11bg)"><span class="pe" style="color:var(--u11)">finish with (sb)</span><span class="pt">เลิกกับ (จบความสัมพันธ์)</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u11)">go off (sb/sth)</span><span class="pt">เริ่มไม่ชอบ</span></div>
+<div class="pvi" style="background:var(--u11bg)"><span class="pe" style="color:var(--u11)">hit it off (with)</span><span class="pt">ถูกใจกันทันที</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u11)">let (sb) down</span><span class="pt">ทำให้ผิดหวัง</span></div>
+<div class="pvi" style="background:var(--u11bg)"><span class="pe" style="color:var(--u11)">look down on (sb)</span><span class="pt">ดูถูก</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u11)">look up to (sb)</span><span class="pt">ชื่นชม/เคารพ</span></div>
+<div class="pvi" style="background:var(--u11bg)"><span class="pe" style="color:var(--u11)">stick together</span><span class="pt">สนับสนุนกัน</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u11)">take after (sb)</span><span class="pt">เหมือน/คล้ายญาติ</span></div>
+
+<div style="margin-top:10px">
+<div class="ep" style="border-color:var(--u11);background:var(--u11bg)"><div class="ee">"You can always <b>count on</b> your family when things go wrong."</div><div class="en2">→ พึ่งพาครอบครัวได้เสมอยามลำบาก</div></div>
+<div class="ep" style="border-color:var(--u11);background:var(--u11bg)"><div class="ee">"I <b>fell out with</b> my best friend over something silly."</div><div class="en2">→ ทะเลาะกับเพื่อนสนิทเรื่องเล็กน้อย</div></div>
+<div class="ep" style="border-color:var(--u11);background:var(--u11bg)"><div class="ee">"We <b>hit it off</b> immediately when we met at the party."</div><div class="en2">→ ถูกใจกันทันทีตั้งแต่เจอในงานปาร์ตี้</div></div>
+<div class="ep" style="border-color:var(--u11);background:var(--u11bg)"><div class="ee">"I don't want to <b>let</b> my parents <b>down</b> by failing this exam."</div><div class="en2">→ ไม่อยากทำให้พ่อแม่ผิดหวัง</div></div>
+<div class="ep" style="border-color:var(--u11);background:var(--u11bg)"><div class="ee">"My whole family <b>sticks together</b> during difficult times."</div><div class="en2">→ ครอบครัวสนับสนุนกันเวลายากลำบาก</div></div>
+<div class="ep" style="border-color:var(--u11);background:var(--u11bg)"><div class="ee">"I really <b>take after</b> my mum — we both love cooking."</div><div class="en2">→ เหมือนแม่ ทั้งคู่ชอบทำอาหาร</div></div>
+</div>
+</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u11)">📌 Compound Adjectives — จัดกลุ่มตาม pattern</div>
+<div class="prep-cluster">
+<div class="ptag" style="background:linear-gradient(135deg,#fd79a8,#fab1a0)">well- ×4</div>
+<div class="vg">
+<div class="vi" style="background:var(--u11bg)"><span class="en">well-balanced</span><span class="th">สมดุล</span></div>
+<div class="vi" style="background:var(--u11bg)"><span class="en">well-built</span><span class="th">แข็งแรง</span></div>
+<div class="vi" style="background:var(--u11bg)"><span class="en">well-organised</span><span class="th">เป็นระเบียบ</span></div>
+<div class="vi" style="background:var(--u11bg)"><span class="en">well-paid</span><span class="th">เงินเดือนดี</span></div>
+</div>
+<div class="tip" style="background:var(--u11bg);color:var(--u11)"><span class="tip-icon">💡</span> <b>Pattern:</b> adverb/adj + past participle → ใช้ hyphen เมื่อวางหน้า noun เท่านั้น เช่น "a well-organised person" แต่ "She is well organised" (ไม่ต้องมี hyphen ถ้าอยู่หลัง verb to be)</div>
+</div>
+<div class="prep-cluster">
+<div class="vg">
+<div class="vi" style="background:#fff0ec"><span class="en">badly behaved</span><span class="th">ประพฤติไม่ดี</span></div>
+<div class="vi" style="background:#fff8e1"><span class="en">grown-up</span><span class="th">เป็นผู้ใหญ่</span></div>
+<div class="vi" style="background:#eaf4ff"><span class="en">high-tech</span><span class="th">เทคโนโลยีสูง</span></div>
+<div class="vi" style="background:#f0edff"><span class="en">last-minute</span><span class="th">นาทีสุดท้าย</span></div>
+<div class="vi" style="background:#e8fff7"><span class="en">long-distance</span><span class="th">ทางไกล</span></div>
+<div class="vi" style="background:#fff0f6"><span class="en">middle-aged</span><span class="th">วัยกลางคน</span></div>
+<div class="vi" style="background:#fff0ec"><span class="en">self-confident</span><span class="th">มั่นใจในตัวเอง</span></div>
+<div class="vi" style="background:#fff8e1"><span class="en">short-term</span><span class="th">ระยะสั้น</span></div>
+</div>
+<div class="ep" style="border-color:var(--u11);background:var(--u11bg);margin-top:8px"><div class="ee">"My grandmother is a <b>middle-aged</b>... wait, no, she's <b>elderly</b>! My mum is <b>middle-aged</b>."</div><div class="en2">→ ตัวอย่างการใช้ให้ถูก age category</div></div>
+<div class="ep" style="border-color:var(--u11);background:var(--u11bg)"><div class="ee">"He made a <b>last-minute</b> decision to change his university course."</div><div class="en2">→ ตัดสินใจนาทีสุดท้าย</div></div>
+</div>
+</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u11)">📐 Grammar: Relative Clauses</div>
+<div class="gbox">
+<div class="gcol" style="background:var(--u2bg);border-color:var(--u2)"><h4 style="color:var(--u2)">Defining</h4>
+<ul style="color:var(--u2)"><li>จำเป็น — ตัดออกไม่ได้ (ไม่งั้นไม่รู้ว่าใคร/อะไร)</li><li>ห้ามใส่ comma</li><li>ตัด pronoun ได้ถ้าเป็น object</li><li>ใช้ that ได้</li></ul></div>
+<div class="gcol" style="background:var(--u11bg);border-color:var(--u11)"><h4 style="color:var(--u11)">Non-defining</h4>
+<ul style="color:var(--u11)"><li>ข้อมูลเพิ่ม — ตัดออกยังเข้าใจ</li><li>ต้องมี comma</li><li>ห้ามใช้ that</li><li>ห้ามตัด pronoun</li></ul></div>
+</div>
+<div class="vg" style="margin-bottom:10px">
+<div class="vi" style="background:var(--u2bg)"><span class="en" style="color:var(--u2)">who/that</span><span class="th">คน</span></div>
+<div class="vi" style="background:var(--u2bg)"><span class="en" style="color:var(--u2)">which/that</span><span class="th">สิ่งของ</span></div>
+<div class="vi" style="background:var(--u11bg)"><span class="en" style="color:var(--u11)">whose</span><span class="th">ของใคร</span></div>
+<div class="vi" style="background:var(--u11bg)"><span class="en" style="color:var(--u11)">where</span><span class="th">สถานที่</span></div>
+</div>
+<div style="font-size:13px;font-weight:600;color:var(--t2);margin-bottom:6px">📖 ตัวอย่างเปรียบเทียบ</div>
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg)"><div class="ee">The woman <b style="color:var(--u2)">who/that</b> sits across from me is a teacher.</div><div class="en2">→ Defining: ต้องระบุว่าคนไหน (ไม่มี comma)</div></div>
+<div class="ep" style="border-color:var(--u11);background:var(--u11bg)"><div class="ee">My sister<b style="color:var(--u11)">, who</b> lives in London<b style="color:var(--u11)">,</b> is a doctor.</div><div class="en2">→ Non-defining: มี comma + ข้อมูลเพิ่ม (รู้แล้วว่าพี่สาวคนไหน)</div></div>
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg)"><div class="ee">The boy <b style="color:var(--u2)">whose</b> mother is a chef cooks very well.</div><div class="en2">→ whose = ความเป็นเจ้าของ (แม่ของเขา)</div></div>
+<div class="ep" style="border-color:var(--u11);background:var(--u11bg)"><div class="ee">This is the house <b style="color:var(--u11)">where</b> I grew up.</div><div class="en2">→ where = สถานที่</div></div>
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg)"><div class="ee">The man (<b style="color:var(--u2)">who</b>) I met yesterday is my new neighbour.</div><div class="en2">→ Defining + object → ตัด who ได้: "The man I met yesterday..."</div></div>
+<div class="warn" style="background:#ffeaea;border-color:#e17055;color:#c0392b;margin-top:8px">⚠ <b>กฎสำคัญ:</b><br>
+• Non-defining ห้ามใช้ <b>that</b> → ✗ My sister, <s>that</s> lives in London → ✓ who<br>
+• ตัด object pronoun ได้เฉพาะ defining: The man (who) I met = OK<br>
+• ห้ามตัดใน non-defining: ✗ My sister, lives in London (ผิด — ขาด who)</div>
+</div>
+</div>
+
+<!-- ═══════════ UNIT 12 ═══════════ -->
+<div class="sec" id="u12">
+<div class="st"><span class="n" style="background:var(--u12)">12</span> <span style="color:var(--u12)">Making a difference</span></div>
+<div class="sd">Verbs of Communication / both, either, neither / Grammar: Passive + Causative</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u12)">📌 Verbs of Communication</div>
+<div class="pvi" style="background:var(--u12bg)"><span class="pe" style="color:var(--u12)">amuse</span><span class="pt">ทำให้ขบขัน</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u12)">cheer (sb) up</span><span class="pt">ทำให้ร่าเริงขึ้น</span></div>
+<div class="pvi" style="background:var(--u12bg)"><span class="pe" style="color:var(--u12)">congratulate</span><span class="pt">แสดงความยินดี</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u12)">highlight</span><span class="pt">เน้นย้ำ/ดึงความสนใจ</span></div>
+<div class="pvi" style="background:var(--u12bg)"><span class="pe" style="color:var(--u12)">promote</span><span class="pt">ส่งเสริม/โปรโมท</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u12)">reassure</span><span class="pt">ให้ความมั่นใจ/ปลอบ</span></div>
+<div class="pvi" style="background:var(--u12bg)"><span class="pe" style="color:var(--u12)">speak out</span><span class="pt">พูดออกมาเรื่องสำคัญ</span></div>
+<div class="pvi"><span class="pe" style="color:var(--u12)">spread</span><span class="pt">แพร่กระจาย</span></div>
+<div class="pvi" style="background:var(--u12bg)"><span class="pe" style="color:var(--u12)">stimulate</span><span class="pt">กระตุ้นความสนใจ</span></div>
+
+<div style="margin-top:10px">
+<div class="ep" style="border-color:var(--u12);background:var(--u12bg)"><div class="ee">"The campaign <b>highlights</b> the problem of ocean plastic."</div><div class="en2">→ รณรงค์เน้นย้ำปัญหาพลาสติกในทะเล</div></div>
+<div class="ep" style="border-color:var(--u12);background:var(--u12bg)"><div class="ee">"She always <b>speaks out</b> against unfair treatment at school."</div><div class="en2">→ พูดออกมาต่อต้านความไม่เป็นธรรม</div></div>
+<div class="ep" style="border-color:var(--u12);background:var(--u12bg)"><div class="ee">"His story helped <b>promote</b> awareness of mental health."</div><div class="en2">→ ช่วยส่งเสริมความตระหนักด้านสุขภาพจิต</div></div>
+<div class="ep" style="border-color:var(--u12);background:var(--u12bg)"><div class="ee">"The doctor tried to <b>reassure</b> the worried patient."</div><div class="en2">→ หมอพยายามให้ความมั่นใจกับคนไข้</div></div>
+</div>
+</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u12)">📌 both / either / neither</div>
+<div class="ep" style="border-color:var(--u3);background:var(--u3bg)"><div class="ee"><b style="color:var(--u3)">both</b> = ทั้งสอง (+ plural verb)</div>
+<div class="en2">Both my parents <b>are</b> teachers. / We visited <b>both</b> Korea and Japan.</div></div>
+<div class="ep" style="border-color:var(--u12);background:var(--u12bg)"><div class="ee"><b style="color:var(--u12)">either … or</b> = อันใดอันหนึ่ง (2 ตัวเลือก)</div>
+<div class="en2">You can have <b>either</b> tea <b>or</b> coffee. / <b>Either</b> of you can come.</div></div>
+<div class="ep" style="border-color:var(--u4);background:var(--u4bg)"><div class="ee"><b style="color:var(--u4)">neither … nor</b> = ไม่ทั้งสองอย่าง</div>
+<div class="en2"><b>Neither</b> Kate <b>nor</b> Rose can come. / <b>Neither</b> of us has time.</div></div>
+<div class="warn" style="background:#fff8e1;border-color:#f0c27f;color:#e67e22;margin-top:8px">⚠ <b>กฎสำคัญ:</b><br>
+• both…and + plural verb เสมอ<br>
+• either…or / neither…nor → verb agrees กับ subject ที่ใกล้กว่า (proximity rule)<br>
+• neither = ปฏิเสธอยู่แล้ว ห้ามใส่ not อีก: ✗ Neither of us <s>don't</s> have → ✓ Neither of us <b>has</b></div>
+</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u12)">📐 Grammar: Passive Review + Causative have/get</div>
+<div class="ep" style="border-color:var(--u12);background:var(--u12bg)"><div class="ee"><b>Passive:</b> Subject + be + V3 (+ by agent)</div>
+<div class="en2">Active: Someone cleans the office → Passive: The office <b>is cleaned</b> (by someone)</div></div>
+
+<div style="font-size:13px;font-weight:600;color:var(--t2);margin:10px 0 6px">Causative have/get</div>
+<div class="gbox">
+<div class="gcol" style="background:#fff8e1;border-color:#e6b800"><h4 style="color:#b8860b">have sth done</h4><div class="fm">S + have + obj + V3</div>
+<ul style="color:#b8860b"><li>จ้าง/ให้คนอื่นทำให้</li><li>I had my hair cut = ช่างตัดให้</li></ul></div>
+<div class="gcol" style="background:var(--u4bg);border-color:var(--u4)"><h4 style="color:var(--u4)">get sth done</h4><div class="fm">S + get + obj + V3</div>
+<ul style="color:var(--u4)"><li>ความหมายเดียวกัน แต่ informal กว่า</li><li>I got my car repaired</li></ul></div>
+</div>
+<div style="font-size:13px;font-weight:600;color:var(--t2);margin:10px 0 6px">📖 ตัวอย่างเพิ่มเติม</div>
+<div class="ep" style="border-color:#e6b800;background:#fff8e1"><div class="ee">I need to <b>have my eyes tested</b> before I get new glasses.</div><div class="en2">→ ให้หมอตรวจตาให้ (ไม่ได้ตรวจเอง)</div></div>
+<div class="ep" style="border-color:var(--u4);background:var(--u4bg)"><div class="ee">She <b>got her nails painted</b> before the party.</div><div class="en2">→ ให้ช่างทำเล็บให้ (informal)</div></div>
+<div class="ep" style="border-color:#e6b800;background:#fff8e1"><div class="ee">We're <b>having the house painted</b> next week.</div><div class="en2">→ จะจ้างคนมาทาสีบ้านให้</div></div>
+<div class="warn" style="background:#ffeaea;border-color:#e17055;color:#c0392b;margin-top:8px">⚠ <b>have sb do</b> (สั่งให้คนทำ) ≠ <b>have sth done</b> (ให้คนอื่นทำสิ่งนั้นให้)<br>
+I <b>had</b> my assistant <b>call</b> you (สั่งผู้ช่วยให้โทร) vs I <b>had</b> my car <b>repaired</b> (ให้ช่างซ่อมรถให้)<br>
+<b>get sb to do</b> = ชักชวน/ทำให้คนทำ → I got him to help me.</div>
+</div>
+</div>
+
+<!-- ═══════════ WRITING GUIDE ═══════════ -->
+<div class="sec" id="writing">
+<div class="st"><span class="n" style="background:linear-gradient(135deg,#e67e22,#f39c12)">W</span> <span style="color:#e67e22">Writing Guide — เทคนิคการเขียนแบบละเอียด</span></div>
+<div class="sd">Situational Dialog, Linking Words, Article vs Essay, Sentence Rearrangement</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u2)">💬 Situational Dialog — วลีสำคัญ</div>
+<div class="dg"><div class="dl" style="background:var(--u2)">Introducing opinions (U2)</div>
+<div class="dp">To be honest, … / To tell the truth, …<br>Personally speaking, … / I would say …<br>In my opinion, … / If you ask me, …</div>
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg);margin-top:6px"><div class="ee">"<b>To be honest</b>, I think school uniforms are a good idea."</div><div class="en2">→ ใช้เปิดประโยคก่อนแสดงความเห็นส่วนตัว</div></div>
+</div>
+<div class="dg"><div class="dl" style="background:var(--u3)">Offering help (U3)</div>
+<div class="dp">Shall I …? / Would you like me to …?<br>Can I help you with …? / Let me … for you.</div>
+<div class="ep" style="border-color:var(--u3);background:var(--u3bg);margin-top:6px"><div class="ee">"You look busy. <b>Shall I</b> carry those books for you?"</div><div class="en2">→ เสนอความช่วยเหลือแบบสุภาพ</div></div>
+</div>
+<div class="dg"><div class="dl" style="background:var(--u4)">Generalising (U4)</div>
+<div class="dp">In general, … / On the whole, …<br>Generally speaking, … / As a rule, …</div>
+<div class="ep" style="border-color:var(--u4);background:var(--u4bg);margin-top:6px"><div class="ee">"<b>Generally speaking</b>, teenagers today are more stressed than before."</div><div class="en2">→ ใช้พูดถึงภาพรวม ไม่เจาะจงคนใดคนหนึ่ง</div></div>
+</div>
+</div>
+
+<div class="card">
+<div class="ct" style="color:var(--u11)">🔗 Linking Words — สำหรับ Sentence Rearrangement</div>
+<div class="lkg"><div class="lkc" style="color:var(--u2)">Contrast (ขัดแย้ง)</div><div class="lkt"><span class="lk" style="background:var(--u2)">even though</span><span class="lk" style="background:var(--u2)">however</span><span class="lk" style="background:var(--u2)">whereas</span><span class="lk" style="background:var(--u2)">on the other hand</span></div>
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg);margin-top:6px"><div class="ee">"<b>Even though</b> the job market is competitive, young people have new opportunities online."</div></div>
+</div>
+<div class="lkg"><div class="lkc" style="color:var(--u3)">Condition (เงื่อนไข)</div><div class="lkt"><span class="lk" style="background:var(--u3)">provided (that)</span><span class="lk" style="background:var(--u3)">once</span><span class="lk" style="background:var(--u3)">as long as</span><span class="lk" style="background:var(--u3)">unless</span></div>
+<div class="ep" style="border-color:var(--u3);background:var(--u3bg);margin-top:6px"><div class="ee">"I'll lend you my camera, <b>provided</b> you look after it properly."</div></div>
+</div>
+<div class="lkg"><div class="lkc" style="color:var(--u4)">Cause / Result</div><div class="lkt"><span class="lk" style="background:var(--u4)">now that</span><span class="lk" style="background:var(--u4)">because</span><span class="lk" style="background:var(--u4)">as a result</span><span class="lk" style="background:var(--u4)">therefore</span></div>
+<div class="ep" style="border-color:var(--u4);background:var(--u4bg);margin-top:6px"><div class="ee">"I can visit you more often <b>now that</b> I've got a car."</div></div>
+</div>
+<div class="lkg"><div class="lkc" style="color:var(--u11)">Addition</div><div class="lkt"><span class="lk" style="background:var(--u11)">in addition</span><span class="lk" style="background:var(--u11)">moreover</span><span class="lk" style="background:var(--u11)">furthermore</span><span class="lk" style="background:var(--u11)">what's more</span></div></div>
+<div class="lkg"><div class="lkc" style="color:var(--u12)">Conclusion</div><div class="lkt"><span class="lk" style="background:var(--u12)">in conclusion</span><span class="lk" style="background:var(--u12)">to sum up</span><span class="lk" style="background:var(--u12)">all in all</span></div></div>
+
+<div class="warn" style="background:#fff8e1;border-color:#f0c27f;color:#e67e22;margin-top:10px">
+⚙️ <b>ขั้นตอนเรียงประโยค (Sentence Rearrangement) — 4 ขั้นตอน:</b><br>
+1️⃣ ดู linking word แรกของแต่ละประโยค → ระบุ logic (ขัดแย้ง/เพิ่มเติม/สรุป)<br>
+2️⃣ ดู pronoun (it, this, they, he) → อ้างถึงคำนามไหนในประโยคก่อนหน้า<br>
+3️⃣ ดู tense ของแต่ละประโยค → ต้องสอดคล้องกับ timeline ของเรื่อง<br>
+4️⃣ อ่านรวมทั้งหมด → ต้องไหลลื่นเป็นเรื่องเดียวกัน ไม่ใช่แค่ต่อกันได้ทางไวยากรณ์
+</div>
+</div>
+
+<div class="card">
+<div class="ct" style="color:#e67e22">📝 เทคนิคการเขียน 5 Paragraph (อิงตามที่ครูสอน — ใช้โครงสร้างนี้เป็นหลักในการทำข้อสอบ)</div>
+<div class="tip" style="background:#fff8e1;color:#8a6d1f"><span class="tip-icon">👩‍🏫</span> โครงสร้างนี้มาจากเอกสารที่ครูแจก (มาสเตอร์/อาจารย์ที่สอนวิชานี้) — ให้ใช้โครงสร้างและคำเชื่อมชุดนี้เป๊ะๆ ในการทำข้อสอบ เพราะครูเป็นคนตรวจให้คะแนน แม้จะเรียกว่า "essay" แต่เนื้อหาการเขียนแบบนี้ก็ใช้ทำ Article ในข้อสอบได้เช่นกัน</div>
+
+<div class="as"><div class="sn" style="background:var(--u2)">1</div><div class="sc"><h5>Paragraph 1: Introduction (บทนำ — TOP BUN)</h5><p>ใช้เปิดเรื่องและบอกหัวข้อที่จะเขียน:</p>
+<p style="margin-top:4px"><span class="ph" style="color:var(--u2)">Nowadays, …</span> / <span class="ph" style="color:var(--u2)">In today's world, …</span> / <span class="ph" style="color:var(--u2)">It is widely known that …</span> / <span class="ph" style="color:var(--u2)">The purpose of this essay is to …</span> / <span class="ph" style="color:var(--u2)">This paper aims to discuss …</span> / <span class="ph" style="color:var(--u2)">Have you ever wondered why …</span>, etc.</p></div></div>
+
+<div class="as"><div class="sn" style="background:var(--u3)">2</div><div class="sc"><h5>Paragraph 2: Supporting Main Idea 1 (แนวคิดสนับสนุนข้อแรก)</h5><p>ใช้เพื่อเริ่มต้นการอธิบายประเด็นแรก:</p>
+<p style="margin-top:4px"><span class="ph" style="color:var(--u3)">Firstly, …</span> / <span class="ph" style="color:var(--u3)">To begin with, …</span> / <span class="ph" style="color:var(--u3)">The first important point is …</span> / <span class="ph" style="color:var(--u3)">One major reason is that …</span> / <span class="ph" style="color:var(--u3)">At the outset, …</span></p></div></div>
+
+<div class="as"><div class="sn" style="background:var(--u4)">3</div><div class="sc"><h5>Paragraph 3: Supporting Main Idea 2 (แนวคิดสนับสนุนข้อที่สอง)</h5><p>ใช้เพื่อเชื่อมต่อและอธิบายประเด็นที่สอง:</p>
+<p style="margin-top:4px"><span class="ph" style="color:var(--u4)">Secondly, …</span> / <span class="ph" style="color:var(--u4)">Another significant point is …</span> / <span class="ph" style="color:var(--u4)">In addition, …</span> / <span class="ph" style="color:var(--u4)">Moreover, …</span> / <span class="ph" style="color:var(--u4)">Another reason is that …</span></p></div></div>
+
+<div class="as"><div class="sn" style="background:var(--u11)">4</div><div class="sc"><h5>Paragraph 4: Supporting Main Idea 3 (แนวคิดสนับสนุนข้อที่สาม)</h5><p>ใช้เพื่อเพิ่มประเด็นสุดท้ายก่อนสรุป:</p>
+<p style="margin-top:4px"><span class="ph" style="color:var(--u11)">Thirdly, …</span> / <span class="ph" style="color:var(--u11)">Furthermore, …</span> / <span class="ph" style="color:var(--u11)">Apart from this, …</span> / <span class="ph" style="color:var(--u11)">An additional aspect is …</span> / <span class="ph" style="color:var(--u11)">Equally important, …</span></p></div></div>
+
+<div class="as"><div class="sn" style="background:var(--u12)">5</div><div class="sc"><h5>Paragraph 5: Conclusion (บทสรุป — BOTTOM BUN)</h5><p>ใช้เพื่อปิดท้ายและสรุปเนื้อหาทั้งหมด:</p>
+<p style="margin-top:4px"><span class="ph" style="color:var(--u12)">In conclusion, …</span> / <span class="ph" style="color:var(--u12)">To sum up, …</span> / <span class="ph" style="color:var(--u12)">In summary, …</span> / <span class="ph" style="color:var(--u12)">Overall, …</span> / <span class="ph" style="color:var(--u12)">All things considered, …</span> / <span class="ph" style="color:var(--u12)">Finally, …</span></p></div></div>
+
+<div class="tip" style="background:var(--u2bg);color:var(--u2);margin-top:12px"><span class="tip-icon">🍔</span> <b>วิธีจำ "BUN Structure":</b> Introduction = TOP BUN (ขนมปังชิ้นบน), 3 ย่อหน้ากลาง = ไส้ (เนื้อหา), Conclusion = BOTTOM BUN (ขนมปังชิ้นล่าง) — เหมือนแฮมเบอร์เกอร์ที่ต้องมีขนมปังประกบทั้งบนและล่าง</div>
+
+<div style="font-size:14px;font-weight:600;color:var(--t2);margin:16px 0 8px">✅ ตัวอย่างเรียงความเต็มฉบับ (จากเอกสารครู)</div>
+<div class="tip" style="background:#f0edff;color:var(--u2)"><span class="tip-icon">📌</span> หัวข้อ: <b>การอ่านหนังสือมีประโยชน์ต่อชีวิต</b> (Reading books is beneficial to life)</div>
+
+<div class="ep" style="border-color:var(--u2);background:var(--u2bg)">
+<div class="ee" style="font-weight:600;margin-bottom:4px">Paragraph 1: Introduction</div>
+<div class="ee" style="line-height:1.9">Nowadays, reading plays an important role in our daily lives. It not only provides knowledge but also helps us relax and improve our imagination. This essay will discuss three main benefits of reading books.</div>
+</div>
+<div class="ep" style="border-color:var(--u3);background:var(--u3bg)">
+<div class="ee" style="font-weight:600;margin-bottom:4px">Paragraph 2: Supporting Main Idea 1</div>
+<div class="ee" style="line-height:1.9">Firstly, reading helps us gain knowledge. Books are full of information about science, history, and culture. By reading regularly, students can expand their understanding beyond the classroom.</div>
+</div>
+<div class="ep" style="border-color:var(--u4);background:var(--u4bg)">
+<div class="ee" style="font-weight:600;margin-bottom:4px">Paragraph 3: Supporting Main Idea 2</div>
+<div class="ee" style="line-height:1.9">Secondly, reading improves language skills. When we read, we learn new vocabulary, grammar, and sentence structures. This practice makes us better writers and speakers in both academic and everyday communication.</div>
+</div>
+<div class="ep" style="border-color:var(--u11);background:var(--u11bg)">
+<div class="ee" style="font-weight:600;margin-bottom:4px">Paragraph 4: Supporting Main Idea 3</div>
+<div class="ee" style="line-height:1.9">Furthermore, reading reduces stress and provides relaxation. Many people enjoy novels or short stories after a busy day. This activity allows the mind to rest and refresh, which is important for mental health.</div>
+</div>
+<div class="ep" style="border-color:var(--u12);background:var(--u12bg)">
+<div class="ee" style="font-weight:600;margin-bottom:4px">Paragraph 5: Conclusion</div>
+<div class="ee" style="line-height:1.9">In conclusion, reading is a valuable habit that brings knowledge, language improvement, and relaxation. All things considered, students should develop the habit of reading every day to enrich their lives.</div>
+</div>
+
+<div class="warn" style="background:#fff8e1;border-color:#f0c27f;color:#e67e22;margin-top:12px">
+⚠ <b>ข้อสังเกตจาก JARVIS:</b> โครงสร้างนี้จริงๆ แล้วใกล้เคียงกับ Essay มากกว่า Article แบบมาตรฐาน B2 First (ไม่มี title, ไม่ใช้ "you", เขียนแบบ formal/impersonal) — แต่เนื่องจากเป็นสิ่งที่ครูสอนและใช้ตรวจข้อสอบ Sir จึงควรใช้โครงสร้างนี้เป็นหลักในการทำข้อสอบข้อเขียนของครูครับ ส่วนคำศัพท์เชื่อมประโยค (Firstly, Secondly, In conclusion ฯลฯ) ใช้ได้ทั้งกับ Essay และ Article อยู่แล้ว จึงไม่ขัดแย้งกัน
+</div>
+</div>
+</div>
+
+<!-- ═══════════ EXAM 1: ENGLISH (Units 2-4) ═══════════ -->
+<div class="sec" id="exam1">
+<div class="exam-hero" style="background:linear-gradient(135deg,#6C5CE7,#a29bfe,#fd79a8)">
+<h3>📝 EXAM 1 — English (ข้อสอบปกติ)</h3>
+<p>Units 2–4 | Vocabulary, Grammar, Dialog, Writing | 30 ข้อ</p>
+</div>
+<div class="tab-bar" id="tabBar1"></div>
+<div id="quizArea1"></div>
+<div class="sb" id="scoreBar1" style="background:linear-gradient(135deg,#6C5CE7,#a29bfe)">
+<div class="snum" id="scoreNum1">0/30</div>
+<div class="sl">คะแนนรวม Exam 1</div>
+<div class="sm" id="scoreMsg1"></div>
+<button onclick="resetQuiz(1)" style="margin-top:14px;padding:10px 24px;background:#fff;color:var(--u2);border:none;border-radius:20px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--f)">ทำใหม่อีกรอบ</button>
+</div>
+</div>
+
+<!-- ═══════════ EXAM 2: ENGLISH FOR SKILL (Units 11-12) ═══════════ -->
+<div class="sec" id="exam2">
+<div class="exam-hero" style="background:linear-gradient(135deg,#0984E3,#74b9ff,#00B894)">
+<h3>📘 EXAM 2 — English for Skill</h3>
+<p>Units 11–12 | Vocabulary, Grammar, Writing | 25 ข้อ</p>
+</div>
+<div class="tab-bar" id="tabBar2"></div>
+<div id="quizArea2"></div>
+<div class="sb" id="scoreBar2" style="background:linear-gradient(135deg,#0984E3,#74b9ff)">
+<div class="snum" id="scoreNum2">0/25</div>
+<div class="sl">คะแนนรวม Exam 2</div>
+<div class="sm" id="scoreMsg2"></div>
+<button onclick="resetQuiz(2)" style="margin-top:14px;padding:10px 24px;background:#fff;color:var(--u12);border:none;border-radius:20px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--f)">ทำใหม่อีกรอบ</button>
+</div>
+</div>
+
+<div class="footer">JARVIS Study System — Prepare Level 7 (B2) Midterm<br>Generated for Tony | สู้ๆ ครับ Sir 🏆</div>
+</div>
+
+<script>
+// ══════════ EXAM 1: ENGLISH (Units 2-4) ══════════
+const Q1=[
+// U2 Adj+Prep (1-8)
+{cat:"U2-Vocab",t:"She's completely _____ fashion magazines. She reads them all!",o:["addicted to","addicted of","addicted about","addicted with"],a:0,x:"addicted + TO (p.142)"},
+{cat:"U2-Vocab",t:"Tom is quite _____ trying new styles. He always experiments.",o:["adventurous about","adventurous with","adventurous to","adventurous at"],a:1,x:"adventurous + WITH"},
+{cat:"U2-Vocab",t:"She's very _____ spending too much on designer clothes.",o:["cautious for","cautious of","cautious about","cautious at"],a:2,x:"cautious + ABOUT"},
+{cat:"U2-Vocab",t:"I was really _____ the quality of the school play.",o:["impressed to","impressed by","impressed of","impressed about"],a:1,x:"impressed + BY"},
+{cat:"U2-Vocab",t:"Are you _____ the environmental impact of fast fashion?",o:["aware about","aware of","aware for","aware to"],a:1,x:"aware + OF"},
+{cat:"U2-Vocab",t:"He's always _____ other people's success on social media.",o:["jealous about","jealous to","jealous of","jealous with"],a:2,x:"jealous + OF"},
+{cat:"U2-Vocab",t:"She's very _____ her friends — she never gossips about them.",o:["loyal about","loyal for","loyal with","loyal to"],a:3,x:"loyal + TO"},
+{cat:"U2-Vocab",t:"My little brother is completely _____ maths — he can't do simple sums.",o:["hopeless with","hopeless at","hopeless about","hopeless for"],a:1,x:"hopeless + AT (ทักษะ)"},
+// U2 Verb+Prep (9-11)
+{cat:"U2-Vocab",t:"I can't _____ my morning coffee. I need it every day!",o:["do without","do with","cope on","depend for"],a:0,x:"do without = อยู่ได้โดยไม่มี"},
+{cat:"U2-Vocab",t:"You shouldn't _____ people who make mistakes — everyone does.",o:["laugh on","laugh of","laugh at","laugh to"],a:2,x:"laugh at = หัวเราะเยาะ"},
+{cat:"U2-Vocab",t:"I need to _____ being late for the meeting yesterday.",o:["apologise for","apologise about","apologise to","apologise with"],a:0,x:"apologise (for) = ขอโทษเรื่อง..."},
+// U2 Grammar (12-18)
+{cat:"U2-Grammar",t:"I _____ three emails already this morning.",o:["have sent","have been sending","am sending","sent"],a:0,x:"จำนวน (three) + already → Simple"},
+{cat:"U2-Grammar",t:"Sorry I'm late. _____ long?",o:["Did you wait","Have you waited","Have you been waiting","Are you waiting"],a:2,x:"เน้นระยะเวลา (how long) → Continuous"},
+{cat:"U2-Grammar",t:"She _____ as a designer since 2015. It's a permanent career.",o:["has been working","has worked","is working","worked"],a:1,x:"สถานะถาวร + since → Simple"},
+{cat:"U2-Grammar",t:"Your eyes are red. _____?",o:["Did you cry","Have you cried","Have you been crying","Do you cry"],a:2,x:"หลักฐาน + เพิ่งหยุดทำ → Continuous"},
+{cat:"U2-Grammar",t:"I _____ him since primary school.",o:["have been knowing","have known","am knowing","knew"],a:1,x:"know = stative verb ห้ามใช้ continuous"},
+{cat:"U2-Grammar",t:"Look! It _____ all day. The ground is wet.",o:["rained","has rained","has been raining","is raining"],a:2,x:"all day + หลักฐาน → Continuous"},
+{cat:"U2-Grammar",t:"She _____ five new outfits this month already.",o:["has bought","has been buying","buys","was buying"],a:0,x:"จำนวน (five) + already → Simple"},
+// U3 Vocab (19-23)
+{cat:"U3-Vocab",t:"You need to _____ the problem instead of ignoring it.",o:["focus on","back up","mix up","face up to"],a:3,x:"face up to = เผชิญหน้ากับปัญหา"},
+{cat:"U3-Vocab",t:"Don't forget to _____ your files before the update.",o:["think through","mix up","back up","focus on"],a:2,x:"back up = สำรองข้อมูล"},
+{cat:"U3-Vocab",t:"I always _____ the twins — they look so similar!",o:["back up","mix up","face up to","think through"],a:1,x:"mix up = สับสน/ปนกัน"},
+{cat:"U3-Vocab",t:"She has a lot of _____ and energy to achieve her goals.",o:["luck","belief","drive","thought"],a:2,x:"drive = แรงขับ/พลัง"},
+{cat:"U3-Vocab",t:"His greatest _____ was winning the national science competition.",o:["agreement","ambition","development","success"],a:3,x:"success = ความสำเร็จ"},
+// U3 Grammar (24)
+{cat:"U3-Grammar",t:"I forgot to _____ before the computer crashed.",o:["back it up","back up it","face it up to","mix it up"],a:0,x:"back up = separable → back it up"},
+// U4 Vocab (25-28)
+{cat:"U4-Vocab",t:"I've been _____ lately — I keep thinking about the exam.",o:["having difficulty sleeping","losing my temper","throwing up","coming round"],a:0,x:"have difficulty sleeping = นอนไม่หลับ"},
+{cat:"U4-Vocab",t:"When I heard the bad news, I _____ for a moment.",o:["felt dizzy","calmed down","got over","came round"],a:0,x:"feel dizzy = รู้สึกวิงเวียน"},
+{cat:"U4-Vocab",t:"I think I'm _____ a cold. My throat is sore.",o:["getting over","coming down with","calming down","throwing up"],a:1,x:"come down with = เริ่มป่วยเป็น"},
+{cat:"U4-Vocab",t:"After the operation, it took him a few minutes to _____.",o:["calm down","get over","come round","throw up"],a:2,x:"come round = ฟื้นสติ"},
+// U4 Grammar (29-30)
+{cat:"U4-Grammar",t:"You _____ drive without a licence. It's against the law.",o:["don't have to","mustn't","needn't","shouldn't"],a:1,x:"mustn't = ห้าม (prohibition)"},
+{cat:"U4-Grammar",t:"You _____ come to the meeting if you're busy. It's optional.",o:["mustn't","don't have to","can't","shouldn't"],a:1,x:"don't have to = ไม่จำเป็น"}
+];
+
+// ══════════ EXAM 2: ENGLISH FOR SKILL (Units 11-12) ══════════
+const Q2=[
+// U11 Vocab (1-8)
+{cat:"U11-Vocab",t:"I really _____ my grandmother. She's my hero.",o:["look down on","look up to","take after","count on"],a:1,x:"look up to = ชื่นชม/เคารพ"},
+{cat:"U11-Vocab",t:"I've just _____ my brother. We had a big argument.",o:["hit it off with","fallen out with","counted on","taken after"],a:1,x:"fall out with = ทะเลาะ"},
+{cat:"U11-Vocab",t:"Everyone says I _____ my dad. We look exactly the same.",o:["take after","look up to","count on","stick together"],a:0,x:"take after = เหมือนญาติ"},
+{cat:"U11-Vocab",t:"I met Jake at the party and we really _____.",o:["fell out","let down","hit it off","went off"],a:2,x:"hit it off = ถูกใจกันทันที"},
+{cat:"U11-Vocab",t:"I don't want to _____ my parents by failing this exam.",o:["let down","count on","take after","stick together"],a:0,x:"let (sb) down = ทำให้ผิดหวัง"},
+{cat:"U11-Vocab",t:"Our family always _____ during hard times.",o:["falls out","looks down on","sticks together","goes off"],a:2,x:"stick together = สนับสนุนกัน"},
+{cat:"U11-Vocab",t:"She used to love pizza but she's _____ it recently.",o:["gone off","hit it off with","counted on","taken after"],a:0,x:"go off (sth) = เริ่มไม่ชอบ"},
+{cat:"U11-Vocab",t:"He always _____ people who have less money than him, which is unkind.",o:["looks up to","looks down on","counts on","takes after"],a:1,x:"look down on = ดูถูก"},
+// U11 Compound Adj (9-12)
+{cat:"U11-Vocab",t:"He always knows where everything is. He's very _____.",o:["badly behaved","last-minute","well-organised","short-term"],a:2,x:"well-organised = เป็นระเบียบ"},
+{cat:"U11-Vocab",t:"This factory uses _____ machines to produce phones.",o:["high-tech","long-distance","middle-aged","grown-up"],a:0,x:"high-tech = เทคโนโลยีสูง"},
+{cat:"U11-Vocab",t:"He made a _____ decision to change his university course.",o:["well-paid","short-term","last-minute","well-built"],a:2,x:"last-minute = นาทีสุดท้าย"},
+{cat:"U11-Vocab",t:"She's very _____ when she gives presentations in class.",o:["self-confident","badly behaved","middle-aged","long-distance"],a:0,x:"self-confident = มั่นใจในตัวเอง"},
+// U11 Grammar (13-18)
+{cat:"U11-Grammar",t:"The man _____ car is parked outside is my uncle.",o:["who","which","whose","where"],a:2,x:"whose = ของใคร (possession)"},
+{cat:"U11-Grammar",t:"My sister, _____ lives in Paris, is visiting next week.",o:["that","which","who","whose"],a:2,x:"Non-defining → ห้ามใช้ that → ใช้ who"},
+{cat:"U11-Grammar",t:"That's the restaurant _____ we had dinner last Friday.",o:["which","where","that","when"],a:1,x:"where = สถานที่"},
+{cat:"U11-Grammar",t:"The book _____ I borrowed from the library was excellent.",o:["who","whose","(that/which — can be omitted)","where"],a:2,x:"Defining + object → ตัด that/which ได้"},
+{cat:"U11-Grammar",t:"This is the school _____ I studied for six years.",o:["which","where","who","whose"],a:1,x:"where = สถานที่ (the school)"},
+{cat:"U11-Grammar",t:"My best friend, _____ I've known since childhood, moved abroad.",o:["that","who","which","whose"],a:1,x:"Non-defining (มี comma) → ห้าม that → who"},
+// U12 Vocab (19-24)
+{cat:"U12-Vocab",t:"The comedian really _____ me last night. I couldn't stop laughing.",o:["reassured","highlighted","amused","stimulated"],a:2,x:"amused = ทำให้ขบขัน"},
+{cat:"U12-Vocab",t:"My best friend always _____ when I'm feeling sad.",o:["highlights me","cheers me up","speaks me out","promotes me"],a:1,x:"cheer (sb) up = ทำให้ร่าเริงขึ้น"},
+{cat:"U12-Vocab",t:"The campaign helps _____ awareness about ocean pollution.",o:["highlight","stimulate","reassure","spread"],a:0,x:"highlight = เน้นย้ำ/ดึงความสนใจ"},
+{cat:"U12-Vocab",t:"Good news travels fast — it _____ throughout the school within an hour.",o:["highlighted","spread","amused","reassured"],a:1,x:"spread = แพร่กระจาย"},
+{cat:"U12-Vocab",t:"She wanted to _____ people to recycle more at school.",o:["reassure","promote","amuse","congratulate"],a:1,x:"promote = ส่งเสริม"},
+{cat:"U12-Vocab",t:"The teacher tried to _____ the nervous student before the exam.",o:["reassure","spread","highlight","stimulate"],a:0,x:"reassure = ให้ความมั่นใจ/ปลอบ"},
+// U12 both/either/neither (25)
+{cat:"U12-Grammar",t:"_____ Kate nor Rose can come to the party tomorrow.",o:["Both","Either","Neither","None"],a:2,x:"Neither…nor = ไม่ทั้ง A และ B"}
+];
+
+const catColors={"U2":"#6C5CE7","U3":"#00B894","U4":"#E17055","U11":"#FD79A8","U12":"#0984E3"};
+function getColor(cat){const p=cat.split('-')[0];return catColors[p]||"#6C5CE7"}
+
+let scores={1:0,2:0}, answered={1:0,2:0};
+const banks={1:Q1,2:Q2};
+
+function catLabel(cat){
+const map={"U2-Vocab":"Unit 2 Vocab","U2-Grammar":"Unit 2 Grammar","U3-Vocab":"Unit 3 Vocab","U3-Grammar":"Unit 3 Grammar",
+"U4-Vocab":"Unit 4 Vocab","U4-Grammar":"Unit 4 Grammar","U11-Vocab":"Unit 11 Vocab","U11-Grammar":"Unit 11 Grammar",
+"U12-Vocab":"Unit 12 Vocab","U12-Grammar":"Unit 12 Grammar"};
+return map[cat]||cat;
+}
+
+function buildTabs(examId){
+const tb=document.getElementById('tabBar'+examId);
+const accent=examId===1?"#6C5CE7":"#0984E3";
+tb.innerHTML=`<button class="tab-btn active" style="background:${accent};border-color:${accent}" onclick="showTab(${examId},'all',this)">ทั้งหมด</button>`;
+const seen=new Set();
+banks[examId].forEach(q=>{
+const p=q.cat.split('-')[0];
+if(!seen.has(p)){seen.add(p);
+tb.innerHTML+=`<button class="tab-btn" onclick="showTab(${examId},'${p}',this)">Unit ${p.replace('U','')}</button>`}
+});
+}
+function showTab(examId,cat,el){
+const accent=examId===1?"#6C5CE7":"#0984E3";
+document.getElementById('tabBar'+examId).querySelectorAll('.tab-btn').forEach(b=>{b.classList.remove('active');b.style.background='';b.style.borderColor='var(--bdr)';b.style.color='var(--t2)'});
+el.classList.add('active');el.style.background=accent;el.style.borderColor=accent;el.style.color='#fff';
+document.getElementById('quizArea'+examId).querySelectorAll('.qq').forEach(e=>{
+const p=e.dataset.cat.split('-')[0];
+e.style.display=(cat==='all'||p===cat)?'':'none';
+});
+}
+function render(examId){
+const area=document.getElementById('quizArea'+examId);area.innerHTML='';
+banks[examId].forEach((q,i)=>{
+const color=getColor(q.cat);
+const d=document.createElement('div');d.className='qq';d.id='ex'+examId+'q'+i;d.dataset.cat=q.cat;
+d.innerHTML=`<div class="ql" style="color:${color}">${catLabel(q.cat)} — ข้อ ${i+1}/${banks[examId].length}</div>
+<div class="qt">${q.t}</div>
+<div class="qo" id="ex${examId}o${i}">${q.o.map((op,j)=>`<button class="qb" onclick="chk(${examId},${i},${j})">${String.fromCharCode(65+j)}) ${op}</button>`).join('')}</div>
+<div class="qe" id="ex${examId}e${i}"></div>`;
+area.appendChild(d)});
+}
+function chk(examId,qi,oi){
+const q=banks[examId][qi],c=document.getElementById('ex'+examId+'q'+qi),
+bs=document.getElementById('ex'+examId+'o'+qi).querySelectorAll('.qb'),
+ex=document.getElementById('ex'+examId+'e'+qi);
+bs.forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('ok');if(j===oi&&oi!==q.a)b.classList.add('no')});
+if(oi===q.a){scores[examId]++;c.classList.add('ac');ex.className='qe sh ce';ex.innerHTML='✅ ถูก! '+q.x}
+else{c.classList.add('aw');ex.className='qe sh we';ex.innerHTML='❌ ผิด — '+q.x}
+answered[examId]++;
+if(answered[examId]===banks[examId].length)showScore(examId);
+}
+function showScore(examId){
+const b=document.getElementById('scoreBar'+examId),n=document.getElementById('scoreNum'+examId),m=document.getElementById('scoreMsg'+examId);
+b.classList.add('sh');n.textContent=scores[examId]+'/'+banks[examId].length;
+const p=scores[examId]/banks[examId].length*100;
+m.textContent=p>=90?'เยี่ยมมาก Sir! พร้อมสอบแล้ว 🏆':p>=75?'ดีครับ แต่ทบทวนจุดที่ผิด 📚':p>=50?'ต้องทบทวนเพิ่ม ⚡':'ต้องอ่านเนื้อหาซ้ำ 💪';
+b.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function resetQuiz(examId){
+scores[examId]=0;answered[examId]=0;
+document.getElementById('scoreBar'+examId).classList.remove('sh');
+render(examId);buildTabs(examId);
+document.getElementById('exam'+examId).scrollIntoView({behavior:'smooth'});
+}
+render(1);buildTabs(1);
+render(2);buildTabs(2);
+</script>
+</body>
+</html>
